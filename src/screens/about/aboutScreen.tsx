@@ -5,6 +5,8 @@ const AboutScreen = () => (
   <SafeAreaView>
     <Text>Screen: About</Text>
   </SafeAreaView>
+
+  
 );
 
 export default AboutScreen;

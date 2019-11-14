@@ -1,10 +1,31 @@
-import { Dimensions, PixelRatio } from 'react-native';
+import { Dimensions, PixelRatio, TextStyle, ViewStyle } from 'react-native';
 import { number } from 'prop-types';
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
+const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
+
+const widthPercentageToDP = (widthPercent: string) => {
+
+    // Convert string input to decimal number
+    const elemWidth = parseFloat(widthPercent);
+    return PixelRatio.roundToNearestPixel(DEVICE_WIDTH * elemWidth / 100);
+};
+
+const heightPercentageToDP = (heightPercent: string) => {
+
+    // Convert string input to decimal number
+    const elemHeight = parseFloat(heightPercent);
+    return PixelRatio.roundToNearestPixel(DEVICE_HEIGHT * elemHeight / 100);
+};
+
+export {
+    widthPercentageToDP,
+    heightPercentageToDP
+};
+
 const guidelineBaseWidth = 375;
 
-export const scaleSize = (size: number) => (WINDOW_WIDTH / guidelineBaseWidth) * size;
+export const scaleSize = (size: number) => (DEVICE_WIDTH / guidelineBaseWidth) * size;
 
 export const scaleFont = (size: number) => size * PixelRatio.getFontScale();
 
@@ -14,7 +35,7 @@ function dimensions(top: number, right = top, bottom = top, left = right, proper
         [`${property}Right`]: right,
         [`${property}Bottom`]: bottom,
         [`${property}Left`]: left
-    };
+    }
     return styles;
 }
 
