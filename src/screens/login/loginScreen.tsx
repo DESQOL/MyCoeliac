@@ -4,7 +4,7 @@ import { NavigationInjectedProps, withNavigation } from "react-navigation";
 import { any } from 'prop-types';
 
 interface Props {
-  navigation: any
+  navigation: any;
 }
 
 class LoginScreen extends React.Component<Props> {
