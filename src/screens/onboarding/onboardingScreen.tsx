@@ -4,6 +4,7 @@ import {
     StyleSheet,
     View,
     Text,
+    AsyncStorage,
 
 } from 'react-native';
 import { Button } from 'react-native-elements';
@@ -21,20 +22,31 @@ interface State {
     pagePosition: number
 }
 
+interface event{
+    e:{
+        nativeEvent:{
+            position:Event;
+        };
+    }
+}
+
 /**
  * Onboarding screen 
  */
 
 class onboardingScreen extends React.Component<Props,State> {
     viewPager = React.createRef<ViewPagerType>()
+      
     constructor(props: Props) {
         super(props);
         this.pageChanged = this.pageChanged.bind(this);
         this.handleViewPagerClick = this.handleViewPagerClick.bind(this);
+        this.handleLastPage = this.handleLastPage.bind(this);
         this.state =  {
             pagePosition: 0
         };
-         console.log(this.state.pagePosition)
+        console.log(this.props);
+         
     }
 
 
@@ -44,7 +56,7 @@ class onboardingScreen extends React.Component<Props,State> {
                 style={styles.viewPager}
                 initialPage={0}
                 ref={this.viewPager}
-                onPageSelected={(e: { nativeEvent: { position: Event; }; }) => this.pageChanged(e.nativeEvent.position)}
+                onPageSelected={(event: any) => this.pageChanged(event.nativeEvent.position)}
             >
 
                 <View style={styles.pageStyle} key="1">
@@ -72,20 +84,52 @@ class onboardingScreen extends React.Component<Props,State> {
                 <View style={styles.pageStyle} key="2">
                     <Text>Second page</Text>
                 </View>
+
+                <View style={styles.pageStyle} key="3">
+                    <View style={styles.pageContainer}>
+                        <View style={styles.topPart}>
+                            <Text style={styles.HeaderText}> We use these permissions for</Text>
+                        </View>
+                        <Button
+                            icon={
+                                <Icon
+                                    name="arrow-right"
+                                    size={15}
+                                    color="white"
+                                />
+                            }
+                            iconRight
+                            title="Done"
+                            onPress={this.handleLastPage}
+                        />
+                        <Text style={styles.skipText} >
+                        Skip</Text>
+                    </View>
+                </View>
             </ViewPager>
         );
     }
 
     private handleViewPagerClick(){
-        console.log(this.state);
-        console.log(this.state.pagePosition + 1);
+        
         this.viewPager.current!.setPage(this.state.pagePosition + 1)
     }
 
     private pageChanged(e: Event ){
-        console.log(e);
+      
         this.setState({pagePosition: e as number}, () => 
         console.log(this.state.pagePosition));
+    }
+
+    async handleLastPage(){
+        console.log(this.props);
+        try{
+        await AsyncStorage.setItem('onboarding','true');
+    
+        this.props.navigation.navigate('Auth');
+        } catch(error){
+            console.log(error);
+        }
     }
 
 

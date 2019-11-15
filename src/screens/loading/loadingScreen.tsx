@@ -17,6 +17,7 @@ interface Props {
 class loadingScreen extends React.Component<Props> {
     constructor(props: Props){
         super(props);
+        this.decideScreen();
     }
     
     render() {
@@ -32,7 +33,7 @@ class loadingScreen extends React.Component<Props> {
        * Will decide what screen to go to based on: login, onboarding, not-loggedin.
        */
       private async decideScreen(){
-        if(! await AsyncStorage.getItem('onboarding')){
+        if(! await AsyncStorage.getItem('test')){
             this.props.navigation.navigate('Onboarding')
         } else if(! await AsyncStorage.getItem('token')){
             this.props.navigation.navigate('Login')
