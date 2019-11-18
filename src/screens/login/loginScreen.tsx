@@ -1,10 +1,8 @@
 import React from 'react';
-import {Button} from 'react-native';
-import { NavigationInjectedProps, withNavigation } from "react-navigation";
-import { any } from 'prop-types';
+import { Button } from 'react-native';
 
 interface Props {
-  navigation: any
+  navigation: any;
 }
 
 class LoginScreen extends React.Component<Props> {
@@ -20,7 +18,7 @@ class LoginScreen extends React.Component<Props> {
       );
     }
     private handlePress(){
-      this.props.navigation.navigate("Home");
+      this.props.navigation.navigate('Home');
       
     }
   
