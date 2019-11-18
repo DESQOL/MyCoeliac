@@ -5,15 +5,24 @@ import {
     StyleSheet,
     View,
  } from 'react-native';
-  import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
-    navigation: any
-}
+    navigation: any;
+};
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  }
+})
+
 /**
  * The entry screen for deciding what othere screen to go to, or setting up services.
  */
-class loadingScreen extends React.Component<Props> {
+class LoadingScreen extends React.Component<Props> {
     constructor(props: Props){
         super(props);
         this.decideScreen();
@@ -42,11 +51,5 @@ class loadingScreen extends React.Component<Props> {
       }
 
 }
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-export default loadingScreen
+
+export default LoadingScreen
