@@ -12,7 +12,7 @@ class LoginScreen extends React.Component<Props> {
     render() {
       return (
         <Button
-          title="Go to Home"
+          title='Go to Home'
           onPress={() => this.handlePress()}
         />
       );
