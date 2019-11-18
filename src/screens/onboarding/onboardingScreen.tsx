@@ -30,16 +30,16 @@ interface EventHandle {
 
 // Test styling, will be replaced later.
 const styles = StyleSheet.create({
+    HeaderText: {
+        color: Black,
+        fontWeight: 'bold',
+        fontSize: 37,
+        textAlign: 'center',
+    },
     pageStyle: {
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'flex-end',
-    },
-    HeaderText: {
-        color: Black,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        fontSize: 37
     },
     viewPager: {
         flex: 1
