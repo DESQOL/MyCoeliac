@@ -32,17 +32,17 @@ interface EventHandle {
 const styles = StyleSheet.create({
     pageStyle: {
         alignItems: 'center',
-        flexDirection: "column",
+        flexDirection: 'column',
         justifyContent: 'flex-end',
-    },
-    viewPager: {
-        flex: 1
     },
     HeaderText: {
         color: Black,
-        textAlign: 'center',
         fontWeight: 'bold',
+        textAlign: 'center',
         fontSize: 37
+    },
+    viewPager: {
+        flex: 1
     },
     pageContainer: {
         alignItems: 'center',
