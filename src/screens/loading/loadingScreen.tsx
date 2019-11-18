@@ -4,9 +4,8 @@ import {
     StatusBar,
     StyleSheet,
     View,
-    AsyncStorage,
-  } from 'react-native';
-
+ } from 'react-native';
+  import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
     navigation: any
@@ -33,11 +32,14 @@ class loadingScreen extends React.Component<Props> {
        * Will decide what screen to go to based on: login, onboarding, not-loggedin.
        */
       private async decideScreen(){
-        if(! await AsyncStorage.getItem('test')){
+        if(! await AsyncStorage.getItem('onboarding')){
+            console.log('here');
             this.props.navigation.navigate('Onboarding')
         } else if(! await AsyncStorage.getItem('token')){
-            this.props.navigation.navigate('Login')
+            console.log('test');
+            this.props.navigation.navigate('Auth')
         } else {
+
             this.props.navigation.navigate('Home')
         }
       }

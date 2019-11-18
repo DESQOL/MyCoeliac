@@ -1,18 +1,16 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     StyleSheet,
     View,
     Text,
-    AsyncStorage,
 
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import ViewPagerType, { ViewPagerOnPageSelectedEventData } from '@react-native-community/viewpager';
+import ViewPagerType from '@react-native-community/viewpager';
 const ViewPager = require('@react-native-community/viewpager');
-import { BlueIvy, Green, White, Black } from '../../styles/colors';
+import {  Black } from '../../styles/colors';
 import { name } from '../../../app.json';
-
+import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
     navigation: any
@@ -49,7 +47,7 @@ class onboardingScreen extends React.Component<Props,State> {
          
     }
 
-
+    // Test page's will be replaced later.
     render() {
         return (
             <ViewPager
@@ -58,22 +56,15 @@ class onboardingScreen extends React.Component<Props,State> {
                 ref={this.viewPager}
                 onPageSelected={(event: any) => this.pageChanged(event.nativeEvent.position)}
             >
-
+                
                 <View style={styles.pageStyle} key="1">
                     <View style={styles.pageContainer}>
                         <View style={styles.topPart}>
                             <Text style={styles.HeaderText}> Welcome to {"\n" + name}</Text>
                         </View>
                         <Button
-                            icon={
-                                <Icon
-                                    name="arrow-right"
-                                    size={15}
-                                    color="white"
-                                />
-                            }
                             iconRight
-                            title="Button with right icon"
+                            title="Button"
                         />
                         <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
                         Skip</Text>
@@ -82,7 +73,17 @@ class onboardingScreen extends React.Component<Props,State> {
 
 
                 <View style={styles.pageStyle} key="2">
-                    <Text>Second page</Text>
+                    <View style={styles.pageContainer}>
+                        <View style={styles.topPart}>
+                            <Text style={styles.HeaderText}> Welcome to {"\n" + name}</Text>
+                        </View>
+                        <Button
+                            iconRight
+                            title="Button"
+                        />
+                        <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
+                        Skip</Text>
+                    </View>
                 </View>
 
                 <View style={styles.pageStyle} key="3">
@@ -91,14 +92,6 @@ class onboardingScreen extends React.Component<Props,State> {
                             <Text style={styles.HeaderText}> We use these permissions for</Text>
                         </View>
                         <Button
-                            icon={
-                                <Icon
-                                    name="arrow-right"
-                                    size={15}
-                                    color="white"
-                                />
-                            }
-                            iconRight
                             title="Done"
                             onPress={this.handleLastPage}
                         />
@@ -111,30 +104,26 @@ class onboardingScreen extends React.Component<Props,State> {
     }
 
     private handleViewPagerClick(){
-        
         this.viewPager.current!.setPage(this.state.pagePosition + 1)
     }
 
     private pageChanged(e: Event ){
-      
         this.setState({pagePosition: e as number}, () => 
         console.log(this.state.pagePosition));
     }
 
     async handleLastPage(){
-        console.log(this.props);
         try{
         await AsyncStorage.setItem('onboarding','true');
-    
         this.props.navigation.navigate('Auth');
         } catch(error){
             console.log(error);
         }
     }
 
-
 }
 
+// Test styling, will be replaced later.
 const styles = StyleSheet.create({
 
     viewPager: {
@@ -144,7 +133,6 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: 'flex-end',
         alignItems: 'center',
-        backgroundColor: BlueIvy
     },
     HeaderText: {
         textAlign: 'center',
@@ -154,9 +142,7 @@ const styles = StyleSheet.create({
     },
     pageContainer: {
         flex: 0.9,
-        alignItems: 'center',
-
-        backgroundColor: Green,
+        alignItems: 'center'
     },
     topPart: {
         flex: 9

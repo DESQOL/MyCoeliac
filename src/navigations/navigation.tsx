@@ -5,12 +5,11 @@ import AuthNavigator from './auth-navigation';
 import AppNavigator from './app-navigation';
 import onboardingScreen from '../screens/onboarding/onboardingScreen';
 import loadingScreen from '../screens/loading/loadingScreen'
-const LoadingScreen = createStackNavigator({ SignIn: loadingScreen });
-const OnboardingScreen = createStackNavigator({ SignIn: onboardingScreen });
+
 const RootNavigator = createSwitchNavigator(
   {
-    LoadingScreen: LoadingScreen,
-    Onboarding: OnboardingScreen,
+    LoadingScreen: loadingScreen,
+    Onboarding: onboardingScreen,
     Auth: AuthNavigator,
     App: AppNavigator,
   },
