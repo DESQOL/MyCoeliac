@@ -5,7 +5,7 @@ import {
     StyleSheet,
     View,
  } from 'react-native';
-  import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
     navigation: any
@@ -14,8 +14,8 @@ interface Props {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
+    justifyContent: 'center',
   },
 });
 

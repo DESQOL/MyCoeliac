@@ -13,11 +13,11 @@ import { name } from '../../../app.json';
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
-    navigation: any
+    navigation: any;
 };
 
 interface State {
-    pagePosition: number
+    pagePosition: number;
 };
 
 interface EventHandle {
@@ -25,35 +25,35 @@ interface EventHandle {
         nativeEvent: {
             position: Event;
         };
-    }
+    };
 };
 
 // Test styling, will be replaced later.
 const styles = StyleSheet.create({
+    pageStyle: {
+        alignItems: 'center',
+        flexDirection: "column",
+        justifyContent: 'flex-end',
+    },
     viewPager: {
         flex: 1
     },
-    pageStyle: {
-        flexDirection: "column",
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
     HeaderText: {
-        textAlign: 'center',
         color: Black,
+        textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 37
     },
     pageContainer: {
+        alignItems: 'center',
         flex: 0.9,
-        alignItems: 'center'
     },
     topPart: {
         flex: 9
     },
     skipText: {
-        flex: 1,
         color: Black,
+        flex: 1,
         fontWeight: 'bold'
     }
 })
@@ -84,14 +84,14 @@ class OnboardingScreen extends React.Component<Props, State> {
                 onPageSelected={(EventHandle: any) => this.pageChanged(EventHandle.nativeEvent.position)}
             >
 
-                <View style={styles.pageStyle} key="1">
+                <View style={styles.pageStyle} key='1'>
                     <View style={styles.pageContainer}>
                         <View style={styles.topPart}>
-                            <Text style={styles.HeaderText}> Welcome to {"\n" + name}</Text>
+                            <Text style={styles.HeaderText}> Welcome to {'\n' + name}</Text>
                         </View>
                         <Button
                             iconRight
-                            title="Button"
+                            title='Button'
                         />
                         <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
                             Skip</Text>
@@ -99,27 +99,27 @@ class OnboardingScreen extends React.Component<Props, State> {
                 </View>
 
 
-                <View style={styles.pageStyle} key="2">
+                <View style={styles.pageStyle} key='2'>
                     <View style={styles.pageContainer}>
                         <View style={styles.topPart}>
-                            <Text style={styles.HeaderText}> Welcome to {"\n" + name}</Text>
+                            <Text style={styles.HeaderText}> Welcome to {'\n' + name}</Text>
                         </View>
                         <Button
                             iconRight
-                            title="Button"
+                            title='Button'
                         />
                         <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
                             Skip</Text>
                     </View>
                 </View>
 
-                <View style={styles.pageStyle} key="3">
+                <View style={styles.pageStyle} key='3'>
                     <View style={styles.pageContainer}>
                         <View style={styles.topPart}>
                             <Text style={styles.HeaderText}> We use these permissions for</Text>
                         </View>
                         <Button
-                            title="Done"
+                            title='Done'
                             onPress={this.handleLastPage}
                         />
                         <Text style={styles.skipText} >

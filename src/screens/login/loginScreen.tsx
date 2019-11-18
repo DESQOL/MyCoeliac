@@ -18,7 +18,7 @@ class LoginScreen extends React.Component<Props> {
       );
     }
     private handlePress(){
-      this.props.navigation.navigate("Home");
+      this.props.navigation.navigate('Home');
     }
   
   }
