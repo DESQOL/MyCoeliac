@@ -1,8 +1,8 @@
 import React from 'react';
-import {Button} from 'react-native';
+import { Button } from 'react-native';
 
 interface Props {
-  navigation: any
+  navigation: any;
 }
 
 class LoginScreen extends React.Component<Props> {

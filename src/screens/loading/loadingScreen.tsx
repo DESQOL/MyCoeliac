@@ -33,13 +33,10 @@ class loadingScreen extends React.Component<Props> {
        */
       private async decideScreen(){
         if(! await AsyncStorage.getItem('onboarding')){
-            console.log('here');
             this.props.navigation.navigate('Onboarding')
         } else if(! await AsyncStorage.getItem('token')){
-            console.log('test');
             this.props.navigation.navigate('Auth')
         } else {
-
             this.props.navigation.navigate('Home')
         }
       }

@@ -42,9 +42,7 @@ class onboardingScreen extends React.Component<Props,State> {
         this.handleLastPage = this.handleLastPage.bind(this);
         this.state =  {
             pagePosition: 0
-        };
-        console.log(this.props);
-         
+        };         
     }
 
     // Test page's will be replaced later.
@@ -108,8 +106,7 @@ class onboardingScreen extends React.Component<Props,State> {
     }
 
     private pageChanged(e: Event ){
-        this.setState({pagePosition: e as number}, () => 
-        console.log(this.state.pagePosition));
+        this.setState({pagePosition: e as number});
     }
 
     async handleLastPage(){

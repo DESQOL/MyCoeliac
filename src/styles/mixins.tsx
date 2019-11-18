@@ -1,5 +1,5 @@
-import { Dimensions, PixelRatio, TextStyle, ViewStyle } from 'react-native';
-import { number } from 'prop-types';
+
+import { Dimensions, PixelRatio} from 'react-native';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -30,7 +30,7 @@ export const scaleSize = (size: number) => (DEVICE_WIDTH / guidelineBaseWidth) *
 export const scaleFont = (size: number) => size * PixelRatio.getFontScale();
 
 function dimensions(top: number, right = top, bottom = top, left = right, property: string) {
-    let styles = {
+    const styles = {
         [`${property}Top`]: top,
         [`${property}Right`]: right,
         [`${property}Bottom`]: bottom,
@@ -47,7 +47,7 @@ export function padding(top: number, right: number, bottom: number, left: number
     return dimensions(top, right, bottom, left, 'padding');
 }
 
-export function boxShadow(color: String, offset = { height: 2, width: 2 },
+export function boxShadow(color: string, offset = { height: 2, width: 2 },
     radius = 8, opacity = 0.2) {
     return {
         shadowColor: color,
