@@ -1,5 +1,4 @@
 import { Dimensions, PixelRatio } from 'react-native';
-import { number } from 'prop-types';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const guidelineBaseWidth = 375;
