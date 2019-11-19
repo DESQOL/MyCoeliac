@@ -1,16 +1,16 @@
 'use strict';
 import React, { Component } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, TouchableOpacity, Image } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import styles from './BarcodeScanner.style';
 
-interface BarcodeState {
+type BarcodeState = {
   flashOn: boolean;
-}
+};
 
-interface BarcodeScannerProps {
-  domProps?: object;
-}
+type BarcodeScannerProps = {
+  domProps?: {};
+};
 
 export default class BarcodeScanner extends Component<
   BarcodeScannerProps,
@@ -33,8 +33,8 @@ export default class BarcodeScanner extends Component<
     );
   }
 
-  handleFlash(value: boolean) {
-    if (value === true) {
+  handleFlash(isFlashModeOn: boolean) {
+    if (isFlashModeOn === true) {
       this.setState({ flashOn: false });
     } else {
       this.setState({ flashOn: true });
@@ -50,6 +50,11 @@ export default class BarcodeScanner extends Component<
           }}
           captureAudio={false}
           style={styles.preview}
+          flashMode={
+            this.state.flashOn
+              ? RNCamera.Constants.FlashMode.on
+              : RNCamera.Constants.FlashMode.off
+          }
           type={RNCamera.Constants.Type.back}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
@@ -58,6 +63,19 @@ export default class BarcodeScanner extends Component<
             buttonNegative: 'Cancel',
           }}
           onBarCodeRead={this.onBarCodeRead}></RNCamera>
+        <View style={styles.bottomOverlay}>
+          <TouchableOpacity
+            onPress={() => this.handleFlash(this.state.flashOn)}>
+            <Image
+              style={styles.cameraIcon}
+              source={
+                this.state.flashOn === true
+                  ? require('../../assets/images/flash_on.png')
+                  : require('../../assets/images/flash_off.png')
+              }
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
