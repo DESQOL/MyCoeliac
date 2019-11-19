@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Alert, TouchableOpacity, Image } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import styles from './BarcodeScanner.style';
+import styles from '../../styles/Camera';
 
 type BarcodeState = {
   flashOn: boolean;
