@@ -1,3 +1,5 @@
+export const PRIMARYCOLOR = '#e2ccff';
+
 export const Black = '#000000'
 export const Night = '#0C090A'
 export const Gunmetal = '#2C3539'
