@@ -41,20 +41,20 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-end',
     },
-    viewPager: {
-        flex: 1
-    },
     pageContainer: {
         alignItems: 'center',
         flex: 0.9,
-    },
-    topPart: {
-        flex: 9
     },
     skipText: {
         color: Black,
         flex: 1,
         fontWeight: 'bold'
+    },
+    topPart: {
+        flex: 9
+    },
+    viewPager: {
+        flex: 1
     }
 })
 

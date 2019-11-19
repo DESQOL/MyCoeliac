@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-  },
-});
+  }
+})
 
 /**
  * The entry screen for deciding what othere screen to go to, or setting up services.
