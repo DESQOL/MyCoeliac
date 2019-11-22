@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "cd android && ./gradlew clean && cd .. && react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint --ext .ts --ext .tsx src",
     "lint:fix": "eslint --ext .ts --ext .tsx src --fix",
@@ -15,6 +15,7 @@
     "@react-native-community/viewpager": "3.1.0",
     "react": "16.12.0",
     "react-native": "0.61.4",
+    "react-native-camera": "3.9.0",
     "react-native-elements": "1.2.7",
     "react-native-gesture-handler": "1.5.1",
     "react-native-reanimated": "1.4.0",
