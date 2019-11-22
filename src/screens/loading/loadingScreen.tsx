@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   }
-})
+});
 
 /**
  * The entry screen for deciding what othere screen to go to, or setting up services.
@@ -42,14 +42,14 @@ class LoadingScreen extends React.Component<Props> {
        */
       private async decideScreen(){
         if(! await AsyncStorage.getItem('onboarding')){
-            this.props.navigation.navigate('Onboarding')
+            this.props.navigation.navigate('Onboarding');
         } else if(! await AsyncStorage.getItem('token')){
-            this.props.navigation.navigate('Auth')
+            this.props.navigation.navigate('Auth');
         } else {
-            this.props.navigation.navigate('Home')
+            this.props.navigation.navigate('Home');
         }
       }
 
 }
 
-export default LoadingScreen
+export default LoadingScreen;

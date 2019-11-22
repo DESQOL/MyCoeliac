@@ -35,7 +35,7 @@ function dimensions(top: number, right = top, bottom = top, left = right, proper
         [`${property}Right`]: right,
         [`${property}Bottom`]: bottom,
         [`${property}Left`]: left
-    }
+    };
     return styles;
 }
 

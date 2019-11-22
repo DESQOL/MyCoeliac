@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
     viewPager: {
         flex: 1
     }
-})
+});
 
 /**
  * Onboarding screen 
  */
 class OnboardingScreen extends React.Component<Props, State> {
-    viewPager = React.createRef<ViewPagerType>()
+    viewPager = React.createRef<ViewPagerType>();
 
     constructor(props: Props) {
         super(props);
@@ -130,7 +130,7 @@ class OnboardingScreen extends React.Component<Props, State> {
     }
 
     private handleViewPagerClick() {
-        this.viewPager.current!.setPage(this.state.pagePosition + 1)
+        this.viewPager.current!.setPage(this.state.pagePosition + 1);
     }
 
     private pageChanged(e: Event) {
@@ -148,4 +148,4 @@ class OnboardingScreen extends React.Component<Props, State> {
 
 }
 
-export default OnboardingScreen
+export default OnboardingScreen;
