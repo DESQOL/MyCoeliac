@@ -26,14 +26,14 @@ export default class BarcodeScanner extends Component<
     };
   }
 
-  onBarCodeRead(event: any) {
+  onBarCodeRead(event: any): void {
     Alert.alert(
       'Barcode value is' + event.data,
       'Barcode type is' + event.type,
     );
   }
 
-  handleFlash(isFlashModeOn: boolean) {
+  handleFlash(isFlashModeOn: boolean): void {
     if (isFlashModeOn === true) {
       this.setState({ flashOn: false });
     } else {
@@ -41,11 +41,11 @@ export default class BarcodeScanner extends Component<
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <View style={styles.container} {...this.props.domProps}>
         <RNCamera
-          ref={ref => {
+          ref={(ref: RNCamera): void => {
             this.camera = ref;
           }}
           captureAudio={false}
@@ -65,7 +65,7 @@ export default class BarcodeScanner extends Component<
           onBarCodeRead={this.onBarCodeRead}></RNCamera>
         <View style={styles.bottomOverlay}>
           <TouchableOpacity
-            onPress={() => this.handleFlash(this.state.flashOn)}>
+            onPress={(): void => this.handleFlash(this.state.flashOn)}>
             <Image
               style={styles.cameraIcon}
               source={
