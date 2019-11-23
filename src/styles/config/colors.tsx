@@ -1,6 +1,3 @@
-export const PRIMARYCOLOR = '#e2ccff';
-
-export const Black = '#000000';
 export const Night = '#0C090A';
 export const Gunmetal = '#2C3539';
 export const Midnight = '#2B1B17';
@@ -8,22 +5,15 @@ export const Charcoal = '#34282C';
 export const DarkSlateGrey = '#25383C';
 export const Oil = '#3B3131';
 export const BlackCat = '#413839';
-export const Iridium = '#3D3C3A';
 export const BlackEel = '#463E3F';
 export const BlackCow = '#4C4646';
-export const GrayWolf = '#504A4B';
 export const VampireGray = '#565051';
 export const GrayDolphin = '#5C5858';
-export const CarbonGray = '#625D5D';
 export const AshGray = '#666362';
 export const CloudyGray = '#6D6968';
 export const SmokeyGray = '#726E6D';
-export const Gray = '#736F6E';
 export const Granite = '#837E7C';
 export const BattleshipGray = '#848482';
-export const GrayCloud = '#B6B6B4';
-export const GrayGoose = '#D1D0CE';
-export const Platinum = '#E5E4E2';
 export const MetallicSilver = '#BCC6CC';
 export const BlueGray = '#98AFC7';
 export const LightSlateGray = '#6D7B8D';
@@ -341,6 +331,21 @@ export const Lavenderblue = '#E3E4FA';
 export const Pearl = '#FDEEF4';
 export const SeaShell = '#FFF5EE';
 export const MilkWhite = '#FEFCFF';
+
+// Basic colors
+export const Black = '#000000';
 export const White = '#FFFFFF';
 
+export const GreyDarkest = '#3D3C3A';
+export const GrayDarker = '#504A4B';
+export const GrayDark = '#625D5D';
+export const Gray = '#736F6E';
+export const GrayLight = '#B6B6B4';
+export const GrayLighter = '#D1D0CE';
+export const GrayLightest = '#E5E4E2';
 
+// Theme colors
+
+// Social media colors
+export const Facebook = '#3B5998';
+export const Google = '#DB3236';
