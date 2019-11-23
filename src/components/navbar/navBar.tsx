@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { View, FlatList, TouchableNativeFeedback } from 'react-native';
 import { Header, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
