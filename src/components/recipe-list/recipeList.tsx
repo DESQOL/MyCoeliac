@@ -2,15 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { ListItem, SearchBar, Button } from 'react-native-elements';
 
-const list = [
-    {
-        id: 1,
-        image: 'https://www.simplyrecipes.com/wp-content/uploads/2014/08/banana-bread-vertical-c-1200.jpg',
-        title: 'Banana bread',
-        description: '...'
-    },
-    { id: 2, image: null, title: 'Chocolate cake', description: '...' },
-];
+interface AppProps { recipeProps: any };
 
 const styles = StyleSheet.create({
     title: {
@@ -18,7 +10,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class RecipeList extends React.Component {
+export default class RecipeList extends React.Component<AppProps> {
+    constructor(props: AppProps) {
+        super(props);
+    }
+
     state = {
         search: '',
     };
@@ -43,11 +39,11 @@ export default class RecipeList extends React.Component {
                 />
 
                 <FlatList
-                    data={list}
-                    renderItem={({ item }) => <ListItem title={item.title}
+                    data={this.props.recipeProps}
+                    renderItem={({ item }: { item: any }) => <ListItem title={item.title}
                         subtitle={item.description}
                         leftAvatar={{
-                            source: { uri: item.image || null },
+                            source: { uri: item.image || '' },
                             rounded: false
                         }} />}
                 />
