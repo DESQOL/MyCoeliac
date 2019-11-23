@@ -2,7 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { ListItem, SearchBar, Button } from 'react-native-elements';
 
-interface AppProps { recipeProps: any };
+
+interface AppProps {
+    recipeProps: any;
+}
 
 const styles = StyleSheet.create({
     title: {
@@ -50,7 +53,7 @@ export default class RecipeList extends React.Component<AppProps> {
 
                 <Button title='Add new recipe' />
             </View>
-        )
+        );
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 
-import RecipeList from '../../components/recipe-list/recipeList';
+import RecipeList from '../../components/recipe_list/recipeList';
 import NavBar from '../../components/navbar/navBar';
 
 const dummyList = [

@@ -1,9 +1,15 @@
 import React from 'react';
-import { View, FlatList, Image, TouchableNativeFeedback, StyleSheet } from 'react-native';
+import { View, FlatList, TouchableNativeFeedback, StyleSheet } from 'react-native';
 import { Header, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
-interface AppState { isClicked: boolean };
+import { GrayLighter } from '../../styles/config/colors';
+import { SEPARATOR_HEIGHT, SEPARATOR_MARGIN_LEFT, SEPARATOR_WIDTH } from '../../styles/components/navbar';
+
+
+interface AppState {
+    isClicked: boolean;
+}
 
 const list = [
     { item: 'Scanner', id: 1 },
@@ -13,28 +19,21 @@ const list = [
     { item: 'Profile', id: 5 },
 ];
 
-const styles = StyleSheet.create({
-    logo: {
-        height: 20,
-        width: 20,
-    }
-});
-
-export default class navBar extends React.Component {
+export default class NavBar extends React.Component {
 
     public readonly state: Readonly<AppState> = {
         isClicked: false
-    }
+    };
 
     toggleDisplay = () => {
         if (this.state) {
             if (this.state.isClicked) {
-                this.setState({ isClicked: false })
+                this.setState({ isClicked: false });
             } else if (!this.state.isClicked) {
-                this.setState({ isClicked: true })
+                this.setState({ isClicked: true });
             }
         }
-    }
+    };
 
     render() {
         return (
@@ -53,17 +52,17 @@ export default class navBar extends React.Component {
                         renderItem={({ item }) => <ListItem title={item.item} />}
                     /> : null}
             </View>
-        )
+        );
     }
 
     renderSeparator = () => {
         return (
             <View
                 style={{
-                    height: 1,
-                    width: "86%",
-                    backgroundColor: "#CED0CE",
-                    marginLeft: "14%"
+                    height: SEPARATOR_HEIGHT,
+                    width: SEPARATOR_WIDTH,
+                    backgroundColor: GrayLighter,
+                    marginLeft: SEPARATOR_MARGIN_LEFT,
                 }}
             />
         );
