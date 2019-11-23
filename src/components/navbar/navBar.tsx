@@ -4,7 +4,7 @@ import { Header, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
 import { GrayLighter } from '../../styles/config/colors';
-import { SEPARATOR_HEIGHT, SEPARATOR_MARGIN_LEFT, SEPARATOR_WIDTH } from '../../styles/components/navbar';
+import { SEPARATOR_HEIGHT } from '../../styles/components/navbar';
 
 
 interface AppState {
@@ -41,8 +41,8 @@ export default class NavBar extends React.Component {
                 <Header
                     centerComponent={{ text: 'MyCooliac' }}
                     leftComponent={<TouchableNativeFeedback onPress={this.toggleDisplay}>
-                        <Icon name='menu' size={22} /></TouchableNativeFeedback>}
-                    rightComponent={<Icon name='logout' size={22} />}
+                        <Icon name='menu' size={25} /></TouchableNativeFeedback>}
+                    rightComponent={<Icon name='log-out' size={22} />}
                 />
 
                 {this.state.isClicked ?
@@ -50,6 +50,7 @@ export default class NavBar extends React.Component {
                         ItemSeparatorComponent={this.renderSeparator}
                         data={list}
                         renderItem={({ item }) => <ListItem title={item.item} />}
+                        keyExtractor={(item, index) => item.id.toString()}
                     /> : null}
             </View>
         );
@@ -60,9 +61,7 @@ export default class NavBar extends React.Component {
             <View
                 style={{
                     height: SEPARATOR_HEIGHT,
-                    width: SEPARATOR_WIDTH,
                     backgroundColor: GrayLighter,
-                    marginLeft: SEPARATOR_MARGIN_LEFT,
                 }}
             />
         );

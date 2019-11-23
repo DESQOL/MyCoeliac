@@ -46,9 +46,10 @@ export default class RecipeList extends React.Component<AppProps> {
                     renderItem={({ item }: { item: any }) => <ListItem title={item.title}
                         subtitle={item.description}
                         leftAvatar={{
-                            source: { uri: item.image || '' },
+                            source: { uri: item.image },
                             rounded: false
                         }} />}
+                    keyExtractor={(item, index) => item.id.toString()}
                 />
 
                 <Button title='Add new recipe' />
