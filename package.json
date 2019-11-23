@@ -25,7 +25,7 @@
     "react-navigation-tabs": "2.6.0"
   },
   "devDependencies": {
-    "@babel/core": "7.6.2",
+    "@babel/core": "7.7.4",
     "@babel/runtime": "7.6.2",
     "@types/jest": "24.0.18",
     "@types/react-native": "0.60.23",
