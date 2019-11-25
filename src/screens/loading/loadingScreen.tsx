@@ -4,7 +4,7 @@ import {
     StatusBar,
     StyleSheet,
     View,
- } from 'react-native';
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
@@ -12,11 +12,11 @@ interface Props {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-  }
+    container: {
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
+    }
 });
 
 /**
@@ -31,16 +31,16 @@ class LoadingScreen extends React.Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-            <ActivityIndicator />
-            <StatusBar barStyle="default" />
-          </View>
+                <ActivityIndicator />
+                <StatusBar barStyle="default" />
+            </View>
         );
-      }
+    }
      
-      /**
+    /**
        * Will decide what screen to go to based on: login, onboarding, not-loggedin.
        */
-      private async decideScreen(){
+    private async decideScreen(){
         if(! await AsyncStorage.getItem('onboarding')){
             this.props.navigation.navigate('Onboarding');
         } else if(! await AsyncStorage.getItem('token')){
@@ -48,7 +48,7 @@ class LoadingScreen extends React.Component<Props> {
         } else {
             this.props.navigation.navigate('Home');
         }
-      }
+    }
 
 }
 

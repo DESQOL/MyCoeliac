@@ -7,20 +7,20 @@ interface Props {
 
 class LoginScreen extends React.Component<Props> {
     static navigationOptions = {
-      title: 'Welcome',
+        title: 'Welcome',
     };
     render() {
-      return (
-        <Button
-          title='Go to Home'
-          onPress={() => this.handlePress()}
-        />
-      );
+        return (
+            <Button
+                title='Go to Home'
+                onPress={() => this.handlePress()}
+            />
+        );
     }
     private handlePress(){
-      this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Home');
     }
   
-  }
+}
 
 export default LoginScreen;
