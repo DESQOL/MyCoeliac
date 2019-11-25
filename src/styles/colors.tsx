@@ -1,5 +1,11 @@
 export const PRIMARYCOLOR = '#e2ccff';
 
+export const BLACK = "#000";
+export const WHITE = "#FFF";
+export const DODGER_BLUE = "#428AF8";
+export const SILVER = "#BEBEBE";
+export const TORCH_RED = "#F8262F";
+export const MISCHKA = "#E5E4E6";
 export const Black = '#000000'
 export const Night = '#0C090A'
 export const Gunmetal = '#2C3539'
