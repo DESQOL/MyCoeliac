@@ -1,12 +1,13 @@
 import React from 'react';
 import { Input } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function SearchBar(): JSX.Element {
-  const [value, onChangeText] = React.useState('Search for recipes');
+  const [value, onChangeText] = React.useState();
   return (
     <Input
       placeholder="Search for recipes"
-      leftIcon={{ type: 'font-awesome', name: 'search' }}
+      leftIcon={<Icon name="search" size={24} color="black" />}
       onChangeText={(text): void => onChangeText(text)}
       value={value}
     />
