@@ -3,13 +3,13 @@ import {
     StyleSheet,
     View,
     Text,
-
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import ViewPagerType from '@react-native-community/viewpager';
-const ViewPager = require('@react-native-community/viewpager');
-import { Black } from '../../styles/colors';
-import { name } from '../../../app.json';
+
+const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
+import { Black } from '../../styles/config/colors';
+import { name } from 'app.json'
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
@@ -32,18 +32,20 @@ interface EventHandle {
 const styles = StyleSheet.create({
     HeaderText: {
         color: Black,
-        fontWeight: 'bold',
+
         fontSize: 37,
+        fontWeight: 'bold',
         textAlign: 'center',
-    },
-    pageStyle: {
-        alignItems: 'center',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
     },
     pageContainer: {
         alignItems: 'center',
         flex: 0.9,
+    },
+
+    pageStyle: {
+        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
     },
     skipText: {
         color: Black,
@@ -56,13 +58,15 @@ const styles = StyleSheet.create({
     viewPager: {
         flex: 1
     }
-})
+
+});
 
 /**
  * Onboarding screen 
  */
 class OnboardingScreen extends React.Component<Props, State> {
-    viewPager = React.createRef<ViewPagerType>()
+
+    viewPager = React.createRef<ViewPagerType>();
 
     constructor(props: Props) {
         super(props);
@@ -131,7 +135,7 @@ class OnboardingScreen extends React.Component<Props, State> {
     }
 
     private handleViewPagerClick() {
-        this.viewPager.current!.setPage(this.state.pagePosition + 1)
+        this.viewPager.current!.setPage(this.state.pagePosition + 1);
     }
 
     private pageChanged(e: Event) {
@@ -149,4 +153,4 @@ class OnboardingScreen extends React.Component<Props, State> {
 
 }
 
-export default OnboardingScreen
+export default OnboardingScreen;

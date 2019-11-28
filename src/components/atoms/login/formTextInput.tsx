@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StyleSheet, TextInput, TextInputProps, View, Text } from "react-native";
-import { DODGER_BLUE, SILVER, TORCH_RED } from "../../../styles/colors";
+import { DodgerBlue, Silver, TorchRed } from "../../../styles/config/colors";
 
 type Props = TextInputProps & {
     error?: string;
@@ -23,7 +23,7 @@ class FormTextInput extends React.Component<Props> {
                  <Text style={styles.errorText}>{error || ""}</Text>
                 <TextInput
                     ref={this.textInputRef}
-                    selectionColor={DODGER_BLUE}
+                    selectionColor={DodgerBlue}
                     style={[styles.textInput]}
                     {...otherProps}
                 />
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     },
     errorText: {
         height: 20,
-        color: TORCH_RED
+        color: TorchRed
     },
     textInput: {
         height: 40,
-        borderColor: SILVER,
+        borderColor: Silver,
         borderBottomWidth: StyleSheet.hairlineWidth,
         marginBottom: 20
     }

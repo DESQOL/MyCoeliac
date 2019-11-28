@@ -19,8 +19,12 @@ module.exports = {
         "react-native",
     ],
     rules: {
+        "@typescript-eslint/semi": ["error"],
         "eol-last": ["error", "always"],
-        "quotes": ["error", "single", "avoid-escape"],
+        "indent": ["error", 4, { "MemberExpression": 1 }],
         "object-curly-spacing": ["error", "always"],
+        "prefer-arrow-callback": "error",
+        "quotes": ["error", "single", "avoid-escape"],
+        "semi": "off",
     },
 };

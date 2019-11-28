@@ -15,6 +15,7 @@ interface State {
   isLoading: boolean;
 }
 
+<<<<<<< HEAD
 class LoginScreen extends React.Component<{}, State> {
   readonly state: State = {
     email: "",
@@ -67,9 +68,26 @@ class LoginScreen extends React.Component<{}, State> {
   handleEmailSubmitPress = () => {
     if (this.passwordInputRef.current) {
       this.passwordInputRef.current.focus();
+=======
+class LoginScreen extends React.Component<Props> {
+    static navigationOptions = {
+        title: 'Welcome',
+    };
+    render() {
+        return (
+            <Button
+                title='Go to Home'
+                onPress={() => this.handlePress()}
+            />
+        );
+    }
+    private handlePress(){
+        this.props.navigation.navigate('Home');
+>>>>>>> master
     }
   };
   
+<<<<<<< HEAD
   render() {
     const {
       email,
@@ -148,5 +166,8 @@ const styles = StyleSheet.create({
     width: "80%"
   }
 });
+=======
+}
+>>>>>>> master
 
 export default LoginScreen;
