@@ -1,5 +1,7 @@
 export const Night = '#0C090A';
 export const Gunmetal = '#2C3539';
+export const Silver = "#BEBEBE";
+export const TorchRed = "#F8262F";
 export const Midnight = '#2B1B17';
 export const Charcoal = '#34282C';
 export const DarkSlateGrey = '#25383C';

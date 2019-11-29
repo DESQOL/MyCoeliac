@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import ViewPagerType from '@react-native-community/viewpager';
+
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
-import { Black } from '../../styles/colors';
-import { name } from '../../../app.json';
+import { Black } from '../../styles/config/colors';
+import { name } from '../../../app.json'
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
@@ -31,6 +32,7 @@ interface EventHandle {
 const styles = StyleSheet.create({
     HeaderText: {
         color: Black,
+
         fontSize: 37,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 0.9,
     },
+
     pageStyle: {
         alignItems: 'center',
         flexDirection: 'column',
@@ -55,12 +58,14 @@ const styles = StyleSheet.create({
     viewPager: {
         flex: 1
     }
+
 });
 
 /**
  * Onboarding screen 
  */
 class OnboardingScreen extends React.Component<Props, State> {
+
     viewPager = React.createRef<ViewPagerType>();
 
     constructor(props: Props) {
