@@ -1,11 +1,12 @@
 import * as React from "react";
-import { StyleSheet, View, KeyboardAvoidingView, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import Button from '../../components/atoms/login/button';
 import FormTextInput from "../../components/atoms/login/formTextInput";
 //import imageLogo from "../assets/images/logo.png";
-import { White } from "../../styles/config/colors";
 import strings from "../../values/strings";
 import AsyncStorage from '@react-native-community/async-storage';
+import styles from '../../styles/Login'
+import { validateEmail } from '../../utils/utils';
 
 interface Props {
   navigation: any
@@ -77,12 +78,7 @@ class LoginScreen extends React.Component<Props, State> {
     }
   };
 
-  validateEmail = (text: string) => {
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    (reg.test(text) === false)  ? console.log(false) : console.log(true);
-    return (reg.test(text) === false)  ? false : true;
-  }
-
+ 
   render() {
     const {
       email,
@@ -91,9 +87,9 @@ class LoginScreen extends React.Component<Props, State> {
       passwordTouched
     } = this.state;
     let emailError = undefined;
-    console.log(this.validateEmail(email))
+    console.log(validateEmail(email))
     if(emailTouched){
-      if(!email || !this.validateEmail(email)){
+      if(!email || !validateEmail(email)){
          emailError = strings.EMAIL_REQUIRED
       } else {
          emailError = undefined;
@@ -148,24 +144,6 @@ class LoginScreen extends React.Component<Props, State> {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: White,
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
-  logo: {
-    flex: 1,
-    width: "100%",
-    resizeMode: "contain",
-    alignSelf: "center"
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    width: "80%"
-  }
-});
+
 
 export default LoginScreen;
