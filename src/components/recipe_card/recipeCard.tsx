@@ -3,8 +3,10 @@ import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
-import { GrayLighter, GrayLightest } from '../../styles/config/colors';
+import { GrayLightest } from '../../styles/config/colors';
 import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/font';
+
+import SeparatorPipe from '../../shared/pipes/separatorPipe';
 
 interface AppProps {
     recipeProps: any;
@@ -83,17 +85,6 @@ function renderRating(rating: number) {
     }
 }
 
-function renderSeparator() {
-    return (
-        <View
-            style={{
-                height: 1,
-                backgroundColor: GrayLighter,
-            }}
-        />
-    );
-}
-
 export default function RecipeCard(props: AppProps): JSX.Element {
 
     renderRating(props.recipeProps[0].rating || 0);
@@ -119,7 +110,7 @@ export default function RecipeCard(props: AppProps): JSX.Element {
                 containerStyle={styles.recipeListItem}
                 titleStyle={styles.recipeListItemContent}
                 title={item.amount + ' ' + item.name}/>}
-            ItemSeparatorComponent={renderSeparator}
+            ItemSeparatorComponent={SeparatorPipe}
             keyExtractor={(item, index) => item.id.toString()}
         />
 
