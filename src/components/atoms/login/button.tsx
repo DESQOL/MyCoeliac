@@ -1,7 +1,7 @@
 
 import * as React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { DODGER_BLUE, WHITE } from '../../../styles/colors'
+import { DodgerBlue, White, DollarBillGreen } from '../../../styles/config/colors'
 
 interface Props {
     disabled?: boolean;
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: DODGER_BLUE,
+    backgroundColor: DodgerBlue,
     marginBottom: 12,
     paddingVertical: 12,
     borderRadius: 4,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     opacity: 0.3
   },
   text: {
-    color: WHITE,
+    color: White,
     textAlign: "center",
     height: 20
   }

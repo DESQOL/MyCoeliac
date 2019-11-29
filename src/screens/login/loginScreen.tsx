@@ -3,9 +3,13 @@ import { StyleSheet, View, KeyboardAvoidingView, ActivityIndicator } from "react
 import Button from '../../components/atoms/login/button';
 import FormTextInput from "../../components/atoms/login/formTextInput";
 //import imageLogo from "../assets/images/logo.png";
-import { WHITE } from "../../styles/colors";
+import { White } from "../../styles/config/colors";
 import strings from "../../values/strings";
 import AsyncStorage from '@react-native-community/async-storage';
+
+interface Props {
+  navigation: any
+}
 
 interface State {
   email: string;
@@ -15,8 +19,7 @@ interface State {
   isLoading: boolean;
 }
 
-<<<<<<< HEAD
-class LoginScreen extends React.Component<{}, State> {
+class LoginScreen extends React.Component<Props, State> {
   readonly state: State = {
     email: "",
     password: "",
@@ -51,6 +54,9 @@ class LoginScreen extends React.Component<{}, State> {
     }
     if (responseJson.token) {
       await AsyncStorage.setItem('token', responseJson.token);
+    } else {
+      // incase request isent valid do this.
+      this.props.navigation.navigate('Home');
     }
   };
 
@@ -68,26 +74,15 @@ class LoginScreen extends React.Component<{}, State> {
   handleEmailSubmitPress = () => {
     if (this.passwordInputRef.current) {
       this.passwordInputRef.current.focus();
-=======
-class LoginScreen extends React.Component<Props> {
-    static navigationOptions = {
-        title: 'Welcome',
-    };
-    render() {
-        return (
-            <Button
-                title='Go to Home'
-                onPress={() => this.handlePress()}
-            />
-        );
-    }
-    private handlePress(){
-        this.props.navigation.navigate('Home');
->>>>>>> master
     }
   };
-  
-<<<<<<< HEAD
+
+  validateEmail = (text: string) => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    (reg.test(text) === false)  ? console.log(false) : console.log(true);
+    return (reg.test(text) === false)  ? false : true;
+  }
+
   render() {
     const {
       email,
@@ -95,10 +90,16 @@ class LoginScreen extends React.Component<Props> {
       emailTouched,
       passwordTouched
     } = this.state;
-    const emailError =
-      !email && emailTouched
-        ? strings.EMAIL_REQUIRED
-        : undefined;
+    let emailError = undefined;
+    console.log(this.validateEmail(email))
+    if(emailTouched){
+      if(!email || !this.validateEmail(email)){
+         emailError = strings.EMAIL_REQUIRED
+      } else {
+         emailError = undefined;
+      }
+    }
+    
     const passwordError =
       !password && passwordTouched
         ? strings.PASSWORD_REQUIRED
@@ -140,7 +141,7 @@ class LoginScreen extends React.Component<Props> {
           <Button
             label={strings.LOGIN}
             onPress={this.handleLoginPress}
-            disabled={!email || !password}
+            disabled={!!emailError || !password}
           />
         </View>
       </View>);
@@ -150,7 +151,7 @@ class LoginScreen extends React.Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: WHITE,
+    backgroundColor: White,
     alignItems: "center",
     justifyContent: "space-between"
   },
@@ -166,8 +167,5 @@ const styles = StyleSheet.create({
     width: "80%"
   }
 });
-=======
-}
->>>>>>> master
 
 export default LoginScreen;
