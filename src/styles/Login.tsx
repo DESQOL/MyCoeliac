@@ -13,14 +13,14 @@ export default StyleSheet.create({
         justifyContent: 'center',
         width: '80%'
     },
+    loading: { 
+        flex: 1, 
+        padding: 20 
+    },
     logo: {
         alignSelf: 'center',
         flex: 1,
         resizeMode: 'contain',
         width: '100%'
-    },
-    loading: { 
-        flex: 1, 
-        padding: 20 
     }
 });
