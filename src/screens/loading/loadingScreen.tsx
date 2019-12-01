@@ -53,3 +53,4 @@ class LoadingScreen extends React.Component<Props> {
 }
 
 export default LoadingScreen;
+
