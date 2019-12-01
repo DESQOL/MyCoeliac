@@ -18,5 +18,9 @@ export default StyleSheet.create({
         flex: 1,
         resizeMode: 'contain',
         width: '100%'
+    },
+    loading: { 
+        flex: 1, 
+        padding: 20 
     }
 });

@@ -128,7 +128,7 @@ class RegistrationScreen extends React.Component<Props, State> {
 
         if (this.state.isLoading) {
             return (
-                <View style={{ flex: 1, padding: 20 }}>
+                <View style={styles.loading}>
                     <ActivityIndicator />
                 </View>
             );

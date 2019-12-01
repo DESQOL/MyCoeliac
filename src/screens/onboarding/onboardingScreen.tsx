@@ -9,7 +9,7 @@ import ViewPagerType from '@react-native-community/viewpager';
 
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
 import { Black } from '../../styles/config/colors';
-import { name } from '../../../app.json'
+import { name } from '../../../app.json';
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
