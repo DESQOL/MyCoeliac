@@ -97,7 +97,6 @@ class OnboardingScreen extends React.Component<Props, State> {
                     </View>
                 </View>
 
-
                 <View style={styles.pageStyle} key='2'>
                     <View style={styles.pageContainer}>
                         <View style={styles.topPart}>

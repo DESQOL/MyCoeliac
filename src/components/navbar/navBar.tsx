@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/Entypo';
 import { GrayLighter } from '../../styles/config/colors';
 import { SEPARATOR_HEIGHT } from '../../styles/components/navbar';
 
-
 interface AppState {
     isClicked: boolean;
 }

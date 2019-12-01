@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import Button from '../../components/atoms/login/button';
 import FormTextInput from '../../components/atoms/login/formTextInput';
-//import imageLogo from "../assets/images/logo.png";
+// import imageLogo from "../assets/images/logo.png";
 import strings from '../../values/strings';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from '../../styles/Login';
@@ -70,14 +70,15 @@ class LoginScreen extends React.Component<Props, State> {
       this.setState({ passwordTouched: true });
   };
 
-  // When the "next" button is pressed, focus the password
-  // input
+  /*
+   * When the "next" button is pressed, focus the password
+   * input
+   */
   handleEmailSubmitPress = () => {
       if (this.passwordInputRef.current) {
           this.passwordInputRef.current.focus();
       }
   };
-
  
   render() {
       const {
@@ -143,7 +144,5 @@ class LoginScreen extends React.Component<Props, State> {
           </View>);
   }
 }
-
-
 
 export default LoginScreen;
