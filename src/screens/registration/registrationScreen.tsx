@@ -1,15 +1,15 @@
-import * as React from "react";
-import { View, ActivityIndicator } from "react-native";
+import * as React from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import Button from '../../components/atoms/login/button';
-import FormTextInput from "../../components/atoms/login/formTextInput";
+import FormTextInput from '../../components/atoms/login/formTextInput';
 //import imageLogo from "../assets/images/logo.png";
-import strings from "../../values/strings";
+import strings from '../../values/strings';
 import AsyncStorage from '@react-native-community/async-storage';
-import styles from '../../styles/Login'
+import styles from '../../styles/Login';
 import { validateEmail } from '../../utils/utils';
 
 interface Props {
-    navigation: any
+    navigation: any;
 }
 
 interface State {
@@ -24,9 +24,9 @@ interface State {
 
 class RegistrationScreen extends React.Component<Props, State> {
     readonly state: State = {
-        email: "",
-        password: "",
-        passwordConfirm: "",
+        email: '',
+        password: '',
+        passwordConfirm: '',
         emailTouched: false,
         passwordTouched: false,
         passwordConfirmTouched: false,
@@ -45,22 +45,22 @@ class RegistrationScreen extends React.Component<Props, State> {
     };
 
     handlePasswordConfirmChange = (passwordConfirm: string) => {
-        this.setState({ passwordConfirm })
+        this.setState({ passwordConfirm });
     };
 
     handleLoginPress = async () => {
         let responseJson: any;
-        this.setState({ isLoading: true })
+        this.setState({ isLoading: true });
         try {
-            let response = await fetch(
+            const response = await fetch(
                 'https://facebook.github.io/react-native/movies.json',
             );
             responseJson = await response.json();
 
         } catch (error) {
             console.error(error);
-            this.setState({ isLoading: false })
-            return
+            this.setState({ isLoading: false });
+            return;
         }
         if (responseJson.token) {
             await AsyncStorage.setItem('token', responseJson.token);
@@ -95,7 +95,7 @@ class RegistrationScreen extends React.Component<Props, State> {
         if (this.passwordInputConfirmRef.current) {
             this.passwordInputConfirmRef.current.focus();
         }
-    }
+    };
 
     render() {
         const {
@@ -107,10 +107,10 @@ class RegistrationScreen extends React.Component<Props, State> {
             passwordConfirmTouched
         } = this.state;
         let emailError = undefined;
-        console.log(validateEmail(email))
+        console.log(validateEmail(email));
         if (emailTouched) {
             if (!email || !validateEmail(email)) {
-                emailError = strings.EMAIL_REQUIRED
+                emailError = strings.EMAIL_REQUIRED;
             } else {
                 emailError = undefined;
             }
@@ -131,7 +131,7 @@ class RegistrationScreen extends React.Component<Props, State> {
                 <View style={{ flex: 1, padding: 20 }}>
                     <ActivityIndicator />
                 </View>
-            )
+            );
         }
 
         return (
@@ -180,7 +180,5 @@ class RegistrationScreen extends React.Component<Props, State> {
             </View>);
     }
 }
-
-
 
 export default RegistrationScreen;
