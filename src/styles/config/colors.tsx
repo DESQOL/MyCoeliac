@@ -1,7 +1,7 @@
 export const Night = '#0C090A';
 export const Gunmetal = '#2C3539';
-export const Silver = "#BEBEBE";
-export const TorchRed = "#F8262F";
+export const Silver = '#BEBEBE';
+export const TorchRed = '#F8262F';
 export const Midnight = '#2B1B17';
 export const Charcoal = '#34282C';
 export const DarkSlateGrey = '#25383C';
@@ -337,6 +337,7 @@ export const MilkWhite = '#FEFCFF';
 // Basic colors
 export const Black = '#000000';
 export const White = '#FFFFFF';
+export const WhiteTransparent = 'rgba(255,255,255,0.7)';
 
 export const GreyDarkest = '#3D3C3A';
 export const GrayDarker = '#504A4B';

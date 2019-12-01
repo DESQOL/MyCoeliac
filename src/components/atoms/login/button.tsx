@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { DodgerBlue, White } from '../../../styles/config/colors';
+import { DodgerBlue, White, WhiteTransparent } from '../../../styles/config/colors';
 
 interface Props {
     disabled?: boolean;
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         backgroundColor: DodgerBlue,
-        borderColor: 'rgba(255,255,255,0.7)',
+        borderColor: WhiteTransparent,
         borderRadius: 4,
         borderWidth: StyleSheet.hairlineWidth,
         justifyContent: 'center',

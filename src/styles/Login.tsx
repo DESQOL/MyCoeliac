@@ -3,20 +3,20 @@ import { White } from '../styles/config/colors';
 
 export default StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: White,
-      alignItems: "center",
-      justifyContent: "space-between"
-    },
-    logo: {
-      flex: 1,
-      width: "100%",
-      resizeMode: "contain",
-      alignSelf: "center"
+        alignItems: 'center',
+        backgroundColor: White,
+        flex: 1,
+        justifyContent: 'space-between'
     },
     form: {
-      flex: 1,
-      justifyContent: "center",
-      width: "80%"
+        flex: 1,
+        justifyContent: 'center',
+        width: '80%'
+    },
+    logo: {
+        alignSelf: 'center',
+        flex: 1,
+        resizeMode: 'contain',
+        width: '100%'
     }
-  });
+});
