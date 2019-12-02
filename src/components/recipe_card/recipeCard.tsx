@@ -106,7 +106,6 @@ export default function RecipeCard(props: AppProps): JSX.Element {
         <FlatList
             data={props.recipeProps.ingredients}
             renderItem={({ item }: { item: any }) => <ListItem
-                // key={item.id}
                 containerStyle={styles.recipeListItem}
                 titleStyle={styles.recipeListItemContent}
                 title={item.amount + ' ' + item.name}/>}

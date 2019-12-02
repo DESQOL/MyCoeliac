@@ -6,8 +6,6 @@ import RecipeList from '../../components/recipe_list/recipeList';
 import NavBar from '../../components/navbar/navBar';
 import RecipeCard from '../../components/recipe_card/recipeCard';
 
-import { NavigationScreenProp } from 'react-navigation';
-
 let recipeId: number;
 
 interface RecipeScreenState {
@@ -18,7 +16,6 @@ interface RecipeScreenState {
 
 interface RecipeScreenProps {
   props?: {};
-  navigation: NavigationScreenProp<any, any>;
 }
 
 const dummyList = [
