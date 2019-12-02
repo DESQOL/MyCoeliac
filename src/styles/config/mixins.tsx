@@ -1,4 +1,3 @@
-
 import { Dimensions, PixelRatio } from 'react-native';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;

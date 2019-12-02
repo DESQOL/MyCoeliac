@@ -38,8 +38,8 @@ class LoadingScreen extends React.Component<Props> {
     }
      
     /**
-       * Will decide what screen to go to based on: login, onboarding, not-loggedin.
-       */
+     * Will decide what screen to go to based on: login, onboarding, not-loggedin.
+     */
     private async decideScreen(){
         if(! await AsyncStorage.getItem('onboarding')){
             this.props.navigation.navigate('Onboarding');
@@ -53,3 +53,4 @@ class LoadingScreen extends React.Component<Props> {
 }
 
 export default LoadingScreen;
+

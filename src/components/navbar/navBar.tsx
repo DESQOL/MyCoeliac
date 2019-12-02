@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 import SeparatorPipe from '../../shared/pipes/separatorPipe';
 
-
 interface AppState {
     isClicked: boolean;
 }

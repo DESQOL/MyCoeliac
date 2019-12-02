@@ -1,36 +1,34 @@
 import React from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import ViewPagerType from '@react-native-community/viewpager';
+
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
-import { Black } from '../../styles/colors';
+import { Black } from '../../styles/config/colors';
 import { name } from '../../../app.json';
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
-    navigation: any;
-};
+  navigation: any;
+}
 
 interface State {
-    pagePosition: number;
-};
+  pagePosition: number;
+}
 
 interface EventHandle {
-    e: {
-        nativeEvent: {
-            position: Event;
-        };
+  e: {
+    nativeEvent: {
+      position: Event;
     };
-};
+  };
+}
 
 // Test styling, will be replaced later.
 const styles = StyleSheet.create({
     HeaderText: {
         color: Black,
+
         fontSize: 37,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -39,6 +37,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flex: 0.9,
     },
+
     pageStyle: {
         alignItems: 'center',
         flexDirection: 'column',
@@ -47,20 +46,21 @@ const styles = StyleSheet.create({
     skipText: {
         color: Black,
         flex: 1,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     topPart: {
-        flex: 9
+        flex: 9,
     },
     viewPager: {
-        flex: 1
-    }
+        flex: 1,
+    },
 });
 
 /**
- * Onboarding screen 
+ * Onboarding screen
  */
 class OnboardingScreen extends React.Component<Props, State> {
+
     viewPager = React.createRef<ViewPagerType>();
 
     constructor(props: Props) {
@@ -96,7 +96,6 @@ class OnboardingScreen extends React.Component<Props, State> {
                             Skip</Text>
                     </View>
                 </View>
-
 
                 <View style={styles.pageStyle} key='2'>
                     <View style={styles.pageContainer}>
