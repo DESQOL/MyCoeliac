@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import RecipeScreen from '../screens/home/recipeScreen';
+import RecipeScreen from '../screens/home/recipeListScreen';
 import AboutScreen from '../screens/about/aboutScreen';
 
 const TabNavigatorConfig = {
