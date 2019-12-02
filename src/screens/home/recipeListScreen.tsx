@@ -6,6 +6,8 @@ import RecipeList from '../../components/recipe_list/recipeList';
 import NavBar from '../../components/navbar/navBar';
 import RecipeCard from '../../components/recipe_card/recipeCard';
 
+import { NavigationScreenProp } from 'react-navigation';
+
 let recipeId: number;
 
 interface RecipeScreenState {
@@ -16,6 +18,7 @@ interface RecipeScreenState {
 
 interface RecipeScreenProps {
   props?: {};
+  navigation: NavigationScreenProp<any, any>;
 }
 
 const dummyList = [
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class RecipeScreen extends React.Component<
+export default class RecipeListScreen extends React.Component<
   RecipeScreenProps,
   RecipeScreenState
 > {
@@ -110,6 +113,7 @@ export default class RecipeScreen extends React.Component<
                   />
 
                   {this.state.recipeId ? <RecipeCard recipeProps={dummyList[recipeId - 1]} /> : null}
+
                   <Button title="Add new recipe" />
               </View>
           </SafeAreaView>
