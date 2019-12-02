@@ -9,7 +9,7 @@ interface RecipeListProps {
 
 export default function RecipeList(props: RecipeListProps): JSX.Element {
     function getRecipeId(id: number) {
-        props.recipeIdProps = id;
+        props.recipeIdProps(id);
     }
 
     return (<FlatList

@@ -87,24 +87,24 @@ function renderRating(rating: number) {
 
 export default function RecipeCard(props: AppProps): JSX.Element {
 
-    renderRating(props.recipeProps[0].rating || 0);
+    renderRating(props.recipeProps.rating || 0);
 
     return (<View style={styles.recipeCardContainer}>
-        <Text style={styles.title}>{props.recipeProps[0].title}</Text>
+        <Text style={styles.title}>{props.recipeProps.title}</Text>
 
-        <Image style={styles.logo} source={{ uri: props.recipeProps[0].image || '' }}/>
+        <Image style={styles.logo} source={{ uri: props.recipeProps.image || '' }}/>
 
         <View style={styles.recipeData}>
-            <Text style={styles.duration}>{props.recipeProps[0].duration}</Text>
+            <Text style={styles.duration}>{props.recipeProps.duration}</Text>
 
             <View style={styles.ratingContainer}>{starRating}</View>
         </View>
 
-        <Text>{props.recipeProps[0].description}</Text>
+        <Text>{props.recipeProps.description}</Text>
 
         <Text style={styles.subtitle}>Ingredients</Text>
         <FlatList
-            data={props.recipeProps[0].ingredients}
+            data={props.recipeProps.ingredients}
             renderItem={({ item }: { item: any }) => <ListItem
                 // key={item.id}
                 containerStyle={styles.recipeListItem}
@@ -115,8 +115,7 @@ export default function RecipeCard(props: AppProps): JSX.Element {
         />
 
         <Text style={styles.subtitle}>Instructions</Text>
-        <Text style={styles.description}>{props.recipeProps[0].instructions}</Text>
+        <Text style={styles.description}>{props.recipeProps.instructions}</Text>
     </View>);
 }
-
 
