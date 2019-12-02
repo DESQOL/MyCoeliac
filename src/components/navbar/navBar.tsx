@@ -3,8 +3,7 @@ import { View, FlatList, TouchableNativeFeedback } from 'react-native';
 import { Header, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
-import { GrayLighter } from '../../styles/config/colors';
-import { SEPARATOR_HEIGHT } from '../../styles/components/navbar';
+import SeparatorPipe from '../../shared/pipes/separatorPipe';
 
 interface AppState {
     isClicked: boolean;
@@ -46,7 +45,7 @@ export default class NavBar extends React.Component {
 
                 {this.state.isClicked ?
                     <FlatList
-                        ItemSeparatorComponent={this.renderSeparator}
+                        ItemSeparatorComponent={SeparatorPipe}
                         data={list}
                         renderItem={({ item }) => <ListItem title={item.item} />}
                         keyExtractor={(item, index) => item.id.toString()}
@@ -54,15 +53,4 @@ export default class NavBar extends React.Component {
             </View>
         );
     }
-
-    renderSeparator = () => {
-        return (
-            <View
-                style={{
-                    height: SEPARATOR_HEIGHT,
-                    backgroundColor: GrayLighter,
-                }}
-            />
-        );
-    };
 }

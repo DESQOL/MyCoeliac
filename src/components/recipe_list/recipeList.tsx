@@ -4,13 +4,19 @@ import { ListItem } from 'react-native-elements';
 
 interface RecipeListProps {
   recipes: any;
+  recipeIdProps?: any;
 }
 
-const RecipeList = ({ recipes }: RecipeListProps) => (
-    <FlatList
-        data={recipes}
+export default function RecipeList(props: RecipeListProps): JSX.Element {
+    function getRecipeId(id: number) {
+        props.recipeIdProps(id);
+    }
+
+    return (<FlatList
+        data={props.recipes}
         renderItem={({ item }: { item: any }) => (
             <ListItem
+                onPress={() => getRecipeId(item.id)}
                 title={item.title}
                 subtitle={item.description}
                 leftAvatar={{
@@ -20,6 +26,5 @@ const RecipeList = ({ recipes }: RecipeListProps) => (
             />
         )}
         keyExtractor={item => item.id.toString()}
-    />
-);
-export default RecipeList;
+    />);
+}
