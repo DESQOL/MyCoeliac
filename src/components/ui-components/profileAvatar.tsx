@@ -8,12 +8,12 @@ interface ProfileAvatarProps {
 }
 
 export default function ProfileAvatar({
-  image,
-  initials,
+    image,
+    initials,
 }: ProfileAvatarProps): JSX.Element {
-  if (image !== '') {
-    return <Avatar rounded source={image} />;
-  } else {
-    return <Avatar rounded title={initials} />;
-  }
+    if (image !== '') {
+        return <Avatar rounded source={image} />;
+    } else {
+        return <Avatar rounded title={initials} />;
+    }
 }
