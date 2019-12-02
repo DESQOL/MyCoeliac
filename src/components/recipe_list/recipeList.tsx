@@ -5,6 +5,7 @@ import { ListItem, SearchBar, Button } from 'react-native-elements';
 
 interface AppProps {
     recipeProps: any;
+    recipeIdProps: any;
 }
 
 const styles = StyleSheet.create({
@@ -16,6 +17,10 @@ const styles = StyleSheet.create({
 export default class RecipeList extends React.Component<AppProps> {
     constructor(props: AppProps) {
         super(props);
+    }
+
+    getRecipeId(id: number) {
+        this.props.recipeIdProps(id);
     }
 
     state = {
@@ -43,7 +48,9 @@ export default class RecipeList extends React.Component<AppProps> {
 
                 <FlatList
                     data={this.props.recipeProps}
-                    renderItem={({ item }: { item: any }) => <ListItem title={item.title}
+                    renderItem={({ item }: { item: any }) => <ListItem
+                        onPress={() => {this.getRecipeId(item.id);}}
+                        title={item.title}
                         subtitle={item.description}
                         leftAvatar={{
                             source: { uri: item.image },
