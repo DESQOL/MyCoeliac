@@ -17,7 +17,7 @@ const list = [
     { item: 'Profile', id: 5 },
 ];
 
-export default class NavBar extends React.Component {
+export default class AppHeader extends React.Component {
 
     public readonly state: Readonly<AppState> = {
         isClicked: false
