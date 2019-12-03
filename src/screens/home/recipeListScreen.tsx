@@ -3,10 +3,15 @@ import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar, Button } from 'react-native-elements';
 
 import RecipeList from '../../components/recipe_list/recipeList';
+import NavBar from '../../components/navbar/navBar';
+import RecipeCard from '../../components/recipe_card/recipeCard';
+
+let recipeId: number;
 
 interface RecipeScreenState {
   search: string;
   recipes: any;
+  recipeId: any;
 }
 
 interface RecipeScreenProps {
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default class RecipeScreen extends React.Component<
+export default class RecipeListScreen extends React.Component<
   RecipeScreenProps,
   RecipeScreenState
 > {
@@ -56,7 +61,17 @@ export default class RecipeScreen extends React.Component<
   public readonly state: RecipeScreenState = {
       search: '',
       recipes: dummyList,
+      recipeId: false,
   };
+
+    getRecipeId = (data: any) => {
+        recipeId = data;
+        if (data) {
+            this.setState({ recipeId: true });
+        } else {
+            this.setState({ recipeId: false });
+        }
+    };
 
   updateSearch = (search: any) => {
       if (search === '') {
@@ -88,7 +103,13 @@ export default class RecipeScreen extends React.Component<
                       value={this.state.search}
                       lightTheme={true}
                   />
-                  <RecipeList recipes={this.state.recipes} />
+                  <RecipeList
+                      recipes={this.state.recipes}
+                      recipeIdProps={this.getRecipeId}
+                  />
+
+                  {this.state.recipeId ? <RecipeCard recipeProps={dummyList[recipeId - 1]} /> : null}
+
                   <Button title="Add new recipe" />
               </View>
           </SafeAreaView>

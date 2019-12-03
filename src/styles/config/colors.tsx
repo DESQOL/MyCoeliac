@@ -348,6 +348,12 @@ export const GrayLighter = '#D1D0CE';
 export const GrayLightest = '#E5E4E2';
 
 // Theme colors
+export const ThemeBlue = '#4281A4';
+export const ThemeBlueLighter = '#9CAFB7';
+
+// Validation
+export const ValRed = '#A44250';
+export const ValGreen = '#50A442';
 
 // Social media colors
 export const Facebook = '#3B5998';

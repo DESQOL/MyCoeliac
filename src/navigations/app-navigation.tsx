@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 
-import RecipeScreen from '../screens/home/recipeScreen';
+import RecipeScreen from '../screens/home/recipeListScreen';
 import AboutScreen from '../screens/about/aboutScreen';
 
 import { GrayDark, GrayLight, GrayLighter } from '../styles/config/colors';
