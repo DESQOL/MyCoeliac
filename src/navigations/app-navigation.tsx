@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createAppContainer } from 'react-navigation';
 
 import RecipeScreen from '../screens/home/recipeScreen';
 import AboutScreen from '../screens/about/aboutScreen';
@@ -6,7 +7,7 @@ import AboutScreen from '../screens/about/aboutScreen';
 const TabNavigatorConfig = {
     initialRouteName: 'Home',
     header: null,
-    headerMode: 'none',
+    headerMode: 'screen',
 };
 
 const RouteConfigs = {
@@ -19,5 +20,6 @@ const RouteConfigs = {
 };
 
 const AppNavigator = createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);
+const AppContainer = createAppContainer(AppNavigator);
 
-export default AppNavigator;
+export default AppContainer;
