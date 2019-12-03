@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar, Button } from 'react-native-elements';
 
 import RecipeList from '../../components/recipe_list/recipeList';
-import NavBar from '../../components/navbar/navBar';
 
 interface RecipeScreenState {
   search: string;
@@ -81,7 +80,6 @@ export default class RecipeScreen extends React.Component<
   render(): JSX.Element {
       return (
           <SafeAreaView>
-              <NavBar />
               <View>
                   <Text style={styles.title}>Recipes</Text>
                   <SearchBar
