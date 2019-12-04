@@ -1,6 +1,6 @@
 import React from 'react';
-import { FlatList, StyleSheet, View, Text, TextInput } from 'react-native';
-import { ListItem, Input } from 'react-native-elements';
+import { FlatList, StyleSheet, View, Text } from 'react-native';
+import { ListItem } from 'react-native-elements';
 import ProfileAvatar from '../ui-components/profileAvatar';
 import RateBar from '../ui-components/rateBar';
 import PrimaryButton from '../ui-components/buttons/PrimaryButton';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
 interface PrimaryButtonProps {
   title: string;

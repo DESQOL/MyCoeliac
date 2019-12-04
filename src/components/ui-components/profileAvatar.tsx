@@ -1,6 +1,5 @@
 import React from 'react';
 import { Avatar } from 'react-native-elements';
-import { ViewStyle, StyleProp } from 'react-native';
 
 interface ProfileAvatarProps {
   image: any;

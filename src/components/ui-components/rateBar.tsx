@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Rating, AirbnbRating } from 'react-native-elements';
+import { Text, AirbnbRating } from 'react-native-elements';
 import { SafeAreaView, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
