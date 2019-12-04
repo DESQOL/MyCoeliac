@@ -358,3 +358,6 @@ export const ValGreen = '#50A442';
 // Social media colors
 export const Facebook = '#3B5998';
 export const Google = '#DB3236';
+
+// Custom colors
+export const PrimaryGray = '#9cafb7';
