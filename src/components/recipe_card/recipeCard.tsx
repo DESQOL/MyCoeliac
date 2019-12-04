@@ -110,7 +110,7 @@ export default function RecipeCard(props: AppProps): JSX.Element {
                 titleStyle={styles.recipeListItemContent}
                 title={item.amount + ' ' + item.name}/>}
             ItemSeparatorComponent={SeparatorPipe}
-            keyExtractor={(item, index) => item.id.toString()}
+            keyExtractor={(item) => item.id.toString()}
         />
 
         <Text style={styles.subtitle}>Instructions</Text>

@@ -48,7 +48,7 @@ export default class AppHeader extends React.Component {
                         ItemSeparatorComponent={SeparatorPipe}
                         data={list}
                         renderItem={({ item }) => <ListItem title={item.item} />}
-                        keyExtractor={(item, index) => item.id.toString()}
+                        keyExtractor={(item) => item.id.toString()}
                     /> : null}
             </View>
         );
