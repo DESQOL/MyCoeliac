@@ -19,6 +19,7 @@ module.exports = {
         "react-native",
     ],
     rules: {
+        "@typescript-eslint/no-unused-vars": ["error"],
         "@typescript-eslint/semi": ["error"],
         "eol-last": ["error", "always"],
         "indent": ["error", 4, { "MemberExpression": 1 }],
