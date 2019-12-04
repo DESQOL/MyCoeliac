@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Navigator from './navigations/navigation';
+import CommentScreen from './screens/comment/commentScreen';
 
-const App = () => <Navigator />;
+const App = () => <CommentScreen />;
 
 export default App;

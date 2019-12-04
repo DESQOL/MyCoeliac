@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
 
 interface PrimaryButtonProps {
   title: string;
@@ -9,11 +9,11 @@ interface PrimaryButtonProps {
 }
 
 export default function PrimaryButton({
-  title,
-  type,
-  buttonStyle,
+    title,
+    type,
+    buttonStyle,
 }: PrimaryButtonProps): JSX.Element {
-  return (
-    <Button title={title} type={type} raised={true} buttonStyle={buttonStyle} />
-  );
+    return (
+        <Button buttonStyle={buttonStyle} title={title} type={type} raised={true} />
+    );
 }

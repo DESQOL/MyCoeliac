@@ -1,18 +1,20 @@
 import React from 'react';
 import { Avatar } from 'react-native-elements';
-import { ImageURISource } from 'react-native';
+import { ViewStyle, StyleProp } from 'react-native';
 
 interface ProfileAvatarProps {
-  image: ImageURISource;
+  image: any;
   initials: string;
+  avatarStyle?: object;
 }
 
 export default function ProfileAvatar({
     image,
     initials,
+    avatarStyle,
 }: ProfileAvatarProps): JSX.Element {
     if (image !== '') {
-        return <Avatar rounded source={image} />;
+        return <Avatar avatarStyle={avatarStyle} rounded source={{ uri: image }} />;
     } else {
         return <Avatar rounded title={initials} />;
     }
