@@ -6,6 +6,7 @@ import RateBar from '../ui-components/rateBar';
 import PrimaryButton from '../ui-components/buttons/PrimaryButton';
 import PrimaryTextField from '../ui-components/input/PrimaryTextField';
 import { PrimaryGray } from '../../styles/config/colors';
+import { Rating } from 'react-native-elements';
 
 interface CommentListProps {
   comments: CommentObject[];
@@ -15,6 +16,7 @@ interface CommentListProps {
 interface ProfileObject {
   avatar: string;
   initials: string;
+  recipeRating: number;
 }
 
 interface CommentObject {
@@ -44,6 +46,10 @@ const styles = StyleSheet.create({
     primaryButton: {
         width: 100,
     },
+    rating: {
+        marginRight: 40,
+        marginTop: 10,
+    },
     title: {
         fontSize: 25,
         textAlign: 'center',
@@ -59,15 +65,26 @@ export default function CommentList({
             <FlatList
                 data={comments}
                 renderItem={({ item }: { item: CommentObject }) => (
-                    <ListItem
-                        title={item.body}
-                        leftAvatar={
-                            <ProfileAvatar
-                                image={item.profile.avatar}
-                                initials={item.profile.initials}
-                            />
-                        }
-                    />
+                    <View>
+                        <ListItem
+                            title={item.body}
+                            subtitle={
+                                <View style={styles.rating}>
+                                    <Rating
+                                        imageSize={20}
+                                        readonly
+                                        startingValue={item.profile.recipeRating}
+                                    />
+                                </View>
+                            }
+                            leftAvatar={
+                                <ProfileAvatar
+                                    image={item.profile.avatar}
+                                    initials={item.profile.initials}
+                                />
+                            }
+                        />
+                    </View>
                 )}
                 keyExtractor={item => item.id.toString()}
                 ListHeaderComponent={
