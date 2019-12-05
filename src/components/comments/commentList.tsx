@@ -8,8 +8,19 @@ import PrimaryTextField from '../ui-components/input/PrimaryTextField';
 import { PrimaryGray } from '../../styles/config/colors';
 
 interface CommentListProps {
-  comments: any;
-  currentProfile: any;
+  comments: CommentObject[];
+  currentProfile: ProfileObject;
+}
+
+interface ProfileObject {
+  avatar: string;
+  initials: string;
+}
+
+interface CommentObject {
+  id: number;
+  body: string;
+  profile: ProfileObject;
 }
 
 const styles = StyleSheet.create({
@@ -47,11 +58,14 @@ export default function CommentList({
         <View>
             <FlatList
                 data={comments}
-                renderItem={({ item }: { item: any }) => (
+                renderItem={({ item }: { item: CommentObject }) => (
                     <ListItem
                         title={item.body}
                         leftAvatar={
-                            <ProfileAvatar image={item.avatar} initials={item.initials} />
+                            <ProfileAvatar
+                                image={item.profile.avatar}
+                                initials={item.profile.initials}
+                            />
                         }
                     />
                 )}
