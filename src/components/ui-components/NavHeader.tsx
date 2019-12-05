@@ -1,8 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { GrayLightest } from '../../styles/config/colors';
 import { FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../styles/config/font';
+
+interface NavHeaderProps {
+    title: string;
+    navIcon: boolean;
+}
 
 const styles = StyleSheet.create({
     header: {
@@ -14,16 +20,21 @@ const styles = StyleSheet.create({
         width: '100%',
     },
 
-    title: {
+    logo: {
         fontSize: FONT_SIZE_20,
         fontWeight: FONT_WEIGHT_BOLD,
     },
+
+    title: {
+        fontSize: FONT_SIZE_20
+    }
 });
 
-export default function AppHeader(): JSX.Element {
+export default function NavHeader({ title, navIcon }: NavHeaderProps): JSX.Element {
     return (
         <View style={styles.header}>
-            <Text style={styles.title}>MyCooliac</Text>
+            {navIcon ? <Icon name={'arrow-left'} /> : null}
+            {navIcon ? <Text style={styles.title}>{title}</Text> : <Text style={styles.logo}>{title}</Text>}
         </View>
     );
 }
