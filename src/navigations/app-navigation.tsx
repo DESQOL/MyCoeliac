@@ -32,7 +32,6 @@ function getUserAvatar() {
 
 const TabNavigatorConfig = {
     initialRouteName: 'Home',
-    header: null,
     headerMode: 'screen',
     tabBarOptions: {
         showLabel: false,

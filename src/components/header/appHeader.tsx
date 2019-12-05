@@ -1,56 +1,29 @@
 import React from 'react';
-import { View, FlatList, TouchableNativeFeedback } from 'react-native';
-import { Header, ListItem } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Entypo';
+import { StyleSheet, View, Text } from 'react-native';
 
-import SeparatorPipe from '../../shared/pipes/separatorPipe';
+import { GrayLightest } from '../../styles/config/colors';
+import { FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../styles/config/font';
 
-interface AppState {
-    isClicked: boolean;
-}
+const styles = StyleSheet.create({
+    header: {
+        alignItems: 'center',
+        backgroundColor: GrayLightest,
+        display: 'flex',
+        height: '15%',
+        justifyContent: 'center',
+        width: '100%',
+    },
 
-const list = [
-    { item: 'Scanner', id: 1 },
-    { item: 'Recipes', id: 2 },
-    { item: 'Map', id: 3 },
-    { item: 'Community', id: 4 },
-    { item: 'Profile', id: 5 },
-];
+    title: {
+        fontSize: FONT_SIZE_20,
+        fontWeight: FONT_WEIGHT_BOLD,
+    },
+});
 
-export default class AppHeader extends React.Component {
-
-    public readonly state: Readonly<AppState> = {
-        isClicked: false
-    };
-
-    toggleDisplay = () => {
-        if (this.state) {
-            if (this.state.isClicked) {
-                this.setState({ isClicked: false });
-            } else if (!this.state.isClicked) {
-                this.setState({ isClicked: true });
-            }
-        }
-    };
-
-    render() {
-        return (
-            <View>
-                <Header
-                    centerComponent={{ text: 'MyCooliac' }}
-                    leftComponent={<TouchableNativeFeedback onPress={this.toggleDisplay}>
-                        <Icon name='menu' size={25} /></TouchableNativeFeedback>}
-                    rightComponent={<Icon name='log-out' size={22} />}
-                />
-
-                {this.state.isClicked ?
-                    <FlatList
-                        ItemSeparatorComponent={SeparatorPipe}
-                        data={list}
-                        renderItem={({ item }) => <ListItem title={item.item} />}
-                        keyExtractor={(item) => item.id.toString()}
-                    /> : null}
-            </View>
-        );
-    }
+export default function AppHeader(): JSX.Element {
+    return (
+        <View style={styles.header}>
+            <Text style={styles.title}>MyCooliac</Text>
+        </View>
+    );
 }
