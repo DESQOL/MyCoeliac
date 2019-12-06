@@ -4,6 +4,7 @@ import { SearchBar, Button } from 'react-native-elements';
 
 import RecipeList from '../../components/recipe_list/recipeList';
 import RecipeCard from '../../components/recipe_card/recipeCard';
+import NavHeader from '../../components/ui-components/NavHeader';
 
 let recipeId: number;
 
@@ -94,6 +95,7 @@ export default class RecipeListScreen extends React.Component<
   render(): JSX.Element {
       return (
           <SafeAreaView>
+              <NavHeader title={'MyCooliac'} navIcon={false} />
               <View>
                   <Text style={styles.title}>Recipes</Text>
                   <SearchBar
