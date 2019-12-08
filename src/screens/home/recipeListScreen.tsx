@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import { SearchBar, Button } from 'react-native-elements';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { SearchBar } from 'react-native-elements';
+
+import { Gray, Transparent, White } from '../../styles/config/colors';
 
 import RecipeList from '../../components/recipe_list/recipeList';
-import RecipeCard from '../../components/recipe_card/recipeCard';
 import NavHeader from '../../components/ui-components/NavHeader';
+import Recipe from '../../components/recipe/recipe';
 
 let recipeId: number;
 
@@ -24,7 +26,8 @@ const dummyList = [
         image:
       'https://www.simplyrecipes.com/wp-content/uploads/2014/08/banana-bread-vertical-c-1200.jpg',
         title: 'Banana bread',
-        description: '...',
+        description: 'This is a banana bread recipe',
+        duration: '40 mins',
         rating: 4,
     },
     {
@@ -32,14 +35,40 @@ const dummyList = [
         image: null,
         title: 'Chocolate cake',
         description: '...',
+        duration: '1 h 20 mins',
         rating: 3,
     },
 ];
 
 const styles = StyleSheet.create({
-    title: {
-        fontSize: 25,
+    container: {
+        alignItems: 'center',
+        display: 'flex',
+        flex: 1,
+        marginLeft: 15,
+        marginRight: 15,
+        marginTop: 15,
     },
+
+    input: {
+        backgroundColor: White,
+        elevation: 3,
+        marginBottom: 5,
+        shadowColor: Gray,
+        shadowOffset: { width: 10, height: 10 },
+        shadowOpacity: 1,
+        width: '100%'
+    },
+
+    screenContainer: {
+        flex: 1,
+    },
+
+    searchbar: {
+        backgroundColor: Transparent,
+        borderBottomColor: Transparent,
+        borderTopColor: Transparent,
+    }
 });
 
 export default class RecipeListScreen extends React.Component<
@@ -94,24 +123,24 @@ export default class RecipeListScreen extends React.Component<
 
   render(): JSX.Element {
       return (
-          <SafeAreaView>
-              <NavHeader title={'MyCooliac'} navIcon={false} />
-              <View>
-                  <Text style={styles.title}>Recipes</Text>
+          <SafeAreaView style={styles.screenContainer}>
+              <NavHeader title={'MyCooliac'} navIcon={false}/>
+              <View style={styles.container}>
                   <SearchBar
                       placeholder="Search recipes"
                       onChangeText={search => this.updateSearch(search)}
                       value={this.state.search}
                       lightTheme={true}
+                      containerStyle={styles.searchbar}
+                      inputContainerStyle={styles.input}
                   />
                   <RecipeList
                       recipes={this.state.recipes}
                       recipeIdProps={this.getRecipeId}
                   />
 
-                  {this.state.recipeId ? <RecipeCard recipeProps={dummyList[recipeId - 1]} /> : null}
+                  {this.state.recipeId ? <Recipe recipeProps={dummyList[recipeId - 1]}/> : null}
 
-                  <Button title="Add new recipe" />
               </View>
           </SafeAreaView>
       );

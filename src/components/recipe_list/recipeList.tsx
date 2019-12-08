@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+
+import RecipeCard from '../../components/ui-components/recipeCard';
 
 interface RecipeListProps {
   recipes: any;
@@ -8,22 +9,11 @@ interface RecipeListProps {
 }
 
 export default function RecipeList(props: RecipeListProps): JSX.Element {
-    function getRecipeId(id: number) {
-        props.recipeIdProps(id);
-    }
-
     return (<FlatList
+        showsVerticalScrollIndicator={false}
         data={props.recipes}
         renderItem={({ item }: { item: any }) => (
-            <ListItem
-                onPress={() => getRecipeId(item.id)}
-                title={item.title}
-                subtitle={item.description}
-                leftAvatar={{
-                    source: { uri: item.image },
-                    rounded: false,
-                }}
-            />
+            <RecipeCard list={item}/>
         )}
         keyExtractor={item => item.id.toString()}
     />);

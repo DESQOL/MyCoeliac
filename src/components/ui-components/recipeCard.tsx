@@ -8,6 +8,7 @@ import { Black, Gray, GrayLighter, White } from '../../styles/config/colors';
 
 interface RecipeCardProps {
     list: any;
+    recipeIdProps?: any;
 }
 
 const styles = StyleSheet.create({
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
 
     image: {
         alignSelf: 'center',
+        backgroundColor: GrayLighter,
         flex: 1,
         height: '100%',
         marginRight: 5,
@@ -84,9 +86,16 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function RecipeCard({ list }: RecipeCardProps): JSX.Element {
+export default function RecipeCard({ list, recipeIdProps }: RecipeCardProps): JSX.Element {
+    function getRecipeId(id: number) {
+        recipeIdProps = id;
+
+        console.log(recipeIdProps);
+    }
+
     return (
         <View style={styles.container}>
+
             <Image source={{ uri: list.image }} style={styles.image}/>
 
             <View style={styles.recipeContentContainer}>
@@ -105,6 +114,7 @@ export default function RecipeCard({ list }: RecipeCardProps): JSX.Element {
                 <View style={styles.readContentContainer}>
                     <View style={styles.divider} />
                     <Button
+                        onPress={() => getRecipeId(list.id)}
                         buttonStyle={styles.readButton}
                         titleStyle={{ color: Black }}
                         title={'Read more'}
