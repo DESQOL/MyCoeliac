@@ -338,6 +338,7 @@ export const MilkWhite = '#FEFCFF';
 export const Black = '#000000';
 export const White = '#FFFFFF';
 export const WhiteTransparent = 'rgba(255,255,255,0.7)';
+export const Transparent = 'rgba(255,255,255,0)';
 
 export const GreyDarkest = '#3D3C3A';
 export const GrayDarker = '#504A4B';
