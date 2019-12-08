@@ -85,7 +85,7 @@ function renderRating(rating: number) {
     }
 }
 
-export default function RecipeCard(props: AppProps): JSX.Element {
+export default function Recipe(props: AppProps): JSX.Element {
 
     renderRating(props.recipeProps.rating || 0);
 
