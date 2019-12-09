@@ -3,18 +3,16 @@ import { TextInput, StyleProp, ViewStyle } from 'react-native';
 
 interface PrimaryTextFieldProps {
   textFieldStyle?: StyleProp<ViewStyle>;
+  onChangeText?: (input: string) => void;
+  value: string;
 }
 
-export default function PrimaryTextField({
-    textFieldStyle,
-}: PrimaryTextFieldProps) {
-    const [value, onChangeText] = React.useState();
-
+export default function PrimaryTextField(props: PrimaryTextFieldProps) {
     return (
         <TextInput
-            style={textFieldStyle}
-            onChangeText={(text): void => onChangeText(text)}
-            value={value}
+            style={props.textFieldStyle}
+            onChangeText={props.onChangeText}
+            value={props.value}
         />
     );
 }
