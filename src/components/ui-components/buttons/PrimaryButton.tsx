@@ -6,14 +6,22 @@ interface PrimaryButtonProps {
   title: string;
   type: 'solid' | 'clear' | 'outline';
   buttonStyle?: StyleProp<ViewStyle>;
+  onClick?: () => void;
 }
 
 export default function PrimaryButton({
     title,
     type,
     buttonStyle,
+    onClick,
 }: PrimaryButtonProps): JSX.Element {
     return (
-        <Button buttonStyle={buttonStyle} title={title} type={type} raised={true} />
+        <Button
+            onPress={onClick}
+            buttonStyle={buttonStyle}
+            title={title}
+            type={type}
+            raised={true}
+        />
     );
 }
