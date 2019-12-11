@@ -92,7 +92,7 @@ export default function Recipe(props: AppProps): JSX.Element {
     return (<View style={styles.recipeCardContainer}>
         <Text style={styles.title}>{props.recipeProps.title}</Text>
 
-        <Image style={styles.logo} source={{ uri: props.recipeProps.image || '' }}/>
+        <Image style={styles.logo} source={{ uri: props.recipeProps.image } || require('../../assets/images/no-image-available.jpg')}/>
 
         <View style={styles.recipeData}>
             <Text style={styles.duration}>{props.recipeProps.duration}</Text>
@@ -117,4 +117,3 @@ export default function Recipe(props: AppProps): JSX.Element {
         <Text style={styles.description}>{props.recipeProps.instructions}</Text>
     </View>);
 }
-
