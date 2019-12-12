@@ -1,14 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import { Gray, Transparent, White } from '../../styles/config/colors';
 
 import RecipeList from '../../components/recipe_list/recipeList';
 import NavHeader from '../../components/ui-components/NavHeader';
-import Recipe from '../../components/recipe/recipe';
-
-let recipeId: number;
 
 interface RecipeScreenState {
   search: string;
@@ -18,6 +16,7 @@ interface RecipeScreenState {
 
 interface RecipeScreenProps {
   props?: {};
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 const dummyList = [
@@ -27,6 +26,10 @@ const dummyList = [
       'https://www.simplyrecipes.com/wp-content/uploads/2014/08/banana-bread-vertical-c-1200.jpg',
         title: 'Banana bread',
         description: 'This is a banana bread recipe',
+        ingredients: [
+            { id: 1, name: 'flour', amount: '1 1/2 cups' },
+            { id: 2, name: 'sugar', amount: '1 tbsp' },
+        ],
         duration: '40 mins',
         rating: 4,
     },
@@ -35,6 +38,10 @@ const dummyList = [
         image: null,
         title: 'Chocolate cake',
         description: '...',
+        ingredients: [
+            { id: 1, name: 'flour', amount: '1 1/2 cups' },
+            { id: 2, name: 'sugar', amount: '1 tbsp' },
+        ],
         duration: '1 h 20 mins',
         rating: 3,
     },
@@ -71,10 +78,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class RecipeListScreen extends React.Component<
-  RecipeScreenProps,
-  RecipeScreenState
-> {
+export default class RecipeListScreen extends React.Component<RecipeScreenProps, RecipeScreenState> {
     constructor(props: RecipeScreenProps) {
         super(props);
         console.log('test');
@@ -94,7 +98,6 @@ export default class RecipeListScreen extends React.Component<
   };
 
     getRecipeId = (data: any) => {
-        recipeId = data;
         if (data) {
             this.setState({ recipeId: true });
         } else {
@@ -137,10 +140,8 @@ export default class RecipeListScreen extends React.Component<
                   <RecipeList
                       recipes={this.state.recipes}
                       recipeIdProps={this.getRecipeId}
+                      navigation={this.props.navigation}
                   />
-
-                  {this.state.recipeId ? <Recipe recipeProps={dummyList[recipeId - 1]}/> : null}
-
               </View>
           </SafeAreaView>
       );

@@ -5,10 +5,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 
 import { Black, Gray, GrayLighter, White } from '../../styles/config/colors';
+import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
 interface RecipeCardProps {
     list: any;
     recipeIdProps?: any;
+    navigationProps: {
+        navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+    };
 }
 
 const styles = StyleSheet.create({
@@ -86,11 +90,13 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function RecipeCard({ list, recipeIdProps }: RecipeCardProps): JSX.Element {
+export default function RecipeCard( { list, recipeIdProps, navigationProps }: RecipeCardProps): JSX.Element {
+    const { navigation } = navigationProps;
+
     function getRecipeId(id: number) {
         recipeIdProps = id;
-
         console.log(recipeIdProps);
+        return recipeIdProps;
     }
 
     return (
@@ -114,13 +120,19 @@ export default function RecipeCard({ list, recipeIdProps }: RecipeCardProps): JS
                 <View style={styles.readContentContainer}>
                     <View style={styles.divider} />
                     <Button
-                        onPress={() => getRecipeId(list.id)}
                         buttonStyle={styles.readButton}
                         titleStyle={{ color: Black }}
                         title={'Read more'}
                         icon={<IconFA name={'angle-right'} size={22} style={ styles.arrowLogo }/>}
                         iconRight={true}
                         type={'clear'}
+                        onPress={() => {
+                            // TODO: Add error/warning page if id does not exist(?)
+                            getRecipeId(list.id) ? navigation.navigate('Recipe', {
+                                recipeId: getRecipeId(list.id)
+                            }) : null;
+                        }
+                        }
                     />
                 </View>
             </View>

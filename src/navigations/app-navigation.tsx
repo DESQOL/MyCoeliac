@@ -7,6 +7,7 @@ import { Avatar } from 'react-native-elements';
 
 import RecipeListScreen from '../screens/home/recipeListScreen';
 import AboutScreen from '../screens/about/aboutScreen';
+import RecipeScreen from '../screens/recipe/recipeScreen';
 
 import { GrayDark, GrayLight, GrayLighter } from '../styles/config/colors';
 
@@ -63,6 +64,10 @@ const RouteConfigs = {
             tabBarIcon: getUserAvatar,
         },
     },
+
+    Recipe: {
+        screen: RecipeScreen,
+    }
 };
 
 const AppNavigator = createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);
