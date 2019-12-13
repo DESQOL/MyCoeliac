@@ -1,22 +1,70 @@
 import React from 'react';
-import { StyleProp, ViewStyle, Picker } from 'react-native';
+import { StyleProp, ViewStyle, StyleSheet, View } from 'react-native';
+import { GrayLightest, GrayLight } from '../../../styles/config/colors';
+import ModalDropdown from 'react-native-modal-dropdown';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const styles = StyleSheet.create({
+    dropdown: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: 55,
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    dropdownContainer: {
+        alignItems: 'center',
+        backgroundColor: GrayLightest,
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+    },
+
+    dropdownList: {
+        marginTop: 16,
+        width: '100%',
+    },
+
+    dropdownListText: {
+        backgroundColor: GrayLight,
+        fontSize: 14,
+        height: 55,
+    },
+
+    dropdownText: {
+        fontSize: 14,
+        marginLeft: 5,
+    },
+
+    icon: {
+        marginLeft: 'auto',
+        marginRight: 20,
+    },
+});
 
 interface DropdownProps {
   dropdownStyle?: StyleProp<ViewStyle>;
-  onValueChange: (input: string) => void;
+  onValueChange: (input: number) => void;
   selectedValue: string;
   dropdownValues: string[];
+  name: string;
 }
 
 export default function Dropdown(props: DropdownProps) {
     return (
-        <Picker
-            selectedValue={props.selectedValue}
-            style={props.dropdownStyle}
-            onValueChange={props.onValueChange}>
-            {props.dropdownValues.map((item, key) => (
-                <Picker.Item key={key} label={item} value={item} />
-            ))}
-        </Picker>
+        <View style={styles.dropdownContainer}>
+            <ModalDropdown
+                defaultValue="Category"
+                animated={false}
+                options={props.dropdownValues}
+                style={styles.dropdown}
+                textStyle={styles.dropdownText}
+                dropdownStyle={styles.dropdownList}
+                dropdownTextStyle={styles.dropdownListText}
+                onSelect={(input: number) => props.onValueChange(input)}
+            />
+            <Icon style={styles.icon} name="chevron-down" size={12} color="black" />
+        </View>
     );
 }
