@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
-import { widthPercentageToDP } from '../../styles/config/mixins';
 import styles from '../../styles/TabViewPager';
 
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires

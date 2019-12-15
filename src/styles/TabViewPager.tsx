@@ -13,15 +13,15 @@ export default StyleSheet.create({
     container: {
         flex: 1,
     },
-    image: {
-        width: widthPercentageToDP('31'),
-        height:200
-    },
     containerViewPager: {
         flex: 1,
         flexDirection: 'column',
         flexWrap: 'wrap',
 
+    },
+    image: {
+        height:200,
+        width: widthPercentageToDP('31')
     },
     innerViewPagerContainer: {
         alignItems: 'center',
