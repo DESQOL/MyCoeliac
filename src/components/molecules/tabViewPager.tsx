@@ -26,7 +26,7 @@ interface State {
 export default class TabViewPager extends React.Component<Props, State> {
 
     viewPager = React.createRef<ViewPagerType>();
-    // textInputComponents = React.createRef<Text[]>();
+
     constructor(props: Props) {
         super(props);
     }
@@ -35,7 +35,6 @@ export default class TabViewPager extends React.Component<Props, State> {
     };
 
     setupTextViews() {
-        console.log(this.props);        
         return this.props.tabs.map((type) =>
             <Text key={type.id} style={[styles.tabs, (this.state.currentViewPageIndex == type.id) ? styles.activeText : null]}
                 onPress={() => this.onTabClicked(type.id)}> {type.text} </Text>);
