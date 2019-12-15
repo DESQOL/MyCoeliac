@@ -1,76 +1,24 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { PurpleAmethyst, GrayDolphin, Black } from '../../styles/config/colors';
+import { View, Image, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
-import { widthPercentageToDP } from '../../styles/config/mixins'
-import { FONT_SIZE_17 } from 'src/styles/config/font';
+import { widthPercentageToDP } from '../../styles/config/mixins';
+import styles from '../../styles/TabViewPager';
 
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 export type tab = {
-    id: number,
-    text: string
-}
+    id: number;
+    text: string;
+};
 
 interface Props {
     tabs: tab[];
 }
 
 interface State {
-    currentViewPageIndex: number
+    currentViewPageIndex: number;
 }
-
-// Test styling, will be replaced later.
-const styles = StyleSheet.create({
-
-    container: {
-        flex: 1,
-    },
-    tabSelection: {
-        flexDirection: 'row',
-        marginStart:10,
-        marginBottom:10,
-    },
-    test: {
-        padding: 2
-    },
-    tabs: {
-        color: GrayDolphin,
-        alignSelf: 'center',
-        textAlign: 'center',
-        fontSize:16
-
-    },
-    activeText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: Black
-    },
-    containerViewPager: {
-        flex: 1,
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-
-    },
-
-    scrollViewPager: {
-        flexDirection: 'column',
-        flexWrap: 'wrap',
-
-    },
-
-    innerViewPagerContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        width: '100%',
-        height: '100%',
-        flex: 1
-    }
-
-});
 
 /**
  * tabViewPager screen
@@ -78,27 +26,26 @@ const styles = StyleSheet.create({
 export default class TabViewPager extends React.Component<Props, State> {
 
     viewPager = React.createRef<ViewPagerType>();
-    //textInputComponents = React.createRef<Text[]>();
+    // textInputComponents = React.createRef<Text[]>();
     constructor(props: Props) {
-        super(props)
+        super(props);
     }
     readonly state: State = {
         currentViewPageIndex: 0
-    }
+    };
 
     setupTextViews() {
         console.log(this.props);        
         return this.props.tabs.map((type) =>
             <Text key={type.id} style={[styles.tabs, (this.state.currentViewPageIndex == type.id) ? styles.activeText : null]}
-                onPress={() => this.onTabClicked(type.id)}> {type.text} </Text>)
+                onPress={() => this.onTabClicked(type.id)}> {type.text} </Text>);
 
     }
 
     onTabClicked(index: number) {
-        this.setState({ currentViewPageIndex: index })
+        this.setState({ currentViewPageIndex: index });
         this.viewPager.current!.setPage(index);
     }
-
 
     // Test page's will be replaced later.
     render() {
