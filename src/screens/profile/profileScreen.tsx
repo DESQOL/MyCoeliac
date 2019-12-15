@@ -8,7 +8,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
 import TabViewPager from '../../components/molecules/tabViewPager';
 import styles from '../../styles/ProfileScreen';
-import SeparatorPipe from '../../shared/pipes/separatorPipe';
 
 interface Props {
     navigation: any;

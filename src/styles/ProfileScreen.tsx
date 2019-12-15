@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { GrayLighter, GrayLightest } from './config/colors';
+import { GrayLighter, GrayLightest, White } from './config/colors';
 
 export default StyleSheet.create({
     TextStats: {
@@ -9,7 +9,7 @@ export default StyleSheet.create({
         marginStart: 5
     },
     avatar: {
-        borderColor: 'white',
+        borderColor: White,
         borderRadius: 63,
         borderWidth: 4,
         height: 100,

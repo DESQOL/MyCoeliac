@@ -1,6 +1,7 @@
 import { GrayDolphin, Black } from '../styles/config/colors';
-
 import { StyleSheet } from 'react-native';
+import { widthPercentageToDP } from '../styles/config/mixins';
+
 // Test styling, will be replaced later.
 export default StyleSheet.create({
 
@@ -11,6 +12,10 @@ export default StyleSheet.create({
     },
     container: {
         flex: 1,
+    },
+    image: {
+        width: widthPercentageToDP('31'),
+        height:200
     },
     containerViewPager: {
         flex: 1,
