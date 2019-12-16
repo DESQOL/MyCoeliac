@@ -3,7 +3,7 @@ import { SafeAreaView, View } from 'react-native';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
 import NavHeader from '../../components/ui-components/NavHeader';
-import Recipe from '../../components/recipe/recipe';
+import Recipe from '../../components/recipe/Recipe';
 
 interface AppProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;

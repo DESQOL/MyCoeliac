@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { GrayLighter } from '../../styles/config/colors';
+import { GrayLighter } from '../../styles/config/Colors';
 
 const styles = {
     separator: {
@@ -9,6 +9,7 @@ const styles = {
     }
 };
 
+// Use as separator for Flatlist components
 export default function SeparatorPipe() {
     return (
         <View

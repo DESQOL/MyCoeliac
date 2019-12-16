@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import ProfileAvatar from '../ui-components/profileAvatar';
-import RateBar from '../ui-components/rateBar';
+import ProfileAvatar from '../ui-components/ProfileAvatar';
+import RateBar from '../ui-components/RateBar';
 import PrimaryButton from '../ui-components/buttons/PrimaryButton';
 import PrimaryTextField from '../ui-components/input/PrimaryTextField';
-import { PrimaryGray } from '../../styles/config/colors';
+import { PrimaryGray } from '../../styles/config/Colors';
 import { Rating } from 'react-native-elements';
 
 interface CommenListState {
