@@ -5,11 +5,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 
-import RecipeListScreen from '../screens/home/recipeListScreen';
+import RecipeListScreen from '../screens/home/RecipeListScreen';
 import AboutScreen from '../screens/about/aboutScreen';
-import RecipeScreen from '../screens/recipe/recipeScreen';
+import RecipeScreen from '../screens/recipe/RecipeScreen';
 
-import { GrayDark, GrayLight, GrayLighter } from '../styles/config/colors';
+import { GrayDark, GrayLight, GrayLighter } from '../styles/config/Colors';
 
 function renderScannerIcon({ tintColor }: any) {
     return (<Icon name='barcode-scan' size={25} color={tintColor} />);

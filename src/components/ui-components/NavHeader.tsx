@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { GrayLight, GrayLightest } from '../../styles/config/colors';
-import { FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../styles/config/font';
+import { GrayLight, GrayLightest } from '../../styles/config/Colors';
+import { FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../styles/config/Fonts';
 
 interface NavHeaderProps {
     title: string;

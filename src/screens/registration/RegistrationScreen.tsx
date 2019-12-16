@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import Button from '../../components/atoms/login/button';
-import FormTextInput from '../../components/atoms/login/formTextInput';
+import Button from '../../components/atoms/login/Button';
+import FormTextInput from '../../components/atoms/login/FormTextInput';
 // import imageLogo from "../assets/images/logo.png";
 import strings from '../../values/strings';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from '../../styles/Login';
-import { validateEmail } from '../../utils/utils';
+import { validateEmail } from '../../utils/Utils';
 
 interface Props {
     navigation: any;

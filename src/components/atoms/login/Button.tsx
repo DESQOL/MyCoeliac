@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { DodgerBlue, White, WhiteTransparent } from '../../../styles/config/colors';
+import { DodgerBlue, White, WhiteTransparent } from '../../../styles/config/Colors';
 
 interface Props {
     disabled?: boolean;
