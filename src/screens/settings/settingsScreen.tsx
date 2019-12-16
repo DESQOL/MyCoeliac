@@ -2,7 +2,6 @@ import * as React from 'react';
 import { View } from 'react-native';
 import NavHeader from '../../components/ui-components/NavHeader';
 import MenuButton from '../../components/atoms/MenuButton';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from '../../styles/SettingsScreen';
 
@@ -29,7 +28,6 @@ class SettingsScreen extends React.Component<Props, {}> {
                 <View style={styles.contentContainer}>
                     <MenuButton title='Account' onPress={() => { console.log('account pressed'); }} />
                     <View style={styles.emptyContainer}>
-                        <TouchableOpacity />
                     </View>
                     <MenuButton title='Delete Account' onPress={() => console.log('delete acc pressed')} />
                     <MenuButton title='Log Out' onPress={() => { this.logOut(); }} />
