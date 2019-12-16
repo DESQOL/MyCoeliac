@@ -11,6 +11,7 @@ interface ProductScreenState {
   nameValue: string;
   brandValue: string;
   categoryValue: string;
+  dropdownCollapsed: boolean;
 }
 
 interface ProductScreenProps {
@@ -50,6 +51,7 @@ export default class ProductScreen extends React.Component<
       nameValue: '',
       brandValue: '',
       categoryValue: '',
+      dropdownCollapsed: false,
   };
 
   handleNameFieldChange(input: string): void {
@@ -69,6 +71,18 @@ export default class ProductScreen extends React.Component<
       this.setState({
           categoryValue: this.state.categories[input],
       });
+  }
+
+  handleDropdownToggle(): void {
+      if (this.state.dropdownCollapsed === false) {
+          this.setState({
+              dropdownCollapsed: true,
+          });
+      } else {
+          this.setState({
+              dropdownCollapsed: false,
+          });
+      }
   }
 
   addProduct(): void {
@@ -103,6 +117,8 @@ export default class ProductScreen extends React.Component<
                       selectedValue={this.state.categoryValue}
                       name="categories"
                       dropdownValues={this.state.categories}
+                      onDropdownToggle={() => this.handleDropdownToggle()}
+                      isCollapsed={this.state.dropdownCollapsed}
                   />
 
                   <PrimaryButton

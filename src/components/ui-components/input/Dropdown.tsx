@@ -48,7 +48,9 @@ interface DropdownProps {
   onValueChange: (input: number) => void;
   selectedValue: string;
   dropdownValues: string[];
+  onDropdownToggle: any;
   name: string;
+  isCollapsed: boolean;
 }
 
 export default function Dropdown(props: DropdownProps) {
@@ -63,8 +65,16 @@ export default function Dropdown(props: DropdownProps) {
                 dropdownStyle={styles.dropdownList}
                 dropdownTextStyle={styles.dropdownListText}
                 onSelect={(input: number) => props.onValueChange(input)}
+                onDropdownWillShow={() => props.onDropdownToggle()}
+                onDropdownWillHide={() => props.onDropdownToggle()}
             />
-            <Icon style={styles.icon} name="chevron-down" size={12} color="black" />
+
+            <Icon
+                style={styles.icon}
+                name={props.isCollapsed ? 'chevron-up' : 'chevron-down'}
+                size={12}
+                color="black"
+            />
         </View>
     );
 }
