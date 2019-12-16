@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { White } from '../styles/config/colors';
+import { White } from './config/Colors';
 
 export default StyleSheet.create({
     container: {

@@ -1,4 +1,4 @@
-import { scaleSize } from './mixins';
+import { scaleSize } from './Mixins';
 
 export const SCALE_18 = scaleSize(18);
 export const SCALE_16 = scaleSize(16);

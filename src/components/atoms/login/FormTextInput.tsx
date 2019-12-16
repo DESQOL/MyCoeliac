@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, TextInput, TextInputProps, View, Text } from 'react-native';
-import { DodgerBlue, Silver, TorchRed } from '../../../styles/config/colors';
+import { DodgerBlue, Silver, TorchRed } from '../../../styles/config/Colors';
 
 type Props = TextInputProps & {
     error?: string;

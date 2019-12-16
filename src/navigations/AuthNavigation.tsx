@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import LoginScreen from '../screens/login/loginScreen';
-import RegisterScreen from '../screens/registration/registrationScreen';
+import LoginScreen from '../screens/login/LoginScreen';
+import RegisterScreen from '../screens/registration/RegistrationScreen';
 import { HeaderMode } from 'react-navigation-stack/lib/typescript/types';
 
 const AuthNavigatorConfig = {
