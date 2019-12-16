@@ -50,7 +50,7 @@ interface DropdownProps {
   dropdownValues: string[];
   onDropdownToggle: any;
   name: string;
-  isCollapsed: boolean;
+  isCollapsed?: boolean;
 }
 
 export default function Dropdown(props: DropdownProps) {

@@ -16,6 +16,7 @@ interface ProductScreenState {
 
 interface ProductScreenProps {
   props?: {};
+  navigation: any;
 }
 
 const categories = ['Bread, Grains & other Starches', 'Fruit', 'Vegetables'];
@@ -86,10 +87,12 @@ export default class ProductScreen extends React.Component<
   }
 
   addProduct(): void {
+      // TODO: save this in the database
       console.log('button click');
       console.log('nameValue: ', this.state.nameValue);
       console.log('brandValue: ', this.state.brandValue);
       console.log('categoryValue: ', this.state.categoryValue);
+      this.props.navigation.navigate('Home');
   }
 
   render(): JSX.Element {
