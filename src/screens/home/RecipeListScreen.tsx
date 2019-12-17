@@ -5,8 +5,8 @@ import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-n
 
 import { Gray, Transparent, White } from '../../styles/config/Colors';
 
-import RecipeList from '../../components/recipe_list/RecipeList';
-import NavHeader from '../../components/ui-components/NavHeader';
+import RecipeList from '../../components/organisms/RecipeList';
+import NavHeader from '../../components/atoms/NavHeader';
 
 interface RecipeScreenState {
   search: string;

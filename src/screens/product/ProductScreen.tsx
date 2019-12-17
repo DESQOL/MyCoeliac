@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 
-import Dropdown from '../../components/ui-components/input/Dropdown';
-import NavHeader from '../../components/ui-components/NavHeader';
-import PrimaryTextField from '../../components/ui-components/input/PrimaryTextField';
-import PrimaryButton from '../../components/ui-components/buttons/PrimaryButton';
+import Dropdown from '../../components/atoms/Dropdown';
+import NavHeader from '../../components/atoms/NavHeader';
+import PrimaryTextField from '../../components/atoms/PrimaryTextField';
+import PrimaryButton from '../../components/atoms/PrimaryButton';
 
 interface ProductScreenState {
   categories: string[];

@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import Button from '../../components/atoms/login/button';
+import Button from '../../components/atoms/LoginButton';
 import { name } from '../../../app.json';
-import { GrayLight } from '../../styles/config/colors';
+import { GrayLight } from '../../styles/config/Colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import CommentList from '../../components/comments/CommentList';
+import CommentList from '../../components/molecules/CommentList';
 
 interface CommentObject {
   id: number;

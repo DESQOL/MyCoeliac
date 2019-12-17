@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
-import RecipeCard from '../ui-components/RecipeCard';
+import RecipeCard from '../molecules/RecipeCard';
 
 interface RecipeListProps {
   recipes: any;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
 import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
-import { ThemeBlue } from '../../../styles/config/colors';
+import { ThemeBlue } from '../../styles/config/Colors';
 
 interface PrimaryButtonProps {
   title: string;

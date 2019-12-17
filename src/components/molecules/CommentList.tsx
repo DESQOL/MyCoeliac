@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import ProfileAvatar from '../ui-components/ProfileAvatar';
-import RateBar from '../ui-components/RateBar';
-import PrimaryButton from '../ui-components/buttons/PrimaryButton';
-import PrimaryTextField from '../ui-components/input/PrimaryTextField';
+import ProfileAvatar from '../atoms/ProfileAvatar';
+import RateBar from '../atoms/RateBar';
+import PrimaryButton from '../atoms/PrimaryButton';
+import PrimaryTextField from '../atoms/PrimaryTextField';
 import { PrimaryGray } from '../../styles/config/Colors';
 import { Rating } from 'react-native-elements';
 
@@ -216,7 +216,7 @@ export default class CommentList extends Component<
                               <PrimaryButton
                                   title="Enter"
                                   type="solid"
-                                  buttonStyle={styles.primaryButton}
+                                  componentStyle={styles.primaryButton}
                                   onClick={() => this.addNewComment()}
                               />
                           </View>

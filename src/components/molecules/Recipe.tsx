@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import { GrayLightest } from '../../styles/config/Colors';
 import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/Fonts';
 
-import SeparatorPipe from '../../shared/pipes/SeparatorPipe';
+import SeparatorPipe from '../atoms/SeparatorPipe';
 
 interface AppProps {
     recipeProps: any;

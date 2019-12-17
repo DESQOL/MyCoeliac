@@ -2,10 +2,10 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import AuthNavigator from './AuthNavigation';
 import AppNavigator from './AppNavigation';
-import OnboardingScreen from '../screens/onboarding/onboardingScreen';
-import LoadingScreen from '../screens/loading/loadingScreen';
+import LoadingScreen from '../screens/loading/LoadingScreen';
 import ProfileScreen from '../screens/profile/profileScreen';
 import SettingsScreen from '../screens/settings/settingsScreen';
+import OnboardingScreen from '../screens/onboarding/OnboardingScreen';
 
 const RootNavigator = createSwitchNavigator(
     {
@@ -17,7 +17,7 @@ const RootNavigator = createSwitchNavigator(
         SettingScreen: SettingsScreen
     },
     {
-        initialRouteName: 'SettingScreen',
+        initialRouteName: 'App',
     },
 );
 
