@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, ViewStyle, StyleSheet, View } from 'react-native';
-import { GrayLightest, GrayLight } from '../../../styles/config/colors';
+import { GrayLightest, GrayLight } from '../../styles/config/Colors';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Icon from 'react-native-vector-icons/FontAwesome';
 

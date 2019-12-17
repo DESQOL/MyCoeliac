@@ -3,10 +3,10 @@ import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Entypo';
 
-import { GrayLightest } from '../../styles/config/colors';
-import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/font';
+import { GrayLightest } from '../../styles/config/Colors';
+import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/Fonts';
 
-import SeparatorPipe from '../../shared/pipes/separatorPipe';
+import SeparatorPipe from '../atoms/SeparatorPipe';
 
 interface AppProps {
     recipeProps: any;

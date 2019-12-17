@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { GrayLight, GrayLightest } from '../../styles/config/colors';
-import { FONT_SIZE_17, LINE_HEIGHT_24, LINE_HEIGHT_16 } from '../../styles/config/font';
+import { GrayLight, GrayLightest } from '../../styles/config/Colors';
+import { FONT_SIZE_17, LINE_HEIGHT_24, LINE_HEIGHT_16 } from '../../styles/config/Fonts';
 
 interface MenuProps {
     title: string;

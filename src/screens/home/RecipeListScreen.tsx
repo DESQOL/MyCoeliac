@@ -3,10 +3,10 @@ import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
-import { Gray, Transparent, White } from '../../styles/config/colors';
+import { Gray, Transparent, White } from '../../styles/config/Colors';
 
-import RecipeList from '../../components/recipe_list/recipeList';
-import NavHeader from '../../components/ui-components/NavHeader';
+import RecipeList from '../../components/organisms/RecipeList';
+import NavHeader from '../../components/atoms/NavHeader';
 
 interface RecipeScreenState {
   search: string;
