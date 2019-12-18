@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { GrayLightest } from '../../styles/config/Colors';
 import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/Fonts';
@@ -79,7 +79,7 @@ function renderRating(rating: number) {
 
         if (rating < 5) {
             for (let i = rating; i < 5; i++) {
-                starRating[i] = <Icon name='star-outlined' size={20}/>;
+                starRating[i] = <Icon name='star-o' size={20}/>;
             }
         }
     }
@@ -92,7 +92,10 @@ export default function Recipe(props: AppProps): JSX.Element {
     return (<View style={styles.recipeCardContainer}>
         <Text style={styles.title}>{props.recipeProps.title}</Text>
 
-        <Image style={styles.logo} source={{ uri: props.recipeProps.image }} defaultSource={require('../../assets/images/no-image-available.jpg')}/>
+        <Image
+            style={styles.logo}
+            source={{ uri: props.recipeProps.image }}
+            defaultSource={require('../../assets/images/no-image-available.jpg')}/>
 
         <View style={styles.recipeData}>
             <Text style={styles.duration}>{props.recipeProps.duration}</Text>

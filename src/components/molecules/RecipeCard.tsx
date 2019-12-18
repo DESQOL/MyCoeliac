@@ -4,8 +4,13 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 
-import { Black, Gray, GrayLighter, White } from '../../styles/config/Colors';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import { Black, Gray, GrayLighter, White } from '../../styles/config/colors';
+import {
+    NavigationActions,
+    NavigationParams,
+    NavigationScreenProp,
+    NavigationState
+} from 'react-navigation';
 
 interface RecipeCardProps {
     list: any;
@@ -95,7 +100,7 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
 
     function getRecipeId(id: number) {
         recipeIdProps = id;
-        console.log(recipeIdProps);
+        console.log('recipeCard id: ', recipeIdProps);
         return recipeIdProps;
     }
 
@@ -128,9 +133,14 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
                         type={'clear'}
                         onPress={() => {
                             // TODO: Add error/warning page if id does not exist(?)
-                            getRecipeId(list.id) ? navigation.navigate('Recipe', {
-                                recipeId: getRecipeId(list.id)
-                            }) : null;
+                            getRecipeId(list.id) ? navigation.navigate({
+                                routeName: 'Recipe',
+                                action: NavigationActions.navigate({
+                                    routeName: 'RecipeScreen',
+                                    params: { recipeId: getRecipeId(list.id) }
+                                })
+                            }
+                            ) : null;
                         }
                         }
                     />
