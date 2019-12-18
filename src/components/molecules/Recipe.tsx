@@ -92,7 +92,10 @@ export default function Recipe(props: AppProps): JSX.Element {
     return (<View style={styles.recipeCardContainer}>
         <Text style={styles.title}>{props.recipeProps.title}</Text>
 
-        <Image style={styles.logo} source={{ uri: props.recipeProps.image }} defaultSource={require('../../assets/images/no-image-available.jpg')}/>
+        <Image
+            style={styles.logo}
+            source={{ uri: props.recipeProps.image }}
+            defaultSource={require('../../assets/images/no-image-available.jpg')}/>
 
         <View style={styles.recipeData}>
             <Text style={styles.duration}>{props.recipeProps.duration}</Text>

@@ -7,7 +7,6 @@ import { Avatar } from 'react-native-elements';
 
 import RecipeListScreen from '../screens/home/RecipeListScreen';
 import AboutScreen from '../screens/about/aboutScreen';
-import RecipeScreen from '../screens/recipe/RecipeScreen';
 
 import { GrayDark, GrayLight, GrayLighter } from '../styles/config/Colors';
 
@@ -28,7 +27,7 @@ renderScannerIcon.propTypes = {
 };
 
 function getUserAvatar() {
-    return(<Avatar rounded title={'EX'} overlayContainerStyle={{ backgroundColor: GrayLight }} />);
+    return(<Avatar rounded title={'EX'} size={25} overlayContainerStyle={{ backgroundColor: GrayLight }} />);
 }
 
 const TabNavigatorConfig = {
@@ -64,10 +63,6 @@ const RouteConfigs = {
             tabBarIcon: getUserAvatar,
         },
     },
-
-    Recipe: {
-        screen: RecipeScreen,
-    }
 };
 
 const AppNavigator = createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);
