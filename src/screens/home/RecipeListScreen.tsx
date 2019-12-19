@@ -11,11 +11,16 @@ import { Gray, Transparent, White } from '../../styles/config/Colors';
 
 import RecipeList from '../../components/organisms/RecipeList';
 import NavHeader from '../../components/atoms/NavHeader';
+import PrimaryButton from '../../components/atoms/PrimaryButton';
 
 interface RecipeScreenState {
-  search: string;
-  recipes: any;
-  recipeId: any;
+    search: string;
+    recipes: any;
+    recipeId: any;
+    recipeList: number;
+    isEnded?: boolean;
+    isLoading?: boolean;
+    isRefreshed?: boolean;
 }
 
 interface RecipeScreenProps {
@@ -92,6 +97,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         this.setState({
             search: '',
             recipes: dummyList,
+            recipeList: 1,
         });
     }
 
@@ -99,6 +105,10 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         search: '',
         recipes: dummyList,
         recipeId: false,
+        recipeList: 1,
+        isLoading: false,
+        isRefreshed: false,
+        isEnded: false,
     };
 
     getRecipeId = (data: any) => {
@@ -109,45 +119,102 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         }
     };
 
-  updateSearch = (search: any) => {
-      if (search === '') {
-          this.setState({
-              recipes: dummyList,
-              search: search,
-          });
-          return;
-      }
-      const newData = this.state.recipes.filter((recipe: any) => {
-          const recipeData = recipe.title.toUpperCase();
-          const searchData = search.toUpperCase();
-          return recipeData.indexOf(searchData) > -1;
-      });
-      this.setState({
-          recipes: newData,
-          search: search,
-      });
-  };
+    detectEndOfPage = (data: boolean) => {
+        if (data === true) {
+            this.setState({
+                isEnded: true
+            });
+        }
+    };
 
-  render(): JSX.Element {
-      return (
-          <SafeAreaView style={styles.screenContainer}>
-              <NavHeader title={'MyCooliac'} navIcon={false}/>
-              <View style={styles.container}>
-                  <SearchBar
-                      placeholder="Search recipes"
-                      onChangeText={search => this.updateSearch(search)}
-                      value={this.state.search}
-                      lightTheme={true}
-                      containerStyle={styles.searchbar}
-                      inputContainerStyle={styles.input}
-                  />
-                  <RecipeList
-                      recipes={this.state.recipes}
-                      recipeIdProps={this.getRecipeId}
-                      navigation={this.props.navigation}
-                  />
-              </View>
-          </SafeAreaView>
-      );
-  }
+    updateSearch = (search: any) => {
+        if (search === '') {
+            this.setState({
+                recipes: dummyList,
+                search: search,
+            });
+            return;
+        }
+        const newData = this.state.recipes.filter((recipe: any) => {
+            const recipeData = recipe.title.toUpperCase();
+            const searchData = search.toUpperCase();
+            return recipeData.indexOf(searchData) > -1;
+        });
+        this.setState({
+            recipes: newData,
+            search: search,
+        });
+    };
+
+    onRefresh = () => {
+        // Restart pagination on refresh of page
+        this.setState({
+            isRefreshed: true,
+        });
+
+    };
+
+    loadRecipes = () => {
+        // Load list of recipes
+
+        this.setState({
+            isLoading: true
+        });
+
+        // Call request for initial set of recipes
+        const getRecipesUrl = 'url' + this.state.recipeList;
+
+        fetch(getRecipesUrl)
+            .then(recipesData => recipesData.json())
+            .then(data => {
+                if (this.state.recipeList === 1) {
+                    console.log(data);
+                }
+            });
+    };
+
+    loadMoreRecipes = () => {
+        // Load more recipes when end of page is reached
+
+        // Hide load button when list of recipes are loading
+        this.setState({
+            isEnded: false
+        });
+
+        // Retrieve next set of recipes to be loaded
+        this.setState({
+            recipeList: this.state.recipeList + 1
+        }, () => this.loadRecipes());
+    };
+
+    render(): JSX.Element {
+        return (
+            <SafeAreaView style={styles.screenContainer}>
+                <NavHeader title={'MyCooliac'} navIcon={false}/>
+                <View style={styles.container}>
+                    <SearchBar
+                        placeholder="Search recipes"
+                        onChangeText={search => this.updateSearch(search)}
+                        value={this.state.search}
+                        lightTheme={true}
+                        containerStyle={styles.searchbar}
+                        inputContainerStyle={styles.input}
+                    />
+                    <RecipeList
+                        recipes={this.state.recipes}
+                        recipeIdProps={this.getRecipeId}
+                        navigation={this.props.navigation}
+                        recipeListProps={this.detectEndOfPage}
+                    />
+                    {/* Show button when end of content is reached */}
+                    {this.state.isEnded ?
+                        <PrimaryButton
+                            title={'Load more...'}
+                            type={'solid'}
+                            onClick={this.loadMoreRecipes}/>
+                        : null}
+                </View>
+            </SafeAreaView>
+        );
+    }
 }
