@@ -14,7 +14,7 @@ export default class Test extends React.Component<{}, {}> {
     return (
      <View>
          <QrcodeGenerator value="test" ref={this.stepInput}/>
-         <Button title="test" onPress={(()=> {this.stepInput.current?.requestCameraPermission()})}>
+         <Button title="test" onPress={(()=> this.stepInput.current?.requestCameraPermission())}>
          </Button>
      </View>
     
