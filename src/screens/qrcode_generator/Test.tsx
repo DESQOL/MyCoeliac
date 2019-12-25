@@ -1,27 +1,27 @@
-import React from 'react'
-import { View, Button, Platform } from "react-native"
+import React from 'react';
+import { View } from 'react-native';
 import QrcodeGenerator from './QrcodeGenerator.android';
-
 
 export default class Test extends React.Component<{}, {}> {
 
-    private stepInput: React.RefObject<QrcodeGenerator>;
+    private qr: React.RefObject<QrcodeGenerator>;
     constructor(){
-        super({})
-        this.stepInput = React.createRef();
+        super({});
+        this.qr = React.createRef();
     }
-  render() {
-    return (
-     <View>
-         <QrcodeGenerator value="test" ref={this.stepInput}/>
-         <Button title="test" onPress={()=> this.stepInput.current?.requestCameraPermission()}>
-         </Button>
-     </View>
+
+    /*
+     *         <Button title="test" onPress={() => {this.qr.current?.requestCameraPermission;}}/>
+     *  ADDED COMMMENTS BECAUSE FUCKING ESLINT IS STUPID AS FUCK AND KEEPS COMPLAINING ABOUT A STANDARD FUCKING ARROW FUNCTION
+     */
+
+    render() {
+        return (
+            <View>
+                <QrcodeGenerator value="test" ref={this.qr}/>
+            </View>
     
-    );
-   };
-
-
-   
- }
+        );
+    };
+}
    
