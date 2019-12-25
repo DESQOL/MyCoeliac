@@ -11,8 +11,11 @@ export default class Test extends React.Component<{}, {}> {
     }
 
     /*
-     *         <Button title="test" onPress={() => {this.qr.current?.requestCameraPermission;}}/>
-     *  ADDED COMMMENTS BECAUSE FUCKING ESLINT IS STUPID AS FUCK AND KEEPS COMPLAINING ABOUT A STANDARD FUCKING ARROW FUNCTION
+     *         <Button title="test" onPress={() => this.qr.current?.requestCameraPermission}/>
+     *           This is how you would use it.
+     *  ADDED IT IN COMMENTS BECAUSE FUCKING ESLINT + REACT NATIVE + TYPESCRIPT IS A CANCEROUS FUCKING TUMOR
+     *
+     * 
      */
 
     render() {
