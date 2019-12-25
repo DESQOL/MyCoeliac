@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 
-import { Black, Gray, GrayLighter, White } from '../../styles/config/colors';
+import { Black, Gray, GrayLighter, White } from '../../styles/config/Colors';
 import {
     NavigationActions,
     NavigationParams,

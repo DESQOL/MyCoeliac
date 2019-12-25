@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import RecipeScreen from '../screens/recipe/recipeScreen';
+import RecipeScreen from '../screens/recipe/RecipeScreen';
 
 const RouteConfigs = {
     RecipeScreen: { screen: RecipeScreen },
