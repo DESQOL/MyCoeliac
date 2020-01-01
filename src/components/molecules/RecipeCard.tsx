@@ -107,7 +107,7 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
 
     function navigateToRecipe() {
         navigation.dispatch(StackActions.push({
-            routeName: 'HomeScreen'
+            routeName: 'InitialScreen'
         }));
 
         navigation.navigate({
