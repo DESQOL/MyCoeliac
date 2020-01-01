@@ -1,13 +1,13 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation';
 
-import RecipeScreen from '../screens/recipe/recipeScreen';
+import RecipeScreen from '../screens/recipe/RecipeScreen';
+import RecipeListScreen from '../screens/home/RecipeListScreen';
 
 const RouteConfigs = {
+    HomeScreen: { screen: RecipeListScreen },
     RecipeScreen: { screen: RecipeScreen },
 };
 
-const RecipeNavigator = createStackNavigator(RouteConfigs);
-const RecipeContainer = createAppContainer(RecipeNavigator);
+const RecipeNavigator = createStackNavigator(RouteConfigs, { initialRouteName: 'HomeScreen', headerMode: 'none' });
 
-export default RecipeContainer;
+export default RecipeNavigator;

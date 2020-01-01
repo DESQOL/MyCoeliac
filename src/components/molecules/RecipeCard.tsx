@@ -9,7 +9,8 @@ import {
     NavigationActions,
     NavigationParams,
     NavigationScreenProp,
-    NavigationState
+    NavigationState,
+    StackActions
 } from 'react-navigation';
 
 interface RecipeCardProps {
@@ -104,6 +105,24 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
         return recipeIdProps;
     }
 
+    function navigateToRecipe() {
+        navigation.dispatch(StackActions.push({
+            routeName: 'HomeScreen'
+        }));
+
+        navigation.navigate({
+            routeName: 'Recipe',
+            action: NavigationActions.navigate({
+                routeName: 'RecipeScreen',
+                params: {
+                    recipeId: getRecipeId(list.id)
+                }
+            })
+        });
+
+        return;
+    }
+
     return (
         <View style={styles.container}>
 
@@ -133,14 +152,7 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
                         type={'clear'}
                         onPress={() => {
                             // TODO: Add error/warning page if id does not exist(?)
-                            getRecipeId(list.id) ? navigation.navigate({
-                                routeName: 'Recipe',
-                                action: NavigationActions.navigate({
-                                    routeName: 'RecipeScreen',
-                                    params: { recipeId: getRecipeId(list.id) }
-                                })
-                            }
-                            ) : null;
+                            getRecipeId(list.id) ? navigateToRecipe() : null;
                         }
                         }
                     />
