@@ -128,6 +128,7 @@ class RegistrationScreen extends React.Component<Props, State> {
             email,
             password,
             passwordConfirm,
+            nameTouched,
             emailTouched,
             passwordTouched,
             passwordConfirmTouched
@@ -142,7 +143,7 @@ class RegistrationScreen extends React.Component<Props, State> {
         }
 
         const nameError =
-        !name && name
+        !name && nameTouched
             ? strings.PASSWORD_REQUIRED
             : undefined;
 
