@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Text, Alert } from 'react-native';
 import Button from '../../components/atoms/LoginButton';
 import FormTextInput from '../../components/atoms/FormTextInput';
 // import imageLogo from "../assets/images/logo.png";
@@ -43,9 +43,18 @@ class LoginScreen extends React.Component<Props, State> {
       let responseJson: any;
       this.setState({ isLoading: true });
       try {
-          const response = await fetch(
-              'https://facebook.github.io/react-native/movies.json',
-          );
+          const response = await fetch('https://desqol.hihva.nl/user/login', {
+              method: 'POST',
+              headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  email: this.state.email,
+                  password: this.state.password,
+              })
+          });
+         
           responseJson = await response.json();
 
       } catch (error) {
@@ -54,10 +63,20 @@ class LoginScreen extends React.Component<Props, State> {
           return;
       }
       if (responseJson.token) {
-          await AsyncStorage.setItem('token', responseJson.token);
-      } else {
-      // incase request isent valid do this.
+          await AsyncStorage.setItem('token', String(responseJson.token));
           this.props.navigation.navigate('Home');
+      } else {
+      // Error handling
+          this.setState({ isLoading: false });
+          Alert.alert(
+              'Error',
+              responseJson.message,
+              [
+                  { text: 'OK', onPress: () => console.log('OK Pressed') },
+              ],
+              { cancelable: false },
+          );
+
       }
   };
 
@@ -140,6 +159,9 @@ class LoginScreen extends React.Component<Props, State> {
                       onPress={this.handleLoginPress}
                       disabled={!!emailError || !password}
                   />
+                  <Text style={styles.register} onPress={() => {this.props.navigation.navigate('Register');}}>
+                      Register
+                  </Text>
               </View>
           </View>);
   }
