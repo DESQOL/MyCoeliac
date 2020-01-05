@@ -1,6 +1,7 @@
 const strings = {
     LOGIN: 'Log In',
     EMAIL_PLACEHOLDER:'example@example.com',
+    NAME_PLACEHOLDER:'name',
     PASSWORD_PLACEHOLDER:'password',
     PASSWORD_RETYPE:'retype password',
     EMAIL_REQUIRED:'Email required',

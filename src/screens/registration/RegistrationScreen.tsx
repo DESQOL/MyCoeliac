@@ -13,9 +13,11 @@ interface Props {
 }
 
 interface State {
+    name: string;
     email: string;
     password: string;
     passwordConfirm: string;
+    nameTouched: boolean;
     emailTouched: boolean;
     passwordTouched: boolean;
     passwordConfirmTouched: boolean;
@@ -24,9 +26,11 @@ interface State {
 
 class RegistrationScreen extends React.Component<Props, State> {
     readonly state: State = {
+        name: '',
         email: '',
         password: '',
         passwordConfirm: '',
+        nameTouched: false,
         emailTouched: false,
         passwordTouched: false,
         passwordConfirmTouched: false,
@@ -40,6 +44,10 @@ class RegistrationScreen extends React.Component<Props, State> {
         this.setState({ email: email });
     };
 
+    handleNameChange = (name: string) => {
+        this.setState({ name: name });
+    };
+
     handlePasswordChange = (password: string) => {
         this.setState({ password: password });
     };
@@ -48,13 +56,22 @@ class RegistrationScreen extends React.Component<Props, State> {
         this.setState({ passwordConfirm });
     };
 
-    handleLoginPress = async () => {
+    handleRegisterPress = async () => {
         let responseJson: any;
         this.setState({ isLoading: true });
         try {
-            const response = await fetch(
-                'https://facebook.github.io/react-native/movies.json',
-            );
+            const response = await fetch('https://desqol.hihva.nl/user/register', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                })
+            });
             responseJson = await response.json();
 
         } catch (error) {
@@ -62,17 +79,25 @@ class RegistrationScreen extends React.Component<Props, State> {
             this.setState({ isLoading: false });
             return;
         }
+        await AsyncStorage.setItem('registered', 'true');
         if (responseJson.token) {
+            // incase register ever sends back the token
             await AsyncStorage.setItem('token', responseJson.token);
-        } else {
-            // incase request isent valid do this.
             this.props.navigation.navigate('Home');
+        } else {
+            // incase request does not contain token go to login and get the token.
+            this.props.navigation.navigate('Login');
+            
         }
     };
 
     // ...and we update them in the input onBlur callback
     handleEmailBlur = () => {
         this.setState({ emailTouched: true });
+    };
+
+    handleNameBlur = () => {
+        this.setState({ nameTouched: true });
     };
 
     handlePasswordBlur = () => {
@@ -101,6 +126,7 @@ class RegistrationScreen extends React.Component<Props, State> {
 
     render() {
         const {
+            name,
             email,
             password,
             passwordConfirm,
@@ -109,7 +135,6 @@ class RegistrationScreen extends React.Component<Props, State> {
             passwordConfirmTouched
         } = this.state;
         let emailError = undefined;
-        console.log(validateEmail(email));
         if (emailTouched) {
             if (!email || !validateEmail(email)) {
                 emailError = strings.EMAIL_REQUIRED;
@@ -117,6 +142,11 @@ class RegistrationScreen extends React.Component<Props, State> {
                 emailError = undefined;
             }
         }
+
+        const nameError =
+        !name && name
+            ? strings.PASSWORD_REQUIRED
+            : undefined;
 
         const passwordError =
             !password && passwordTouched
@@ -141,6 +171,16 @@ class RegistrationScreen extends React.Component<Props, State> {
                 style={styles.container}
             >
                 <View style={styles.form}>
+                    <FormTextInput
+                        value={this.state.name}
+                        onChangeText={this.handleNameChange}
+                        onSubmitEditing={this.handleEmailSubmitPress}
+                        placeholder={strings.NAME_PLACEHOLDER}
+                        autoCorrect={false}
+                        returnKeyType="next"
+                        onBlur={this.handleNameBlur}
+                        error={nameError}
+                    />
                     <FormTextInput
                         value={this.state.email}
                         onChangeText={this.handleEmailChange}
@@ -175,7 +215,7 @@ class RegistrationScreen extends React.Component<Props, State> {
                     />
                     <Button
                         label={strings.LOGIN}
-                        onPress={this.handleLoginPress}
+                        onPress={this.handleRegisterPress}
                         disabled={!!emailError || !password || (password != passwordConfirm)}
                     />
                 </View>
