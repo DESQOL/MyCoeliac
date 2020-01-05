@@ -73,7 +73,6 @@ class RegistrationScreen extends React.Component<Props, State> {
                 })
             });
             responseJson = await response.json();
-
         } catch (error) {
             console.error(error);
             this.setState({ isLoading: false });
@@ -81,13 +80,12 @@ class RegistrationScreen extends React.Component<Props, State> {
         }
         await AsyncStorage.setItem('registered', 'true');
         if (responseJson.token) {
-            // incase register ever sends back the token
+            // incase register  sends back the token
             await AsyncStorage.setItem('token', responseJson.token);
             this.props.navigation.navigate('Home');
         } else {
             // incase request does not contain token go to login and get the token.
             this.props.navigation.navigate('Login');
-            
         }
     };
 
