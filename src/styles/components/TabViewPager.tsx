@@ -1,6 +1,6 @@
-import { GrayDolphin, Black } from '../styles/config/Colors';
+import { GrayDolphin, Black } from '../config/Colors';
 import { StyleSheet } from 'react-native';
-import { widthPercentageToDP } from '../styles/config/Mixins';
+import { widthPercentageToDP } from '../config/Mixins';
 
 // Test styling, will be replaced later.
 export default StyleSheet.create({

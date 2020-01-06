@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import NavHeader from '../../components/atoms/NavHeader';
 import MenuButton from '../../components/atoms/MenuButton';
 import AsyncStorage from '@react-native-community/async-storage';
-import styles from '../../styles/SettingsScreen';
+import styles from '../../styles/components/SettingsScreen';
 
 interface Props {
     navigation: any;

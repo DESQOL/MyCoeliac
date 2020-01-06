@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { GrayLighter, GrayLightest, White } from './config/Colors';
+import { GrayLighter, GrayLightest, White } from '../config/Colors';
 
 export default StyleSheet.create({
     TextStats: {

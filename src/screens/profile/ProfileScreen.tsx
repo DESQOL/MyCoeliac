@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
 import TabViewPager from '../../components/molecules/tabViewPager';
-import styles from '../../styles/ProfileScreen';
+import styles from '../../styles/components/ProfileScreen';
 
 import NavHeader from '../../components/atoms/NavHeader';
 
