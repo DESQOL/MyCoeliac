@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import {
+    NavigationParams,
+    NavigationScreenProp,
+    NavigationState
+} from 'react-navigation';
 
 import { Gray, Transparent, White } from '../../styles/config/Colors';
 
@@ -91,11 +95,11 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         });
     }
 
-  public readonly state: RecipeScreenState = {
-      search: '',
-      recipes: dummyList,
-      recipeId: false,
-  };
+    public readonly state: RecipeScreenState = {
+        search: '',
+        recipes: dummyList,
+        recipeId: false,
+    };
 
     getRecipeId = (data: any) => {
         if (data) {

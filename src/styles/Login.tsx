@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { White } from './config/Colors';
+import { White, DodgerBlue } from './config/Colors';
+import { scaleSize } from './config/Mixins';
 
 export default StyleSheet.create({
     container: {
@@ -22,5 +23,11 @@ export default StyleSheet.create({
         flex: 1,
         resizeMode: 'contain',
         width: '100%'
+    },
+    register:{
+        color:DodgerBlue,
+        marginTop:scaleSize(20),
+        opacity: 0.5,
+        textAlign:'center'
     }
 });

@@ -4,7 +4,7 @@ import RegisterScreen from '../screens/registration/RegistrationScreen';
 import { HeaderMode } from 'react-navigation-stack/lib/typescript/types';
 
 const AuthNavigatorConfig = {
-    initialRouteName: 'Register',
+    initialRouteName: 'Login',
     header: null,
     headerMode: 'none' as HeaderMode
 };

@@ -50,7 +50,11 @@ export default class RecipeScreen extends React.Component<AppProps> {
 
         return (
             <SafeAreaView>
-                <NavHeader title={'MyCooliac'} navIcon={true}/>
+                <NavHeader
+                    title={'MyCooliac'}
+                    navIcon={true}
+                    onClick={() => navigation.goBack(null)}
+                />
                 <View>
                     <Recipe recipeProps={dummyList[getRecipeIdNum - 1]}/>
                 </View>
