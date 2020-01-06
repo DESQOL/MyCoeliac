@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import QrCodeGenerator from './QrCodegenerator';
+import QrCodeGenerator from './QrcodeGenerator';
 
 export default class Test extends React.Component<{}, {}> {
 
