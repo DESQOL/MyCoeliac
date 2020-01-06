@@ -8,8 +8,8 @@ interface QrProps {
 }
 /**
  * Component for generating an qr code.
- * Make the component invissble or hidden and call the fucking requestcamera which in turns makes the qr code when
- * the permissions are given.
+ * Make the component invissble or hidden and call the requestcamera which makes the qr code
+ * and saves it to local storage when its given permissions
  */
 export default class QrcodeGenerator extends React.Component<QrProps, {}> {
 
@@ -36,7 +36,7 @@ export default class QrcodeGenerator extends React.Component<QrProps, {}> {
                   return CameraRoll.saveToCameraRoll(RNFS.DocumentDirectoryPath + '/' + date + '.png', 'photo');
               })
               .then(() => {
-                  console.log('test');
+                  // alert success?
               });
        
       });

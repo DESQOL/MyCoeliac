@@ -17,7 +17,6 @@ const RootNavigator = createSwitchNavigator(
         Recipe: RecipeNavigator,
         Profile:ProfileScreen,
         SettingScreen: SettingsScreen
-
     },
     {
         initialRouteName: 'App',
