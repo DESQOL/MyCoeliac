@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
 import Button from '../../components/atoms/LoginButton';
-import { name } from '../../../app.json';
 import { GrayLight } from '../../styles/config/Colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
 import TabViewPager from '../../components/molecules/tabViewPager';
 import styles from '../../styles/ProfileScreen';
+
+import NavHeader from '../../components/atoms/NavHeader';
 
 interface Props {
     navigation: any;
@@ -33,31 +34,30 @@ class ProfileScreen extends React.Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}>{name}</Text>
-                </View>
+                <NavHeader title={'Profile'} navIcon={true}/>
                 <View style={styles.containerProfileAndSettings}>
                     <View style={styles.containerProfile}>
                         <View style={styles.containerProfileImage}>
-                            <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
+                            <Image style={styles.avatar}
+                                source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }}/>
                         </View>
                         <View style={styles.containerProfileDescription}>
                             <View style={styles.containerText}>
-                                <Text >
+                                <Text>
                                     Sophia Mars
                                 </Text>
-                                <Text >
+                                <Text>
                                     {'Welcome to my page!'}
                                 </Text>
                             </View>
                             <View style={styles.containerStats}>
                                 <View style={styles.containerStatsText}>
-                                    <Icon name="book" size={30} color={GrayLight} />
+                                    <Icon name="book" size={30} color={GrayLight}/>
                                     <Text style={styles.TextWidth}>20</Text>
 
                                 </View>
                                 <View style={styles.containerStatsText}>
-                                    <Icon name="heart" size={30} color={GrayLight} />
+                                    <Icon name="heart" size={30} color={GrayLight}/>
                                     <Text style={styles.TextWidth}>20</Text>
 
                                 </View>
@@ -70,7 +70,7 @@ class ProfileScreen extends React.Component<Props, State> {
                     </View>
                     <View style={styles.containerProfileSettingsButton}>
                         <TouchableOpacity>
-                            <Icon name="cog" size={30} color="lightgray" />
+                            <Icon name="cog" size={30} color="lightgray"/>
 
                         </TouchableOpacity>
                     </View>
@@ -85,7 +85,7 @@ class ProfileScreen extends React.Component<Props, State> {
                 </View>
 
                 <View style={styles.containerViewPagerGroup}>
-                    <TabViewPager tabs={[{ id: 0, text: 'Recipes' }, { id: 1, text: 'Favorites' }]} />
+                    <TabViewPager tabs={[{ id: 0, text: 'Recipes' }, { id: 1, text: 'Favorites' }]}/>
 
                 </View>
             </View>
