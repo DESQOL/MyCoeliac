@@ -6,16 +6,17 @@ import PropTypes from 'prop-types';
 import { Avatar } from 'react-native-elements';
 
 import RecipeListScreen from '../screens/home/RecipeListScreen';
-import AboutScreen from '../screens/about/aboutScreen';
 
 import { GrayDark, GrayLight, GrayLighter } from '../styles/config/Colors';
+import BarcodeScanner from '../screens/barcode_scanner/BarcodeScanner';
+import ProfileScreen from '../screens/profile/profileScreen';
 
 function renderScannerIcon({ tintColor }: any) {
-    return (<Icon name='barcode-scan' size={25} color={tintColor} />);
+    return <Icon name="barcode-scan" size={25} color={tintColor} />;
 }
 
 function renderRecipesIcon({ tintColor }: any) {
-    return (<Icon name='book' size={25} color={tintColor} />);
+    return <Icon name="book" size={25} color={tintColor} />;
 }
 
 renderRecipesIcon.propTypes = {
@@ -27,7 +28,14 @@ renderScannerIcon.propTypes = {
 };
 
 function getUserAvatar() {
-    return(<Avatar rounded title={'EX'} size={25} overlayContainerStyle={{ backgroundColor: GrayLight }} />);
+    return (
+        <Avatar
+            rounded
+            title={'EX'}
+            size={25}
+            overlayContainerStyle={{ backgroundColor: GrayLight }}
+        />
+    );
 }
 
 const TabNavigatorConfig = {
@@ -36,7 +44,7 @@ const TabNavigatorConfig = {
     tabBarOptions: {
         showLabel: false,
         activeTintColor: GrayLighter,
-        inactiveTintColor: GrayDark,
+        inactiveTintColor: GrayDark
     }
 };
 
@@ -44,25 +52,23 @@ const RouteConfigs = {
     Home: {
         screen: RecipeListScreen,
         navigationOptions: {
-            tabBarIcon: renderRecipesIcon,
-        },
+            tabBarIcon: renderRecipesIcon
+        }
     },
 
-    // TODO: Change into barcode scan screen
     Scanner: {
-        screen: AboutScreen,
+        screen: BarcodeScanner,
         navigationOptions: {
-            tabBarIcon: renderScannerIcon,
-        },
+            tabBarIcon: renderScannerIcon
+        }
     },
 
-    // TODO: Change into profile screen. Use user avatar as icon.
     Profile: {
-        screen: AboutScreen,
+        screen: ProfileScreen,
         navigationOptions: {
-            tabBarIcon: getUserAvatar,
-        },
-    },
+            tabBarIcon: getUserAvatar
+        }
+    }
 };
 
 const AppNavigator = createBottomTabNavigator(RouteConfigs, TabNavigatorConfig);
