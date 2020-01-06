@@ -1,59 +1,40 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
+import { StyleSheet, View } from 'react-native';
 import ViewPagerType from '@react-native-community/viewpager';
 
 const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
-import { Black } from '../../styles/config/Colors';
-import { name } from '../../../app.json';
 import AsyncStorage from '@react-native-community/async-storage';
+import TermsOfAgreement from '../onboarding/TermsOfAgreement';
+import WelcomeScreen from './WelcomeScreen';
+import PermissionScreen from './PermissionScreen';
 
 interface Props {
-  navigation: any;
+    navigation: any;
 }
 
 interface State {
-  pagePosition: number;
-}
-
-interface EventHandle {
-  e: {
-    nativeEvent: {
-      position: Event;
-    };
-  };
+    pagePosition: number;
+    accepted: boolean;
 }
 
 // Test styling, will be replaced later.
 const styles = StyleSheet.create({
-    HeaderText: {
-        color: Black,
-
-        fontSize: 37,
-        fontWeight: 'bold',
-        textAlign: 'center',
+    buttonContainer: {
+        alignItems: 'center',
+        justifyContent:'center'
     },
     pageContainer: {
-        alignItems: 'center',
         flex: 0.9,
+        width: '80%',
     },
-
     pageStyle: {
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'flex-end',
     },
-    skipText: {
-        color: Black,
-        flex: 1,
-        fontWeight: 'bold',
-    },
-    topPart: {
-        flex: 9,
-    },
     viewPager: {
         flex: 1,
-    },
+    }
 });
 
 /**
@@ -69,7 +50,8 @@ class OnboardingScreen extends React.Component<Props, State> {
         this.handleViewPagerClick = this.handleViewPagerClick.bind(this);
         this.handleLastPage = this.handleLastPage.bind(this);
         this.state = {
-            pagePosition: 0
+            pagePosition: 0,
+            accepted: false
         };
     }
 
@@ -82,46 +64,19 @@ class OnboardingScreen extends React.Component<Props, State> {
                 ref={this.viewPager}
                 onPageSelected={(EventHandle: any) => this.pageChanged(EventHandle.nativeEvent.position)}
             >
-
                 <View style={styles.pageStyle} key='1'>
                     <View style={styles.pageContainer}>
-                        <View style={styles.topPart}>
-                            <Text style={styles.HeaderText}> Welcome to {'\n' + name}</Text>
-                        </View>
-                        <Button
-                            iconRight
-                            title='Button'
-                        />
-                        <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
-                            Skip</Text>
+                        <WelcomeScreen onPress={() => { this.handleViewPagerClick(); }} />
                     </View>
                 </View>
-
                 <View style={styles.pageStyle} key='2'>
                     <View style={styles.pageContainer}>
-                        <View style={styles.topPart}>
-                            <Text style={styles.HeaderText}> Welcome to {'\n' + name}</Text>
-                        </View>
-                        <Button
-                            iconRight
-                            title='Button'
-                        />
-                        <Text style={styles.skipText} onPress={this.handleViewPagerClick}>
-                            Skip</Text>
+                        <PermissionScreen onPress={() => { this.handleViewPagerClick(); }} />
                     </View>
                 </View>
-
-                <View style={styles.pageStyle} key='3'>
+                <View style={styles.buttonContainer} key='3'>
                     <View style={styles.pageContainer}>
-                        <View style={styles.topPart}>
-                            <Text style={styles.HeaderText}> We use these permissions for</Text>
-                        </View>
-                        <Button
-                            title='Done'
-                            onPress={this.handleLastPage}
-                        />
-                        <Text style={styles.skipText} >
-                            Skip</Text>
+                        <TermsOfAgreement onPress={() => this.handleLastPage()} />
                     </View>
                 </View>
             </ViewPager>
