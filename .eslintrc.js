@@ -32,6 +32,7 @@ module.exports = {
         "object-curly-spacing": ["error", "always"],
         "prefer-arrow-callback": "error",
         "quotes": ["error", "single", "avoid-escape"],
+        "react-native/split-platform-components": "warn",
         "semi": "off",
         "spaced-comment": ["error", "always", {
             "block": {
