@@ -9,7 +9,7 @@ import RecipeListScreen from '../screens/home/RecipeListScreen';
 
 import { GrayDark, GrayLight, GrayLighter } from '../styles/config/Colors';
 import BarcodeScanner from '../screens/barcode_scanner/BarcodeScanner';
-import ProfileScreen from '../screens/profile/profileScreen';
+import ProfileScreen from '../screens/profile/ProfileScreen';
 
 function renderScannerIcon({ tintColor }: any) {
     return <Icon name="barcode-scan" size={25} color={tintColor} />;

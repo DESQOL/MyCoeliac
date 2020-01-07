@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import CommentList from '../../components/molecules/CommentList';
+import styles from '../../styles/screens/CommentScreen';
 
 interface CommentObject {
   id: number;
@@ -90,12 +91,6 @@ const comments = [
 ];
 
 const currentProfile = testProfile1;
-
-const styles = StyleSheet.create({
-    commentList: {
-        flex: 1,
-    },
-});
 
 export default class CommentScreen extends Component<
   CommentScreenProps,

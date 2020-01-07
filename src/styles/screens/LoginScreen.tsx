@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { White, DodgerBlue } from './config/Colors';
-import { scaleSize } from './config/Mixins';
+import { White, DodgerBlue } from '../config/Colors';
+import { scaleSize } from '../config/Mixins';
 
 export default StyleSheet.create({
     container: {

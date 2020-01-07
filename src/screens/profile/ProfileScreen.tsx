@@ -5,8 +5,8 @@ import { GrayLight } from '../../styles/config/Colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
-import TabViewPager from '../../components/molecules/tabViewPager';
-import styles from '../../styles/ProfileScreen';
+import TabViewPager from '../../components/molecules/TabViewPager';
+import styles from '../../styles/screens/ProfileScreen';
 
 import NavHeader from '../../components/atoms/NavHeader';
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
+import styles from '../../styles/screens/ProductScreen';
 
 import Dropdown from '../../components/atoms/Dropdown';
 import NavHeader from '../../components/atoms/NavHeader';
@@ -20,24 +21,6 @@ interface ProductScreenProps {
 }
 
 const categories = ['Bread, Grains & other Starches', 'Fruit', 'Vegetables'];
-
-const styles = StyleSheet.create({
-    button: {
-        margin: 16,
-        width: 175,
-    },
-
-    container: {
-        alignItems: 'center',
-        display: 'flex',
-        flex: 1,
-        marginTop: 50,
-    },
-
-    screenContainer: {
-        flex: 1,
-    },
-});
 
 export default class ProductScreen extends React.Component<
   ProductScreenProps,

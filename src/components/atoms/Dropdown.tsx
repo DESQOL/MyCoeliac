@@ -1,47 +1,8 @@
 import React from 'react';
-import { StyleProp, ViewStyle, StyleSheet, View } from 'react-native';
-import { GrayLightest, GrayLight } from '../../styles/config/Colors';
+import { StyleProp, ViewStyle, View } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-const styles = StyleSheet.create({
-    dropdown: {
-        display: 'flex',
-        flexDirection: 'column',
-        height: 55,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-    dropdownContainer: {
-        alignItems: 'center',
-        backgroundColor: GrayLightest,
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-    },
-
-    dropdownList: {
-        marginTop: 16,
-        width: '100%',
-    },
-
-    dropdownListText: {
-        backgroundColor: GrayLight,
-        fontSize: 14,
-        height: 55,
-    },
-
-    dropdownText: {
-        fontSize: 14,
-        marginLeft: 5,
-    },
-
-    icon: {
-        marginLeft: 'auto',
-        marginRight: 20,
-    },
-});
+import styles from '../../styles/components/atoms/Dropdown';
 
 interface DropdownProps {
   dropdownStyle?: StyleProp<ViewStyle>;

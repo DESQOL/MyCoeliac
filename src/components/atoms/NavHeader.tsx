@@ -1,42 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import { GrayLight, GrayLightest } from '../../styles/config/Colors';
-import { FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../styles/config/Fonts';
+import styles from '../../styles/components/atoms/NavHeader';
+import { GrayLight } from '../../styles/config/Colors';
 
 interface NavHeaderProps {
     title: string;
     navIcon: boolean;
     onClick?: any;
 }
-
-const styles = StyleSheet.create({
-    header: {
-        alignItems: 'center',
-        backgroundColor: GrayLightest,
-        display: 'flex',
-        height: 60,
-        justifyContent: 'center',
-        width: '100%',
-    },
-
-    logoContainer: {
-        display: 'flex',
-        paddingLeft: 13,
-        position: 'absolute',
-        width: '100%',
-    },
-
-    title: {
-        fontSize: FONT_SIZE_20
-    },
-
-    titleLogo: {
-        fontSize: FONT_SIZE_20,
-        fontWeight: FONT_WEIGHT_BOLD,
-    }
-});
 
 export default function NavHeader({ title, navIcon, onClick }: NavHeaderProps): JSX.Element {
     return (

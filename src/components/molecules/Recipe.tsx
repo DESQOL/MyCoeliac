@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
+import { Text, View, Image, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-import { GrayLightest } from '../../styles/config/Colors';
-import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../styles/config/Fonts';
+import styles from '../../styles/components/molecules/Recipe';
 
 import SeparatorPipe from '../atoms/SeparatorPipe';
 
@@ -13,65 +11,6 @@ interface AppProps {
 }
 
 const starRating: any = [];
-
-const styles = StyleSheet.create({
-    description: {
-        fontSize: FONT_SIZE_14,
-    },
-
-    duration: {
-        position: 'absolute',
-    },
-
-    logo: {
-        alignSelf: 'center',
-        height: 200,
-        width: '100%',
-    },
-
-    ratingContainer: {
-        alignSelf: 'flex-end',
-        display: 'flex',
-        flexDirection: 'row',
-        position: 'absolute',
-    },
-
-    recipeCardContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingLeft: 28,
-        paddingRight: 28,
-    },
-
-    recipeData: {
-        marginBottom: 25,
-    },
-
-    recipeListItem: {
-        backgroundColor: GrayLightest,
-        padding: 5,
-    },
-
-    recipeListItemContent: {
-        fontSize: 14,
-        marginLeft: 8,
-        marginRight: 8,
-    },
-
-    subtitle: {
-        fontSize: FONT_SIZE_17,
-        marginBottom: 10,
-        marginTop: 10,
-    },
-
-    title: {
-        fontSize: FONT_SIZE_20,
-        marginBottom: 10,
-        marginTop: 10,
-    },
-
-});
 
 function renderRating(rating: number) {
     for (let j = 0; j < rating; j++) {

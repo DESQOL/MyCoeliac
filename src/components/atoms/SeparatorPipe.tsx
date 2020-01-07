@@ -1,13 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { GrayLighter } from '../../styles/config/Colors';
-
-const styles = {
-    separator: {
-        height: 1,
-        backgroundColor: GrayLighter,
-    }
-};
+import styles from '../../styles/components/atoms/SeparatorPipe';
 
 // Use as separator for Flatlist components
 export default function SeparatorPipe() {
