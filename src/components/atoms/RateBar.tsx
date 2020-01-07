@@ -1,13 +1,7 @@
 import React from 'react';
 import { Text, AirbnbRating } from 'react-native-elements';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-    rateBar: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
-});
+import { SafeAreaView, View } from 'react-native';
+import styles from 'src/styles/components/atoms/RateBar';
 
 export default function RateBar(): JSX.Element {
     return (

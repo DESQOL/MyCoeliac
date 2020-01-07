@@ -5,7 +5,7 @@ import FormTextInput from '../../components/atoms/FormTextInput';
 // import imageLogo from "../assets/images/logo.png";
 import strings from '../../values/strings';
 import AsyncStorage from '@react-native-community/async-storage';
-import styles from '../../styles/components/Login';
+import styles from '../../styles/screens/LoginScreen';
 import { validateEmail } from '../../utils/Validation';
 
 interface Props {

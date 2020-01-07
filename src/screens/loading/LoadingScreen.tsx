@@ -2,22 +2,14 @@ import React from 'react';
 import {
     ActivityIndicator,
     StatusBar,
-    StyleSheet,
     View,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import styles from 'src/styles/screens/LoadingScreen';
 
 interface Props {
     navigation: any;
 };
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        flex: 1,
-        justifyContent: 'center',
-    }
-});
 
 /**
  * The entry screen for deciding what othere screen to go to, or setting up services.

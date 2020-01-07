@@ -1,26 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, TextInput, TextInputProps, View, Text } from 'react-native';
-import { DodgerBlue, Silver, TorchRed } from '../../styles/config/Colors';
+import { TextInput, TextInputProps, View, Text } from 'react-native';
+import { DodgerBlue } from '../../styles/config/Colors';
+import styles from 'src/styles/components/atoms/FormTextInput';
 
 type Props = TextInputProps & {
     error?: string;
 };
-
-const styles = StyleSheet.create({
-    container: {
-        marginBottom: 10
-    },
-    errorText: {
-        color: TorchRed,
-        height: 20
-    },
-    textInput: {
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderColor: Silver,
-        height: 40,
-        marginBottom: 20
-    }
-});
 
 class FormTextInput extends React.Component<Props> {
 

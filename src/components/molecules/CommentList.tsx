@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, View, Text } from 'react-native';
+import { FlatList, View, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import ProfileAvatar from '../atoms/ProfileAvatar';
 import RateBar from '../atoms/RateBar';
 import PrimaryButton from '../atoms/PrimaryButton';
 import PrimaryTextField from '../atoms/PrimaryTextField';
-import { PrimaryGray } from '../../styles/config/Colors';
 import { Rating } from 'react-native-elements';
+
+import styles from 'src/styles/components/molecules/CommentList';
 
 interface CommenListState {
   input: string;
@@ -29,37 +30,6 @@ interface CommentObject {
   body: string;
   profile: ProfileObject;
 }
-
-const styles = StyleSheet.create({
-    avatar: {
-        justifyContent: 'flex-start',
-    },
-    input: {
-        borderColor: PrimaryGray,
-        borderWidth: 1,
-        height: 40,
-        width: 180,
-    },
-    newComment: {
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginBottom: 10,
-        marginTop: 20,
-    },
-    primaryButton: {
-        width: 100,
-    },
-    rating: {
-        marginRight: 40,
-        marginTop: 10,
-    },
-    title: {
-        fontSize: 25,
-        textAlign: 'center',
-    },
-});
 
 const testProfile1: ProfileObject = {
     avatar:
