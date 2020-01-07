@@ -162,7 +162,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         });
 
         // Call request for initial set of recipes
-        const getRecipesUrl = 'url' + this.state.recipeList;
+        const getRecipesUrl = 'https://desqol.hihva.nl/recipe/search?limit=5&offset=' + this.state.recipeList;
 
         fetch(getRecipesUrl)
             .then(recipesData => recipesData.json())
