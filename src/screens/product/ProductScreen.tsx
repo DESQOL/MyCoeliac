@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, SafeAreaView } from 'react-native';
-import styles from 'src/styles/screens/ProductScreen';
+import styles from '../../styles/screens/ProductScreen';
 
 import Dropdown from '../../components/atoms/Dropdown';
 import NavHeader from '../../components/atoms/NavHeader';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextInput, TextInputProps, View, Text } from 'react-native';
 import { DodgerBlue } from '../../styles/config/Colors';
-import styles from 'src/styles/components/atoms/FormTextInput';
+import styles from '../../styles/components/atoms/FormTextInput';
 
 type Props = TextInputProps & {
     error?: string;

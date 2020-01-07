@@ -7,7 +7,7 @@ import PrimaryButton from '../atoms/PrimaryButton';
 import PrimaryTextField from '../atoms/PrimaryTextField';
 import { Rating } from 'react-native-elements';
 
-import styles from 'src/styles/components/molecules/CommentList';
+import styles from '../../styles/components/molecules/CommentList';
 
 interface CommenListState {
   input: string;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View, Image, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from 'src/styles/components/molecules/Recipe';
+import styles from '../../styles/components/molecules/Recipe';
 
 import SeparatorPipe from '../atoms/SeparatorPipe';
 

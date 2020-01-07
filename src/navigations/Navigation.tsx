@@ -5,7 +5,7 @@ import AppNavigator from './AppNavigation';
 import RecipeNavigator from './RecipeNavigation';
 import LoadingScreen from '../screens/loading/LoadingScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
-import SettingsScreen from '../screens/settings/settingsScreen';
+import SettingsScreen from '../screens/settings/SettingsScreen';
 import OnboardingScreen from '../screens/onboarding/OnboardingScreen';
 
 const RootNavigator = createSwitchNavigator(
@@ -19,7 +19,7 @@ const RootNavigator = createSwitchNavigator(
         SettingScreen: SettingsScreen
     },
     {
-        initialRouteName: 'LoadingScreen',
+        initialRouteName: 'App',
     },
 );
 

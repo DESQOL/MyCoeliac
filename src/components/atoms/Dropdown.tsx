@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleProp, ViewStyle, View } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from 'src/styles/components/atoms/Dropdown';
+import styles from '../../styles/components/atoms/Dropdown';
 
 interface DropdownProps {
   dropdownStyle?: StyleProp<ViewStyle>;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from 'src/styles/components/atoms/NavHeader';
+import styles from '../../styles/components/atoms/NavHeader';
 import { GrayLight } from '../../styles/config/Colors';
 
 interface NavHeaderProps {

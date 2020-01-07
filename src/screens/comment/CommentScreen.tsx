@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView } from 'react-native';
 import CommentList from '../../components/molecules/CommentList';
-import styles from 'src/styles/screens/CommentScreen';
+import styles from '../../styles/screens/CommentScreen';
 
 interface CommentObject {
   id: number;

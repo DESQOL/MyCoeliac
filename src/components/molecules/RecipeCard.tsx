@@ -12,7 +12,7 @@ import {
     NavigationState,
     StackActions
 } from 'react-navigation';
-import styles from 'src/styles/components/molecules/RecipeCard';
+import styles from '../../styles/components/molecules/RecipeCard';
 
 interface RecipeCardProps {
     list: any;
