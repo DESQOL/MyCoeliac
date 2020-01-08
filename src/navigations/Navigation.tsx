@@ -19,7 +19,7 @@ const RootNavigator = createSwitchNavigator(
         SettingScreen: SettingsScreen
     },
     {
-        initialRouteName: 'App',
+        initialRouteName: 'Profile',
     },
 );
 

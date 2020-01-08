@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import Button from '../../components/atoms/LoginButton';
 import { GrayLight } from '../../styles/config/Colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
 import TabViewPager from '../../components/molecules/TabViewPager';
 import styles from '../../styles/screens/ProfileScreen';
 
 import NavHeader from '../../components/atoms/NavHeader';
+import AsyncStorage from '@react-native-community/async-storage';
 
 interface Props {
     navigation: any;
@@ -30,6 +30,11 @@ class ProfileScreen extends React.Component<Props, State> {
         super(props);
     }
 
+    async signout() {
+        console.log('test');
+        await AsyncStorage.removeItem('token');
+        this.props.navigation.navigate('Auth');
+    }
     // Test page's will be replaced later.
     render() {
         return (
@@ -69,9 +74,9 @@ class ProfileScreen extends React.Component<Props, State> {
 
                     </View>
                     <View style={styles.containerProfileSettingsButton}>
-                        <TouchableOpacity>
-                            <Icon name="cog" size={30} color="lightgray"/>
-
+                        <TouchableOpacity onPress={() => this.signout()}>
+                            <Icon name="sign-out" size={30} color="lightgray"/>
+                            <Text style={styles.textLogout}>logout </Text>
                         </TouchableOpacity>
                     </View>
 

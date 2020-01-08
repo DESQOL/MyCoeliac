@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { GrayLighter, GrayLightest, White } from '../config/Colors';
+import { GrayLighter, GrayLightest, White, LightSlateGray } from '../config/Colors';
 
 export default StyleSheet.create({
     TextStats: {
@@ -46,7 +46,7 @@ export default StyleSheet.create({
     },
     containerProfileSettingsButton: {
         alignItems: 'flex-start',
-        flex: 1,
+        flex: 1.2,
         marginTop:2
     },
     containerStats: {
@@ -89,5 +89,10 @@ export default StyleSheet.create({
     test: {
         padding: 2
     },
-
+    textLogout:{
+        alignSelf:'flex-start',
+        color:LightSlateGray,
+        fontSize: 8,
+        textAlign:'left',
+    }
 });
