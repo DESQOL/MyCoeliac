@@ -7,6 +7,7 @@ import LoadingScreen from '../screens/loading/LoadingScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 import OnboardingScreen from '../screens/onboarding/OnboardingScreen';
+import EditProfile from '../screens/editProfile/editProfile';
 
 const RootNavigator = createSwitchNavigator(
     {
@@ -16,10 +17,11 @@ const RootNavigator = createSwitchNavigator(
         App: AppNavigator,
         Recipe: RecipeNavigator,
         Profile:ProfileScreen,
-        SettingScreen: SettingsScreen
+        SettingScreen: SettingsScreen,
+        EditProfile:EditProfile
     },
     {
-        initialRouteName: 'App',
+        initialRouteName: 'EditProfile',
     },
 );
 
