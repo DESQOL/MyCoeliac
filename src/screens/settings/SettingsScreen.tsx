@@ -23,10 +23,10 @@ class SettingsScreen extends React.Component<Props, {}> {
     render() {
         return (
             <View style={styles.container}>
-                <NavHeader title={'Settings'} navIcon={true} />
+                <NavHeader title={'Settings'} navIcon={true} onClick={() => this.props.navigation.goBack()}/>
                 <View style={styles.emptyContainerTop}></View>
                 <View style={styles.contentContainer}>
-                    <MenuButton title='Account' onPress={() => { console.log('account pressed'); }} />
+                    <MenuButton title='Profile' onPress={() => this.props.navigation.navigate('EditProfile') } />
                     <View style={styles.emptyContainer}>
                     </View>
                     <MenuButton title='Delete Account' onPress={() => console.log('delete acc pressed')} />

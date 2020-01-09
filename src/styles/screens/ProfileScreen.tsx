@@ -66,7 +66,7 @@ export default StyleSheet.create({
         paddingBottom: 45
     },
     containerViewPagerGroup: {
-        flex: 12,
+        flex: 17,
         marginEnd: 10,
         marginStart: 10
     },
