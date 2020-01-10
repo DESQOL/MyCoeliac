@@ -28,8 +28,7 @@ interface CommentScreenState {
 
 interface CommentScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    commentScreenProps?: any;
-    // recipe: any;
+    recipeId: number;
 }
 
 export default class CommentScreen extends Component<
@@ -55,7 +54,7 @@ export default class CommentScreen extends Component<
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
         try {
-            const response = await fetch('https://desqol.hihva.nl/recipe/195529/comments', {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -90,7 +89,7 @@ export default class CommentScreen extends Component<
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
         try {
-            const response = await fetch('https://desqol.hihva.nl/recipe/195529/comments', {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
