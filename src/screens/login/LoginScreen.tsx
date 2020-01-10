@@ -63,7 +63,7 @@ class LoginScreen extends React.Component<Props, State> {
           return;
       }
       if (responseJson.token) {
-          await AsyncStorage.setItem('token', String(responseJson.token));
+          await AsyncStorage.setItem('token', responseJson.token);
           this.props.navigation.navigate('Home');
       } else {
       // Error handling
