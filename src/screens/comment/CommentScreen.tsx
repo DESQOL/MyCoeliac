@@ -54,7 +54,7 @@ export default class CommentScreen extends Component<
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
         try {
-            const response = await fetch('https://desqol.hihva.nl/recipe/' + this.props.recipeId + '/comments', {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -89,7 +89,7 @@ export default class CommentScreen extends Component<
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
         try {
-            const response = await fetch('https://desqol.hihva.nl/recipe/' + this.props.recipeId + '/comments', {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
