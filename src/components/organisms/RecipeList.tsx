@@ -15,9 +15,9 @@ export default function RecipeList(props: RecipeListProps): JSX.Element {
     const { navigation } = props;
 
     // Signal parent screen if end of page is reached
-    function detectEndOfPage() {
+    const detectEndOfPage = () => {
         props.recipeListProps = true;
-    }
+    };
 
     return (<FlatList
         showsVerticalScrollIndicator={false}
@@ -26,7 +26,7 @@ export default function RecipeList(props: RecipeListProps): JSX.Element {
             <RecipeCard list={item} navigationProps={{ navigation }}/>
         )}
         keyExtractor={item => item.id.toString()}
-        onEndReachedThreshold={0}
+        onEndReachedThreshold={0.5}
         onEndReached={detectEndOfPage}
     />
     );

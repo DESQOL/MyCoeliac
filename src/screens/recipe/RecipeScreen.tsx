@@ -1,52 +1,52 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import NavHeader from '../../components/atoms/NavHeader';
 import Recipe from '../../components/molecules/Recipe';
+
+interface RecipeState {
+    recipes: any;
+}
 
 interface AppProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
-const dummyList = [
-    {
-        id: 1,
-        image:
-            'https://www.simplyrecipes.com/wp-content/uploads/2014/08/banana-bread-vertical-c-1200.jpg',
-        title: 'Banana bread',
-        description: 'This is a banana bread recipe',
-        ingredients: [
-            { id: 1, name: 'flour', amount: '1 1/2 cups' },
-            { id: 2, name: 'sugar', amount: '1 tbsp' },
-        ],
-        duration: '40 mins',
-        rating: 4,
-    },
-    {
-        id: 2,
-        image: null,
-        title: 'Chocolate cake',
-        description: '...',
-        ingredients: [
-            { id: 1, name: 'flour', amount: '1 1/2 cups' },
-            { id: 2, name: 'sugar', amount: '1 tbsp' },
-        ],
-        duration: '1 h 20 mins',
-        rating: 3,
-    },
-];
-
-export default class RecipeScreen extends React.Component<AppProps> {
+export default class RecipeScreen extends React.Component<AppProps, RecipeState> {
     constructor(props: AppProps) {
         super(props);
+
+        this.getRecipe().catch(error => console.log(error));
     }
+
+    public readonly state: RecipeState = {
+        recipes: []
+    };
+
+    getRecipe = async () => {
+        const token = await AsyncStorage.getItem('token');
+        const getRecipeUrl = 'https://desqol.hihva.nl/recipe/search?limit=5&offset=1&api_key=' + token;
+
+        fetch(getRecipeUrl)
+            .then(recipeData => recipeData.json())
+            .then(data => {
+                if (data.recipes) {
+                    this.setState({ recipes: data.recipes });
+                }
+            });
+    };
 
     render(): JSX.Element {
         const { navigation } = this.props;
 
         const getRecipeId = JSON.stringify(navigation.getParam('recipeId', 'ID'));
         const getRecipeIdNum = parseInt(getRecipeId);
+
+        function findRecipe(recipe: any) {
+            return recipe.id === getRecipeIdNum;
+        }
 
         return (
             <SafeAreaView>
@@ -56,7 +56,7 @@ export default class RecipeScreen extends React.Component<AppProps> {
                     onClick={() => navigation.goBack(null)}
                 />
                 <View>
-                    <Recipe recipeProps={dummyList[getRecipeIdNum - 1]}/>
+                    <Recipe recipeProps={this.state.recipes.find(findRecipe)}/>
                 </View>
             </SafeAreaView>
         );

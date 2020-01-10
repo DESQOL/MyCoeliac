@@ -24,12 +24,17 @@ export default StyleSheet.create({
         position: 'absolute',
     },
 
-    recipeCardContainer: {
+    recipeContainer: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         paddingLeft: 28,
         paddingRight: 28,
+    },
+
+    recipeContentContainer: {
+        display: 'flex',
+        marginBottom: 130,
     },
 
     recipeData: {

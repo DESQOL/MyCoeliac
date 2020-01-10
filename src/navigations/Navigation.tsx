@@ -17,7 +17,7 @@ const RootNavigator = createSwitchNavigator(
         Recipe: RecipeNavigator,
     },
     {
-        initialRouteName: 'ProfileNavigator',
+        initialRouteName: 'LoadingScreen',
     },
 );
 
