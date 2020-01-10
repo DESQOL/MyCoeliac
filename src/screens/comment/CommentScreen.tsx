@@ -6,18 +6,8 @@ import ProfileAvatar from '../../components/atoms/ProfileAvatar';
 import RateBar from '../../components/atoms/RateBar';
 import PrimaryTextField from '../../components/atoms/PrimaryTextField';
 import PrimaryButton from '../../components/atoms/PrimaryButton';
-
-interface CommentObject {
-    id: number;
-    comment: string;
-    profile: ProfileObject;
-}
-
-interface ProfileObject {
-    avatar: string;
-    initials: string;
-    recipeRating: number;
-}
+import NavHeader from '../../components/atoms/NavHeader';
+import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
 interface CommentScreenState {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -29,6 +19,7 @@ interface CommentScreenState {
 interface CommentScreenProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recipeId: number;
+    navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 export default class CommentScreen extends Component<
@@ -113,6 +104,7 @@ export default class CommentScreen extends Component<
     render(): JSX.Element {
         return (
             <SafeAreaView style={styles.commentList}>
+                <NavHeader title='Comments' navIcon={true} onClick={() => this.props.navigation.goBack(null)} />
                 <FlatList
                     data={this.state.comments}
                     removeClippedSubviews={false}
