@@ -16,6 +16,7 @@ import PrimaryButton from '../../components/atoms/PrimaryButton';
 interface RecipeScreenState {
     search: string;
     recipes: any;
+    filteredRecipes: any;
     recipesLoaded: boolean;
     recipeId: any;
     recipeList: number;
@@ -50,6 +51,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
     public readonly state: RecipeScreenState = {
         search: '',
         recipes: [],
+        filteredRecipes: [],
         recipesLoaded: false,
         recipeId: false,
         recipeList: 1,
@@ -81,12 +83,12 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
     updateSearch = (search: any) => {
         if (search === '') {
             this.setState({
-                recipes: this.state.recipes,
+                recipes: this.state.filteredRecipes,
                 search: search,
             });
             return;
         }
-        const newData = this.state.recipes.filter((recipe: any) => {
+        const newData = this.state.filteredRecipes.filter((recipe: any) => {
             const recipeData = recipe.title.toUpperCase();
             const searchData = search.toUpperCase();
             return recipeData.indexOf(searchData) > -1;
@@ -118,7 +120,8 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
                     });
 
                     this.setState({
-                        recipes: data.recipes
+                        recipes: data.recipes,
+                        filteredRecipes: data.recipes
                     });
                 }
             });
