@@ -26,8 +26,8 @@ interface RecipeScreenState {
 }
 
 interface RecipeScreenProps {
-  props?: {};
-  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+    props?: {};
+    navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
 export default class RecipeListScreen extends React.Component<RecipeScreenProps, RecipeScreenState> {
@@ -110,7 +110,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
     getListofRecipes = async () => {
         const token = await AsyncStorage.getItem('token');
 
-        fetch('https://desqol.hihva.nl/recipe/search?limit=5&offset=1&api_key=' + token)
+        fetch(`https://desqol.hihva.nl/recipe/search?limit=10&offset=1&api_key=${token}`)
             .then(recipeData => recipeData.json())
             .then(data => {
                 // console.log(data.recipes);
@@ -127,46 +127,42 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
             });
     };
 
-    loadRecipes = () => {
-        // Load list of recipes
-        console.log('load recipes');
-
+    loadRecipes = async () => {
         this.setState({
             isLoading: true
         });
 
+        const token = await AsyncStorage.getItem('token');
+
         // Call request for initial set of recipes
-        const getRecipesUrl = 'https://desqol.hihva.nl/recipe/search?limit=5&offset=' + this.state.recipeList;
+        const getRecipesUrl = `https://desqol.hihva.nl/recipe/search?limit=10&offset=${this.state.recipeList}&api_key=${token}`;
 
         fetch(getRecipesUrl)
             .then(recipesData => recipesData.json())
             .then(data => {
-                console.log(data);
+                let newRecipes = data;
+                newRecipes = this.state.filteredRecipes.concat(data.recipes);
+                this.setState({
+                    filteredRecipes: newRecipes,
+                    recipes: newRecipes
+                });
 
-                if (this.state.recipeList === 1) {
-                    console.log(data);
-                }
             });
     };
 
     loadMoreRecipes = () => {
-        // Load more recipes when end of page is reached
-
-        // Hide load button when list of recipes are loading
-        this.setState({
-            isEnded: false
-        });
+        const recipeOffset = 10;
 
         // Retrieve next set of recipes to be loaded
         this.setState({
-            recipeList: this.state.recipeList + 1
+            recipeList: this.state.recipeList + recipeOffset
         }, () => this.loadRecipes());
     };
 
     render(): JSX.Element {
         return (
             <SafeAreaView style={styles.screenContainer}>
-                <NavHeader title={'MyCooliac'} navIcon={false}/>
+                <NavHeader title={'MyCooliac'} navIcon={false} />
                 <View style={styles.container}>
                     <SearchBar
                         placeholder="Search recipes"
@@ -180,15 +176,9 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
                         recipes={this.state.recipesLoaded ? this.state.recipes : null}
                         recipeIdProps={this.getRecipeId}
                         navigation={this.props.navigation}
-                        // recipeListProps={this.detectEndOfPage}
+                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+                        onEndReached={() => this.loadMoreRecipes()}
                     />
-                    {/* Show button when end of content is reached */}
-                    {this.state.isEnded ?
-                        <PrimaryButton
-                            title={'Load more...'}
-                            type={'solid'}
-                            onClick={this.loadMoreRecipes}/>
-                        : null}
                 </View>
             </SafeAreaView>
         );
