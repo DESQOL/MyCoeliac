@@ -11,7 +11,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import RecipeList from '../../components/organisms/RecipeList';
 import NavHeader from '../../components/atoms/NavHeader';
-import PrimaryButton from '../../components/atoms/PrimaryButton';
 
 interface RecipeScreenState {
     search: string;
