@@ -139,8 +139,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
         fetch(getRecipesUrl)
             .then(recipesData => recipesData.json())
             .then(data => {
-                let newRecipes = data;
-                newRecipes = this.state.filteredRecipes.concat(data.recipes);
+                const newRecipes = this.state.filteredRecipes.concat(data.recipes);
                 this.setState({
                     filteredRecipes: newRecipes,
                     recipes: newRecipes
