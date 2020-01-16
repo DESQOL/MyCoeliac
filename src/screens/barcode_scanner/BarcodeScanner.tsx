@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Alert, TouchableOpacity, Image } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import styles from '../../styles/screens/BarcodeScanner';
+import { NavigationScreenProp, NavigationState, NavigationParams, StackActions, NavigationActions } from 'react-navigation';
 
 type BarcodeState = {
   flashOn: boolean;
@@ -10,6 +11,7 @@ type BarcodeState = {
 
 type BarcodeScannerProps = {
   domProps?: {};
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 };
 
 export default class BarcodeScanner extends Component<
@@ -20,7 +22,7 @@ export default class BarcodeScanner extends Component<
   constructor(props: BarcodeScannerProps) {
       super(props);
       this.handleFlash = this.handleFlash.bind(this);
-      this.camera = null;
+      this.camera = null;   
       this.state = {
           flashOn: false,
       };
@@ -41,6 +43,30 @@ export default class BarcodeScanner extends Component<
       }
   }
 
+  barcodeRecognized = ( barcode: any) => {
+      this.navigateToRecipe(Number(barcode.barcodes[0].data));
+  };
+  
+  navigateToRecipe(id: number) {
+      if(id <= 0){
+          return;
+      }
+      this.props.navigation.dispatch(StackActions.push({
+          routeName: 'InitialScreen'
+      }));
+
+      this.props.navigation.navigate({
+          routeName: 'Recipe',
+          action: NavigationActions.navigate({
+              routeName: 'RecipeScreen',
+              params: {
+                  recipeId: id
+              }
+          })
+      });
+
+      return;
+  }
   render(): JSX.Element {
       return (
           <View style={styles.container} {...this.props.domProps}>
@@ -48,6 +74,7 @@ export default class BarcodeScanner extends Component<
                   ref={(ref: RNCamera): void => {
                       this.camera = ref;
                   }}
+                  onGoogleVisionBarcodesDetected={this.barcodeRecognized}
                   captureAudio={false}
                   style={styles.preview}
                   flashMode={
@@ -61,8 +88,10 @@ export default class BarcodeScanner extends Component<
                       message: 'We need your permission to use your camera',
                       buttonPositive: 'Ok',
                       buttonNegative: 'Cancel',
-                  }}
-                  onBarCodeRead={this.onBarCodeRead}></RNCamera>
+                  }}>
+                  {// }onBarCodeRead={this.onBarCodeRead}}
+                  }
+              </RNCamera>
               <View style={styles.bottomOverlay}>
                   <TouchableOpacity
                       onPress={(): void => this.handleFlash(this.state.flashOn)}>

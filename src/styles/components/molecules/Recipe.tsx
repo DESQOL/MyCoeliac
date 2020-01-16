@@ -3,18 +3,23 @@ import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../config/Fonts';
 import { GrayLightest } from '../../config/Colors';
 
 export default StyleSheet.create({
+    buttonqrgenerator:{
+        marginTop:10,width:'35%'
+    },
     description: {
         fontSize: FONT_SIZE_14,
     },
-
     duration: {
         position: 'absolute',
     },
-
     logo: {
         alignSelf: 'center',
         height: 200,
         width: '100%',
+    },
+
+    qrgeneratorview:{
+        flex:0,height:0,opacity:0,width:0
     },
 
     ratingContainer: {
