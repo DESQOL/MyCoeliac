@@ -1,10 +1,20 @@
 import { StyleSheet } from 'react-native';
-import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20 } from '../../config/Fonts';
-import { GrayLightest } from '../../config/Colors';
+import { FONT_SIZE_14, FONT_SIZE_17, FONT_SIZE_20, FONT_WEIGHT_BOLD } from '../../config/Fonts';
+import { GrayLightest, ThemeBlue } from '../../config/Colors';
 
 export default StyleSheet.create({
     buttonqrgenerator:{
         marginTop:10,width:'35%'
+    },
+    commentButton: {
+        color: ThemeBlue,
+        fontSize: FONT_SIZE_17,
+        fontWeight: FONT_WEIGHT_BOLD
+    },
+    commentButtonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start'
     },
     description: {
         fontSize: FONT_SIZE_14,

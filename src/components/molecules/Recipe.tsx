@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image, FlatList, ScrollView } from 'react-native';
+import { Text, View, Image, FlatList, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import { ListItem, Button } from 'react-native-elements';
 import styles from '../../styles/components/molecules/Recipe';
 
@@ -23,6 +23,11 @@ export default class Recipe extends React.Component<AppProps, {}> {
         if (this.props.recipeProps) {
             console.log(this.props.recipeProps.id);
         }
+
+        function navigateToComments() {
+            // TODO: Add navigation to comments
+        }
+
         return (
             <View style={styles.recipeContainer}>
                 {this.props.recipeProps ?
@@ -40,26 +45,46 @@ export default class Recipe extends React.Component<AppProps, {}> {
                             {/* <View style={styles.ratingContainer}>{starRating}</View> */}
                         </View>
 
-                        {/* <Text>{props.recipeProps.description}</Text> */}
-
                         <Text style={styles.subtitle}>Ingredients</Text>
                         <FlatList
                             data={this.props.recipeProps.extendedIngredients}
                             renderItem={({ item }: { item: any }) => <ListItem
                                 containerStyle={styles.recipeListItem}
                                 titleStyle={styles.recipeListItemContent}
-                                title={item.amount + ' ' + item.name} />}
+                                title={`${item.measures.metric.amount} ${item.measures.metric.unitShort} ${item.name}`}
+                            />}
                             ItemSeparatorComponent={SeparatorPipe}
                             keyExtractor={(item) => item.id.toString()}
                         />
 
                         <Text style={styles.subtitle}>Instructions</Text>
-                        <Text style={styles.description}>{this.props.recipeProps.instructions}</Text>
+                        <FlatList
+                            data={this.props.recipeProps.analyzedInstructions}
+                            renderItem={({ item }: { item: any }) => {
+                                let items = [];
+                                if (item.steps) {
+                                    items = item.steps.slice(3).map((data: any) => {
+                                        return <View key={data.id}><Text style={styles.description}>{`${data.step} \n`}</Text></View>;
+                                    });
+                                    return items;
+                                }
+                            }
+                            }
+                            keyExtractor={(item: any) => item.id.toString()}
+                        />
+
+                        <View style={styles.commentButtonContainer}>
+                            <TouchableWithoutFeedback onPress={navigateToComments}>
+                                <Text style={styles.commentButton}>{'View all or post comments'}</Text>
+                            </TouchableWithoutFeedback>
+                        </View>
+
                         <View style={styles.qrgeneratorview}>
-                            <QrcodeGenerator value={String(this.props.recipeProps.id)} ref={this.qr} />
+                            <QrcodeGenerator value={String(this.props.recipeProps.id)} ref={this.qr}/>
                         </View>
                         <View style={styles.buttonqrgenerator}>
-                            <Button title="Create QR" onPress={() => this.qr.current ? this.qr.current.requestCameraPermission() : null} />
+                            <Button title="Create QR"
+                                onPress={() => this.qr.current ? this.qr.current.requestCameraPermission() : null}/>
                         </View>
                     </ScrollView>
                     : null}
