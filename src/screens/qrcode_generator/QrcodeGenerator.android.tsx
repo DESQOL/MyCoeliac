@@ -31,6 +31,7 @@ export default class QrcodeGenerator extends React.Component<QrProps, {}> {
   };
 
   public saveQrToDisk() {
+      console.log('saved qr to disk');
       this.svg.toDataURL((data: any) => {
           const date = new Date().toLocaleDateString().split('/').join('-');
           RNFS.writeFile(RNFS.DocumentDirectoryPath + '/' + date + '.png', data, 'base64')
@@ -38,13 +39,14 @@ export default class QrcodeGenerator extends React.Component<QrProps, {}> {
                   return CameraRoll.saveToCameraRoll(RNFS.DocumentDirectoryPath + '/' + date + '.png', 'photo');
               })
               .then(() => {
-                  if(Platform.OS !== 'ios'){ToastAndroid.show('Saved to gallery !!', ToastAndroid.SHORT);};
+                  if(Platform.OS !== 'ios'){ToastAndroid.show('Saved to gallery', ToastAndroid.SHORT);};
               });
        
       });
   }
 
   public async requestCameraPermission() {
+      console.log('trying to request permissions');
       try {
           const granted = await PermissionsAndroid.request(
               PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,

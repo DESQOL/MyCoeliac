@@ -25,7 +25,7 @@ interface RecipeCardProps {
 export default function RecipeCard( { list, recipeIdProps, navigationProps }: RecipeCardProps): JSX.Element {
     const { navigation } = navigationProps;
 
-    function getRecipeId(id: number) {
+    function getRecipeId(id: number): number {
         recipeIdProps = id;
         console.log('recipeCard id: ', recipeIdProps);
         return recipeIdProps;
