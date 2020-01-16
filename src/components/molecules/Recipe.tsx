@@ -14,7 +14,7 @@ export default class Recipe extends React.Component<AppProps, {}> {
     private qr: React.RefObject<QrcodeGenerator>;
 
     constructor(props: AppProps) {
-        super(props)
+        super(props);
         this.qr = React.createRef();
     }
 
@@ -59,7 +59,7 @@ export default class Recipe extends React.Component<AppProps, {}> {
                             <QrcodeGenerator value={String(this.props.recipeProps.id)} ref={this.qr} />
                         </View>
                         <View style={styles.buttonqrgenerator}>
-                            <Button title="Create QR" onPress={() => this.qr.current?.requestCameraPermission()} />
+                            <Button title="Create QR" onPress={() => this.qr.current ? this.qr.current.requestCameraPermission() : null} />
                         </View>
                     </ScrollView>
                     : null}
