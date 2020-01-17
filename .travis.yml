@@ -19,6 +19,6 @@ jobs:
     - stage: "Sync"
       if: branch = master AND type != pull_request
       script:
-        - git remote add gitlab https://oauth2:$GITLAB_TOKEN@gitlab.fdmci.hva.nl/desqol/mycoeliac.git
+        - git remote add gitlab https://oauth2:$GITLAB_TOKEN@gitlab.fdmci.hva.nl/IoT/sept-jan-20192020/gluten/mycoeliac.git
         - git push --force gitlab --all
         - git push --force gitlab --tags
