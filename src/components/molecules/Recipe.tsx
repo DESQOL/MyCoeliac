@@ -63,7 +63,7 @@ export default class Recipe extends React.Component<AppProps, {}> {
                             renderItem={({ item }: { item: any }) => {
                                 let items = [];
                                 if (item.steps) {
-                                    items = item.steps.slice(3).map((data: any) => {
+                                    items = item.steps.map((data: any) => {
                                         return <View key={data.id}><Text style={styles.description}>{`${data.step} \n`}</Text></View>;
                                     });
                                     return items;

@@ -27,7 +27,8 @@ export default class RecipeScreen extends React.Component<AppProps, RecipeState>
 
     getRecipe = async () => {
         const token = await AsyncStorage.getItem('token');
-        const getRecipeUrl = 'https://desqol.hihva.nl/recipe/search?limit=5&offset=1&api_key=' + token;
+        // TODO: Retrieve limit and offset based on recipe list screen
+        const getRecipeUrl = `https://desqol.hihva.nl/recipe/search?limit=100&offset=0&api_key=${token}`;
 
         fetch(getRecipeUrl)
             .then(recipeData => recipeData.json())
