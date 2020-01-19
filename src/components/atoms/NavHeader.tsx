@@ -16,10 +16,18 @@ export default function NavHeader({ title, navIcon, onClick }: NavHeaderProps): 
             {navIcon ?
                 <View style={styles.logoContainer}>
                     <TouchableWithoutFeedback onPress={onClick}>
-                        <Icon name={'angle-left'} size={45} color={GrayLight}/>
+                        <Icon
+                            color={GrayLight}
+                            name="angle-left"
+                            size={45}
+                        />
                     </TouchableWithoutFeedback>
                 </View> : null}
-            {navIcon ? <Text style={styles.title}>{title}</Text> : <Text style={styles.titleLogo}>{title}</Text>}
+            {navIcon ? <Text style={styles.title}>
+                {title}
+            </Text> : <Text style={styles.titleLogo}>
+                {title}
+            </Text>}
         </View>
     );
 }

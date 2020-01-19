@@ -171,51 +171,51 @@ class RegistrationScreen extends React.Component<Props, State> {
             >
                 <View style={styles.form}>
                     <FormTextInput
-                        value={this.state.name}
+                        autoCorrect={false}
+                        error={nameError}
+                        onBlur={this.handleNameBlur}
                         onChangeText={this.handleNameChange}
                         onSubmitEditing={this.handleEmailSubmitPress}
                         placeholder={strings.NAME_PLACEHOLDER}
-                        autoCorrect={false}
                         returnKeyType="next"
-                        onBlur={this.handleNameBlur}
-                        error={nameError}
+                        value={this.state.name}
                     />
                     <FormTextInput
-                        value={this.state.email}
+                        autoCorrect={false}
+                        error={emailError}
+                        keyboardType="email-address"
+                        onBlur={this.handleEmailBlur}
                         onChangeText={this.handleEmailChange}
                         onSubmitEditing={this.handleEmailSubmitPress}
                         placeholder={strings.EMAIL_PLACEHOLDER}
-                        autoCorrect={false}
-                        keyboardType="email-address"
                         returnKeyType="next"
-                        onBlur={this.handleEmailBlur}
-                        error={emailError}
+                        value={this.state.email}
                     />
                     <FormTextInput
-                        ref={this.passwordInputRef}
-                        secureTextEntry={true}
-                        value={this.state.password}
+                        error={passwordError}
+                        onBlur={this.handlePasswordBlur}
                         onChangeText={this.handlePasswordChange}
                         onSubmitEditing={this.handlePasswordSubmitPress}
                         placeholder={strings.PASSWORD_PLACEHOLDER}
+                        ref={this.passwordInputRef}
                         returnKeyType='next'
-                        onBlur={this.handlePasswordBlur}
-                        error={passwordError}
+                        secureTextEntry
+                        value={this.state.password}
                     />
                     <FormTextInput
-                        ref={this.passwordInputConfirmRef}
-                        secureTextEntry={true}
-                        value={this.state.passwordConfirm}
+                        error={passwordErrorConfirmed}
+                        onBlur={this.handlePasswordConfirmBlur}
                         onChangeText={this.handlePasswordConfirmChange}
                         placeholder={strings.PASSWORD_RETYPE}
+                        ref={this.passwordInputConfirmRef}
                         returnKeyType='done'
-                        onBlur={this.handlePasswordConfirmBlur}
-                        error={passwordErrorConfirmed}
+                        secureTextEntry
+                        value={this.state.passwordConfirm}
                     />
                     <Button
+                        disabled={!!emailError || !password || (password != passwordConfirm)}
                         label={strings.LOGIN}
                         onPress={this.handleRegisterPress}
-                        disabled={!!emailError || !password || (password != passwordConfirm)}
                     />
                 </View>
             </View>);

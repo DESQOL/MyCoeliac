@@ -105,46 +105,22 @@ CommentScreenState
     render(): JSX.Element {
         return (
             <SafeAreaView style={styles.commentList}>
-                <NavHeader title='Comments' navIcon={true} onClick={() => this.props.navigation.goBack(null)} />
+                <NavHeader
+                    navIcon
+                    onClick={() => this.props.navigation.goBack(null)}
+                    title='Comments'
+                />
                 <FlatList
                     data={this.state.comments}
-                    removeClippedSubviews={false}
-                    renderItem={({ item }: { item: any }) => (
-                        <View>
-                            <ListItem
-                                title={item.comment}
-                                subtitle={
-                                    <View style={styles.rating}>
-                                        <Rating
-                                            imageSize={20}
-                                            readonly
-                                            startingValue={item.rating}
-                                        />
-                                    </View>
-                                }
-                                leftAvatar={
-                                    <ProfileAvatar
-                                        image='https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
-                                        initials='AB'
-                                    />
-                                }
-                            />
-                        </View>
-                    )}
                     keyExtractor={item => item.id.toString()}
-                    ListHeaderComponent={
-                        <View>
-                            <Text style={styles.title}>Comments</Text>
-                        </View>
-                    }
                     ListFooterComponent={
                         <View>
                             <RateBar onFinishRating={(rating) => this.updateRating(rating)} />
                             <View style={styles.newComment}>
                                 <ProfileAvatar
+                                    avatarStyle={styles.avatar}
                                     image='https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
                                     initials='AB'
-                                    avatarStyle={styles.avatar}
                                 />
                                 <View>
                                     <PrimaryTextField
@@ -154,8 +130,6 @@ CommentScreenState
                                     />
                                 </View>
                                 <PrimaryButton
-                                    title="Enter"
-                                    type="solid"
                                     componentStyle={styles.primaryButton}
                                     onClick={() => this.handleCommentSubmit().then((response) => {
                                         const newComment = response;
@@ -170,10 +144,42 @@ CommentScreenState
                                             input: '',
                                         });
                                     })}
+                                    title="Enter"
+                                    type="solid"
                                 />
                             </View>
                         </View>
                     }
+                    ListHeaderComponent={
+                        <View>
+                            <Text style={styles.title}>
+Comments
+                            </Text>
+                        </View>
+                    }
+                    removeClippedSubviews={false}
+                    renderItem={({ item }: { item: any }) => (
+                        <View>
+                            <ListItem
+                                leftAvatar={
+                                    <ProfileAvatar
+                                        image='https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg'
+                                        initials='AB'
+                                    />
+                                }
+                                subtitle={
+                                    <View style={styles.rating}>
+                                        <Rating
+                                            imageSize={20}
+                                            readonly
+                                            startingValue={item.rating}
+                                        />
+                                    </View>
+                                }
+                                title={item.comment}
+                            />
+                        </View>
+                    )}
                 />
             </SafeAreaView>
         );

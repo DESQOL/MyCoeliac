@@ -134,32 +134,35 @@ class LoginScreen extends React.Component<Props, State> {
             >
                 <View style={styles.form}>
                     <FormTextInput
-                        value={this.state.email}
+                        autoCorrect={false}
+                        error={emailError}
+                        keyboardType="email-address"
+                        onBlur={this.handleEmailBlur}
                         onChangeText={this.handleEmailChange}
                         onSubmitEditing={this.handleEmailSubmitPress}
                         placeholder={strings.EMAIL_PLACEHOLDER}
-                        autoCorrect={false}
-                        keyboardType="email-address"
                         returnKeyType="next"
-                        onBlur={this.handleEmailBlur}
-                        error={emailError}
+                        value={this.state.email}
                     />
                     <FormTextInput
-                        ref={this.passwordInputRef}
-                        secureTextEntry={true}
-                        value={this.state.password}
+                        error={passwordError}
+                        onBlur={this.handlePasswordBlur}
                         onChangeText={this.handlePasswordChange}
                         placeholder={strings.PASSWORD_PLACEHOLDER}
+                        ref={this.passwordInputRef}
                         returnKeyType='done'
-                        onBlur={this.handlePasswordBlur}
-                        error={passwordError}
+                        secureTextEntry
+                        value={this.state.password}
                     />
                     <Button
+                        disabled={!!emailError || !password}
                         label={strings.LOGIN}
                         onPress={this.handleLoginPress}
-                        disabled={!!emailError || !password}
                     />
-                    <Text style={styles.register} onPress={() => {this.props.navigation.navigate('Register');}}>
+                    <Text
+                        onPress={() => {this.props.navigation.navigate('Register');}}
+                        style={styles.register}
+                    >
                       Register
                     </Text>
                 </View>

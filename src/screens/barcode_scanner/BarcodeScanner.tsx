@@ -69,39 +69,44 @@ BarcodeState
     }
     render(): JSX.Element {
         return (
-            <View style={styles.container} {...this.props.domProps}>
+            <View
+                style={styles.container}
+                {...this.props.domProps}
+            >
                 <RNCamera
-                    ref={(ref: RNCamera): void => {
-                        this.camera = ref;
-                    }}
-                    onGoogleVisionBarcodesDetected={this.barcodeRecognized}
-                    captureAudio={false}
-                    style={styles.preview}
-                    flashMode={
-                        this.state.flashOn
-                            ? RNCamera.Constants.FlashMode.on
-                            : RNCamera.Constants.FlashMode.off
-                    }
-                    type={RNCamera.Constants.Type.back}
                     androidCameraPermissionOptions={{
                         title: 'Permission to use camera',
                         message: 'We need your permission to use your camera',
                         buttonPositive: 'Ok',
                         buttonNegative: 'Cancel',
-                    }}>
+                    }}
+                    captureAudio={false}
+                    flashMode={
+                        this.state.flashOn
+                            ? RNCamera.Constants.FlashMode.on
+                            : RNCamera.Constants.FlashMode.off
+                    }
+                    onGoogleVisionBarcodesDetected={this.barcodeRecognized}
+                    ref={(ref: RNCamera): void => {
+                        this.camera = ref;
+                    }}
+                    style={styles.preview}
+                    type={RNCamera.Constants.Type.back}
+                >
                     {// }onBarCodeRead={this.onBarCodeRead}}
                     }
                 </RNCamera>
                 <View style={styles.bottomOverlay}>
                     <TouchableOpacity
-                        onPress={(): void => this.handleFlash(this.state.flashOn)}>
+                        onPress={(): void => this.handleFlash(this.state.flashOn)}
+                    >
                         <Image
-                            style={styles.cameraIcon}
                             source={
                                 this.state.flashOn === true
                                     ? require('../../assets/images/flash_on.png')
                                     : require('../../assets/images/flash_off.png')
                             }
+                            style={styles.cameraIcon}
                         />
                     </TouchableOpacity>
                 </View>

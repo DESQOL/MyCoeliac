@@ -16,14 +16,17 @@ export default function RecipeList(props: RecipeListProps): JSX.Element {
     const { navigation } = props;
 
     return (<FlatList
-        showsVerticalScrollIndicator={false}
         data={props.recipes}
-        renderItem={({ item }: { item: any }) => (
-            <RecipeCard list={item} navigationProps={{ navigation }} />
-        )}
         keyExtractor={item => item.id.toString()}
-        onEndReachedThreshold={0.5}
         onEndReached={props.onEndReached}
+        onEndReachedThreshold={0.5}
+        renderItem={({ item }: { item: any }) => (
+            <RecipeCard
+                list={item}
+                navigationProps={{ navigation }}
+            />
+        )}
+        showsVerticalScrollIndicator={false}
     />
     );
 }

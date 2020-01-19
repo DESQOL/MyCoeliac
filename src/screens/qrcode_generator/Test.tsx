@@ -18,7 +18,10 @@ export default class Test extends React.Component<{}, {}> {
     render() {
         return (
             <View>
-                <QrCodeGenerator  value="test" ref={this.qr}/>
+                <QrCodeGenerator
+                    ref={this.qr}
+                    value="test"
+                />
             </View>
     
         );

@@ -43,8 +43,14 @@ class Button extends React.Component<Props> {
                 : styles.containerEnabled
         ];
         return (
-            <TouchableOpacity style={containerStyle} onPress={onPress} disabled={disabled}>
-                <Text style={styles.text}>{label}</Text>
+            <TouchableOpacity
+                disabled={disabled}
+                onPress={onPress}
+                style={containerStyle}
+            >
+                <Text style={styles.text}>
+                    {label}
+                </Text>
             </TouchableOpacity>
         );
     }

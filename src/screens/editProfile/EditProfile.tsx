@@ -102,40 +102,44 @@ class EditProfile extends React.Component<Props, State> {
 
         return (
             <View style={styles.container}>
-                <NavHeader title={'Edit Profile'} navIcon={true} onClick={() => this.props.navigation.goBack()} />
+                <NavHeader
+                    navIcon
+                    onClick={() => this.props.navigation.goBack()}
+                    title="Edit Profile"
+                />
                 <View style={styles.form}>
                     <FormTextInput
-                        value={this.state.name}
-                        onChangeText={this.handleEmailChange}
-                        // onSubmitEditing={this.handleEmailSubmitPress}
-                        placeholder={strings.NAME_PLACEHOLDER}
                         autoCorrect={false}
-                        returnKeyType="next"
-                        onBlur={this.handleEmailBlur}
                         error={nameError}
+                        // onSubmitEditing={this.handleEmailSubmitPress}
+                        onBlur={this.handleEmailBlur}
+                        onChangeText={this.handleEmailChange}
+                        placeholder={strings.NAME_PLACEHOLDER}
+                        returnKeyType="next"
+                        value={this.state.name}
                     />
                     <FormTextInput
-                        value={this.state.oldPassword}
-                        secureTextEntry={true}
+                        autoCorrect={false}
                         onChangeText={this.handleOldPasswordChange}
-                        // onSubmitEditing={this.handleEmailSubmitPress}
                         placeholder={strings.OLD_PASSWORD}
-                        autoCorrect={false}
+                        // onSubmitEditing={this.handleEmailSubmitPress}
                         returnKeyType="next"
+                        secureTextEntry
+                        value={this.state.oldPassword}
                     />
                     <FormTextInput
-                        value={this.state.newPassword}
-                        secureTextEntry={true}
-                        onChangeText={this.handleNewPasswordChange}
-                        // onSubmitEditing={this.handleEmailSubmitPress}
-                        placeholder={strings.NEW_PASSWORD}
                         autoCorrect={false}
+                        onChangeText={this.handleNewPasswordChange}
+                        placeholder={strings.NEW_PASSWORD}
+                        // onSubmitEditing={this.handleEmailSubmitPress}
                         returnKeyType="next"
+                        secureTextEntry
+                        value={this.state.newPassword}
                     />
                     <Button
+                        disabled={!!nameError}
                         label={strings.SUBMIT}
                         onPress={this.handleLoginPress}
-                        disabled={!!nameError}
                     />
                 </View>
 

@@ -21,7 +21,9 @@ class FormTextInput extends React.Component<Props> {
         const { error, style, ...otherProps } = this.props;
         return (
             <View style={[styles.container, style]}>
-                <Text style={styles.errorText}>{error || ''}</Text>
+                <Text style={styles.errorText}>
+                    {error || ''}
+                </Text>
                 <TextInput
                     ref={this.textInputRef}
                     selectionColor={DodgerBlue}

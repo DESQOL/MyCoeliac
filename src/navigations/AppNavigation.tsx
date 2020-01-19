@@ -12,11 +12,19 @@ import BarcodeScanner from '../screens/barcode_scanner/BarcodeScanner';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 
 function renderScannerIcon({ tintColor }: any) {
-    return <Icon name="barcode-scan" size={25} color={tintColor} />;
+    return (<Icon
+        color={tintColor}
+        name="barcode-scan"
+        size={25}
+    />);
 }
 
 function renderRecipesIcon({ tintColor }: any) {
-    return <Icon name="book" size={25} color={tintColor} />;
+    return (<Icon
+        color={tintColor}
+        name="book"
+        size={25}
+    />);
 }
 
 renderRecipesIcon.propTypes = {
@@ -30,10 +38,10 @@ renderScannerIcon.propTypes = {
 function getUserAvatar() {
     return (
         <Avatar
-            rounded
-            title={'EX'}
-            size={25}
             overlayContainerStyle={{ backgroundColor: GrayLight }}
+            rounded
+            size={25}
+            title="EX"
         />
     );
 }

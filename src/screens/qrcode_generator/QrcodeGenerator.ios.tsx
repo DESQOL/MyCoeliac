@@ -18,12 +18,12 @@ export default class QrcodeGenerator extends React.Component<QrProps, {}> {
     render() {
         return (
             <QRCode
-                value={this.props.value}
-                backgroundColor={'white'}
-                size={100}
-                logoBorderRadius={10}
+                backgroundColor="white"
                 getRef={(c) => (this.svg = c)}
-                logoBackgroundColor={'transparent'}
+                logoBackgroundColor="transparent"
+                logoBorderRadius={10}
+                size={100}
+                value={this.props.value}
             />
         );
     };

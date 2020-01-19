@@ -6,9 +6,13 @@ export default function SearchBar(): JSX.Element {
     const [value, onChangeText] = React.useState();
     return (
         <Input
-            placeholder="Search for recipes"
-            leftIcon={<Icon name="search" size={24} color="black" />}
+            leftIcon={<Icon
+                color="black"
+                name="search"
+                size={24}
+            />}
             onChangeText={(text): void => onChangeText(text)}
+            placeholder="Search for recipes"
             value={value}
         />
     );

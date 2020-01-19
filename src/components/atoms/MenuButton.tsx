@@ -35,7 +35,12 @@ export default function MenuButton({ title, onPress }: MenuProps): JSX.Element {
                 <Text style={styles.menuText}>
                     {title}
                 </Text>
-                <Icon name={'angle-right'} size={45} color={GrayLight} style={styles.icon} />
+                <Icon
+                    color={GrayLight}
+                    name="angle-right"
+                    size={45}
+                    style={styles.icon}
+                />
             </View>
         </TouchableOpacity>
     );

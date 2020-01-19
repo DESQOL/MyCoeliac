@@ -72,41 +72,63 @@ class PermissionScreen extends React.Component<Props, State> {
         return (
             <View style={styles.placeholderFlex}>
                 <View style={styles.topPart}>
-                    <Text style={styles.title}> Permissions </Text>
+                    <Text style={styles.title}>
+                        {' '}
+Permissions
+                        {' '}
+                    </Text>
                 </View>
                 <View style={styles.content}>
-                    <View style={styles.bullet}>
-
-                    </View>
+                    <View style={styles.bullet} />
                     <View style={styles.bulletText}>
                         <Text >
-                            <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Network:     </Text>
-                            <Text >Used for registering, logging in, sending data back for the recipes, receiving data from the recipes, storing profile data and receiving profile data. </Text>
+                            <Text>
+                                {'\u2022' + ' '}
+                            </Text>
+                            <Text style={styles.boldText}>
+Network:
+                                {' '}
+                            </Text>
+                            <Text >
+Used for registering, logging in, sending data back for the recipes, receiving data from the recipes, storing profile data and receiving profile data.
+                                {' '}
+                            </Text>
                         </Text>
                         <Text style={styles.descriptionText}>
-                            <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Storage:     </Text>
-                            <Text >Will be used to store an generated image of the QR code when making an recipe.</Text>
+                            <Text>
+                                {'\u2022' + ' '}
+                            </Text>
+                            <Text style={styles.boldText}>
+Storage:
+                                {' '}
+                            </Text>
+                            <Text >
+Will be used to store an generated image of the QR code when making an recipe.
+                            </Text>
                         </Text>
                         <Text style={styles.descriptionText}>
-                            <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Camera:     </Text>
-                            <Text >Is needed for scanning the barcodes and thereby identify if a recipe contains gluten or not.</Text>
+                            <Text>
+                                {'\u2022' + ' '}
+                            </Text>
+                            <Text style={styles.boldText}>
+Camera:
+                                {' '}
+                            </Text>
+                            <Text >
+Is needed for scanning the barcodes and thereby identify if a recipe contains gluten or not.
+                            </Text>
                         </Text>
                     </View>
                 </View>
                 <View style={styles.primaryButton}>
                     <Button
+                        iconRight
                         onPress={() => {this.props.onPress();}}
                         style={styles.primaryButton}
-                        iconRight
                         title='Go to next screen'
                     />
                 </View>
-                <View style={styles.skipText}>
-
-                </View>
+                <View style={styles.skipText} />
                 {/* <Text style={styles.skipText} onPress={() => { this.props.onPress() }}>
                     Skip</Text> */}
 

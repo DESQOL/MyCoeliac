@@ -10,8 +10,8 @@ interface PrimaryTextFieldProps {
 export default function PrimaryTextField(props: PrimaryTextFieldProps) {
     return (
         <TextInput
-            style={props.textFieldStyle}
             onChangeText={props.onChangeText}
+            style={props.textFieldStyle}
             value={props.value}
         />
     );
