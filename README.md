@@ -55,8 +55,11 @@ Below is a list of things that still need to be done.
 ## Bug(s)
 This is a list of known bugs in the code.
 
-- Navigating from a [Recipe Screen component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/recipe/RecipeScreen.tsx#L57) back to the home screen, removes the [App navigator (bottom bar)](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/AppNavigation.tsx) from the home screen. The Recipe Screen component has a [Stack navigator](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/RecipeNavigation.tsx) nested within the App navigator of the Recipe List Screen component. Take a look at the [root navigator](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/Navigation.tsx) of the app to see how this works.
-Also, take a look at the [Recipe Card component](https://github.com/DESQOL/MyCoeliac/blob/master/src/components/molecules/RecipeCard.tsx#L34) to see how the navigation path from home screen to a Recipe Screen component works.
+- Navigating from a [Recipe Screen component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/recipe/RecipeScreen.tsx#L57) back to the home screen, removes the [App navigator (bottom bar)](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/AppNavigation.tsx) from the home screen. 
+The Recipe Screen component has a [Stack navigator](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/RecipeNavigation.tsx) nested within the App navigator of the Recipe List Screen component. Take a look at the [root navigator](https://github.com/DESQOL/MyCoeliac/blob/master/src/navigations/Navigation.tsx) of the app to see how this works.
+<br />Also, take a look at the [Recipe Card component](https://github.com/DESQOL/MyCoeliac/blob/master/src/components/molecules/RecipeCard.tsx#L34) to see how the navigation path from home screen to a Recipe Screen component works.
+
+<br />The Recipe component was used as an example in the description of the bug, however this bug is also a problem on the [Comment Screen](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/comment/CommentScreen.tsx) and [Profile Screen component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/profile/ProfileScreen.tsx).
 
 ## Contributors
 [@linh]()
