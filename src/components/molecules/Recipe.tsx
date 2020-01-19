@@ -11,7 +11,6 @@ import {
     NavigationParams,
     NavigationScreenProp,
     NavigationState,
-    StackActions
 } from 'react-navigation';
 
 interface AppProps {
@@ -39,12 +38,9 @@ export default class Recipe extends React.Component<AppProps, {}> {
         const recipe = this.props.recipeProps;
 
         function navigateToComments() {
-            navigation.dispatch(StackActions.push({
-                routeName: 'InitialScreen'
-            }));
 
             navigation.navigate({
-                routeName: 'Comment',
+                routeName: 'Recipe',
                 action: NavigationActions.navigate({
                     routeName: 'CommentScreen',
                     params: {
