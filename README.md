@@ -48,7 +48,6 @@ This project uses atomic design
 ## TODO's
 Below is a list of things that still need to be done.
 
-- A navigation path from [Recipe component](https://github.com/DESQOL/MyCoeliac/blob/master/src/components/molecules/Recipe.tsx#L28) to [Comment component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/comment/CommentScreen.tsx) needs to be implemented.
 - Organize project [Color scheme](https://github.com/DESQOL/MyCoeliac/blob/master/src/styles/config/Colors.tsx). List theme colors and remove unused colors.
 - Set correct limit and offset values for retrieval of recipe list in [Recipe Screen component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/recipe/RecipeScreen.tsx#L30). Set values based off of latest limit and offset values from [Recipe List Screen component](https://github.com/DESQOL/MyCoeliac/blob/master/src/screens/recipe/RecipeScreen.tsx#L30)
 
