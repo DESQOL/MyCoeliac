@@ -16,7 +16,7 @@ interface State {
 // Test styling, will be replaced later.
 const styles = StyleSheet.create({
     boldText: {
-        fontSize: FONT_SIZE_14,
+        fontSize: 17,
         fontWeight: 'bold',
     },
     bullet: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     content: {
-        flex: 6,
+        flex: 20,
     },
     descriptionText: {
         marginTop: scaleSize(20)
@@ -79,20 +79,23 @@ class PermissionScreen extends React.Component<Props, State> {
 
                     </View>
                     <View style={styles.bulletText}>
+                        <Text style={{textAlign:'center',marginBottom:40}}>
+                            <Text style={{fontSize:17,textAlign:'center'}}>We will ask each permission for when the feature is being requested. (if you want to generate a QR code we will ask for the permissions at that moment). You can always refuse to accept the permissions but then you will not be able to use this feature. You can always revoke the permission at any moment. </Text>
+                        </Text>
                         <Text >
                             <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Network:     </Text>
-                            <Text >Used for registering, logging in, sending data back for the recipes, receiving data from the recipes, storing profile data and receiving profile data. </Text>
+                            <Text style={styles.boldText}>Network: </Text>
+                            <Text style={{fontSize:17}}>Used for registering, logging in, sending data back for the recipes, receiving data from the recipes, storing profile data and receiving profile data. </Text>
                         </Text>
                         <Text style={styles.descriptionText}>
                             <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Storage:     </Text>
-                            <Text >Will be used to store an generated image of the QR code when making an recipe.</Text>
+                            <Text style={styles.boldText}>Storage: </Text>
+                            <Text style={{fontSize:17}}>Will be used to store an generated image of the QR code when making an recipe.</Text>
                         </Text>
                         <Text style={styles.descriptionText}>
                             <Text>{'\u2022' + ' '}</Text>
-                            <Text style={styles.boldText}>Camera:     </Text>
-                            <Text >Is needed for scanning the barcodes and thereby identify if a recipe contains gluten or not.</Text>
+                            <Text style={styles.boldText}>Camera: </Text>
+                            <Text style={{fontSize:17}}>Is needed for scanning the barcodes and thereby identify if a recipe contains gluten or not.</Text>
                         </Text>
                     </View>
                 </View>
