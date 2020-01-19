@@ -22,9 +22,9 @@ interface CommentObject {
 }
 
 export default class CommentList extends Component<
-    CommentListProps,
-    CommenListState
-    > {
+CommentListProps,
+CommenListState
+> {
     constructor(props: CommentListProps) {
         super(props);
     }
@@ -34,7 +34,6 @@ export default class CommentList extends Component<
         comments: {}
     };
 
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     fetchComments = async () => {
         let responseJson: any;
         try {
@@ -54,8 +53,7 @@ export default class CommentList extends Component<
             return;
         }
     };
-
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    
     handleCommentSubmit = async () => {
         console.log('Button clicked');
         let responseJson: any;

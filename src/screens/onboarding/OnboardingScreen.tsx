@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import ViewPagerType from '@react-native-community/viewpager';
-
-const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
 import AsyncStorage from '@react-native-community/async-storage';
 import TermsOfAgreement from '../onboarding/TermsOfAgreement';
 import WelcomeScreen from './WelcomeScreen';
 import PermissionScreen from './PermissionScreen';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const ViewPager = require('@react-native-community/viewpager');
 
 interface Props {
     navigation: any;

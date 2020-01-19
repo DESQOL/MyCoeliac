@@ -5,13 +5,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../../styles/components/atoms/Dropdown';
 
 interface DropdownProps {
-  dropdownStyle?: StyleProp<ViewStyle>;
-  onValueChange: (input: number) => void;
-  selectedValue: string;
-  dropdownValues: string[];
-  onDropdownToggle: any;
-  name: string;
-  isCollapsed?: boolean;
+    dropdownStyle?: StyleProp<ViewStyle>;
+    onValueChange: (input: number) => void;
+    selectedValue: string;
+    dropdownValues: string[];
+    onDropdownToggle: any;
+    name: string;
+    isCollapsed?: boolean;
 }
 
 export default function Dropdown(props: DropdownProps) {

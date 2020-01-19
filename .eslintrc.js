@@ -19,10 +19,28 @@ module.exports = {
         "react-native",
     ],
     rules: {
-        "@typescript-eslint/no-unused-vars": ["error"],
-        "@typescript-eslint/semi": ["error"],
+        "@typescript-eslint/camelcase": [
+            "error",
+            {
+                "properties": "never"
+            }
+        ],
+        "@typescript-eslint/indent": [
+            "error",
+            4
+        ],
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/semi": [
+            "error"
+        ],
         "eol-last": ["error", "always"],
-        "indent": ["error", 4, { "MemberExpression": 1 }],
+        "indent": "off",
         "multiline-comment-style": ["error", "starred-block"],
         "no-multiple-empty-lines": ["error", {
             "max": 1,

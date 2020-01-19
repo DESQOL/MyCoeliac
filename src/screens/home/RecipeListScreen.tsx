@@ -174,7 +174,6 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
                         recipes={this.state.recipesLoaded ? this.state.recipes : null}
                         recipeIdProps={this.getRecipeId}
                         navigation={this.props.navigation}
-                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
                         onEndReached={() => this.loadMoreRecipes()}
                     />
                 </View>

@@ -2,9 +2,9 @@ import React from 'react';
 import { Avatar } from 'react-native-elements';
 
 interface ProfileAvatarProps {
-  image: any;
-  initials: string;
-  avatarStyle?: object;
+    image: any;
+    initials: string;
+    avatarStyle?: object;
 }
 
 export default function ProfileAvatar({
