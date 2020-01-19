@@ -160,7 +160,7 @@ export default class RecipeListScreen extends React.Component<RecipeScreenProps,
     render(): JSX.Element {
         return (
             <SafeAreaView style={styles.screenContainer}>
-                <NavHeader title={'MyCooliac'} navIcon={false} />
+                <NavHeader title={'MyCoeliac'} navIcon={false} />
                 <View style={styles.container}>
                     <SearchBar
                         placeholder="Search recipes"
