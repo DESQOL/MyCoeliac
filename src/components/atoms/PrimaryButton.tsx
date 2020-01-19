@@ -4,10 +4,10 @@ import { StyleProp, ViewStyle, StyleSheet } from 'react-native';
 import { ThemeBlue } from '../../styles/config/Colors';
 
 interface PrimaryButtonProps {
-  title: string;
-  type: 'solid' | 'clear' | 'outline';
-  componentStyle?: StyleProp<ViewStyle>;
-  onClick?: () => void;
+    title: string;
+    type: 'solid' | 'clear' | 'outline';
+    componentStyle?: StyleProp<ViewStyle>;
+    onClick?: () => void;
 }
 
 const styles = StyleSheet.create({

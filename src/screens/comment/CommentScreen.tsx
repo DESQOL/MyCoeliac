@@ -21,9 +21,9 @@ interface CommentScreenProps {
 }
 
 export default class CommentScreen extends Component<
-    CommentScreenProps,
-    CommentScreenState
-    > {
+CommentScreenProps,
+CommentScreenState
+> {
     readonly state: CommentScreenState = {
         comments: [],
         input: '',

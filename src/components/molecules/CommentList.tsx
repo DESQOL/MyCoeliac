@@ -22,9 +22,9 @@ interface CommentObject {
 }
 
 export default class CommentList extends Component<
-    CommentListProps,
-    CommenListState
-    > {
+CommentListProps,
+CommenListState
+> {
     constructor(props: CommentListProps) {
         super(props);
     }
