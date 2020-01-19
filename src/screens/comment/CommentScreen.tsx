@@ -16,7 +16,6 @@ interface CommentScreenState {
 }
 
 interface CommentScreenProps {
-    recipeId: number;
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
@@ -37,12 +36,15 @@ CommentScreenState
             });
         });
     }
-    
+
     fetchComments = async () => {
+        const { navigation } = this.props;
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
+        const getRecipeId = JSON.stringify(navigation.getParam('recipeId', 'ID'));
+        const getRecipeIdNum = parseInt(getRecipeId);
         try {
-            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${getRecipeIdNum}/comments`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -73,10 +75,13 @@ CommentScreenState
     }
 
     handleCommentSubmit = async () => {
+        const { navigation } = this.props;
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
+        const getRecipeId = JSON.stringify(navigation.getParam('recipeId', 'ID'));
+        const getRecipeIdNum = parseInt(getRecipeId);
         try {
-            const response = await fetch(`https://desqol.hihva.nl/recipe/${this.props.recipeId}/comments`, {
+            const response = await fetch(`https://desqol.hihva.nl/recipe/${getRecipeIdNum}/comments`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

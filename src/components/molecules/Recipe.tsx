@@ -6,8 +6,19 @@ import styles from '../../styles/components/molecules/Recipe';
 import SeparatorPipe from '../atoms/SeparatorPipe';
 import QrcodeGenerator from '../../../src/screens/qrcode_generator/QrcodeGenerator.android';
 
+import {
+    NavigationActions,
+    NavigationParams,
+    NavigationScreenProp,
+    NavigationState,
+    StackActions
+} from 'react-navigation';
+
 interface AppProps {
     recipeProps: any;
+    navigationProps: {
+        navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+    };
 }
 
 export default class Recipe extends React.Component<AppProps, {}> {
@@ -24,8 +35,25 @@ export default class Recipe extends React.Component<AppProps, {}> {
             console.log(this.props.recipeProps.id);
         }
 
+        const { navigation } = this.props.navigationProps;
+        const recipe = this.props.recipeProps;
+
         function navigateToComments() {
-            // TODO: Add navigation to comments
+            navigation.dispatch(StackActions.push({
+                routeName: 'InitialScreen'
+            }));
+
+            navigation.navigate({
+                routeName: 'Comment',
+                action: NavigationActions.navigate({
+                    routeName: 'CommentScreen',
+                    params: {
+                        recipeId: recipe.id
+                    }
+                })
+            });
+
+            return;
         }
 
         return (
@@ -80,11 +108,11 @@ export default class Recipe extends React.Component<AppProps, {}> {
                         </View>
 
                         <View style={styles.qrgeneratorview}>
-                            <QrcodeGenerator value={String(this.props.recipeProps.id)} ref={this.qr}/>
+                            <QrcodeGenerator value={String(this.props.recipeProps.id)} ref={this.qr} />
                         </View>
                         <View style={styles.buttonqrgenerator}>
                             <Button title="Create QR"
-                                onPress={() => this.qr.current ? this.qr.current.requestCameraPermission() : null}/>
+                                onPress={() => this.qr.current ? this.qr.current.requestCameraPermission() : null} />
                         </View>
                     </ScrollView>
                     : null}

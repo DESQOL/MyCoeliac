@@ -52,12 +52,12 @@ export default class RecipeScreen extends React.Component<AppProps, RecipeState>
         return (
             <SafeAreaView>
                 <NavHeader
-                    title={'MyCooliac'}
+                    title={'MyCoeliac'}
                     navIcon={true}
                     onClick={() => navigation.goBack(null)}
                 />
                 <View>
-                    <Recipe recipeProps={this.state.recipes.find(findRecipe)}/>
+                    <Recipe navigationProps={{ navigation }} recipeProps={this.state.recipes.find(findRecipe)} />
                 </View>
             </SafeAreaView>
         );
