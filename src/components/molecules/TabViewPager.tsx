@@ -36,8 +36,16 @@ export default class TabViewPager extends React.Component<Props, State> {
 
     setupTextViews() {
         return this.props.tabs.map((type) =>
-            <Text key={type.id} style={[styles.tabs, (this.state.currentViewPageIndex == type.id) ? styles.activeText : null]}
-                onPress={() => this.onTabClicked(type.id)}> {type.text} </Text>);
+            (<Text
+                key={type.id}
+                onPress={() => this.onTabClicked(type.id)}
+                style={[styles.tabs, (this.state.currentViewPageIndex == type.id) ? styles.activeText : null]}
+            > 
+                {' '}
+                {type.text}
+                {' '}
+ 
+            </Text>));
 
     }
 
@@ -54,25 +62,27 @@ export default class TabViewPager extends React.Component<Props, State> {
                     {this.setupTextViews()}
                 </View>
                 <ViewPager
-                    style={styles.containerViewPager}
                     initialPage={0}
-                    ref={this.viewPager}
                     onPageSelected={(EventHandle: any) => this.pageChanged(EventHandle.nativeEvent.position)}
+                    ref={this.viewPager}
+                    style={styles.containerViewPager}
                 >
                     <ScrollView style={styles.scrollViewPager}>
                         <View style={styles.innerViewPagerContainer}>
                             <Image
-                                style={styles.image}
                                 source={{ uri: 'https://spoonacular.com/recipeImages/689502-556x370.jpg' }}
+                                style={styles.image}
                             />
                             <Image
-                                style={styles.image}
                                 source={{ uri: 'https://spoonacular.com/recipeImages/689502-556x370.jpg' }}
+                                style={styles.image}
                             />
                         </View>
                     </ScrollView>
                     <View key="2">
-                        <Text>Second page</Text>
+                        <Text>
+Second page
+                        </Text>
                     </View>
                 </ViewPager>
             </View>

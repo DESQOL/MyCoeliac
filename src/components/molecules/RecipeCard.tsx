@@ -52,34 +52,50 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
     return (
         <View style={styles.container}>
 
-            <Image source={{ uri: list.image }} style={styles.image}/>
+            <Image
+                source={{ uri: list.image }}
+                style={styles.image}
+            />
 
             <View style={styles.recipeContentContainer}>
                 <View>
-                    <Text style={styles.title}>{list.title}</Text>
-                    <Text>{list.duration}</Text>
+                    <Text style={styles.title}>
+                        {list.title}
+                    </Text>
+                    <Text>
+                        {list.duration}
+                    </Text>
                 </View>
 
                 <Button
                     buttonStyle={styles.button}
+                    icon={<Icon
+                        color={Gray}
+                        name="plus"
+                        size={15}
+                        style={styles.plusLogo}
+                    />}
+                    title="Save"
                     titleStyle={{ color: Gray }}
-                    title={'Save'}
-                    icon={<Icon name={'plus'} color={Gray} size={15} style={ styles.plusLogo }/>}
-                    type={'outline'}/>
+                    type="outline"
+                />
 
                 <View style={styles.readContentContainer}>
                     <View style={styles.divider} />
                     <Button
                         buttonStyle={styles.readButton}
-                        titleStyle={{ color: Black }}
-                        title={'Read more'}
-                        icon={<IconFA name={'angle-right'} size={22} style={ styles.arrowLogo }/>}
-                        iconRight={true}
-                        type={'clear'}
+                        icon={<IconFA
+                            name="angle-right"
+                            size={22}
+                            style={styles.arrowLogo}
+                        />}
+                        iconRight
                         onPress={() => {
                             getRecipeId(list.id) ? navigateToRecipe() : null;
-                        }
-                        }
+                        }}
+                        title="Read more"
+                        titleStyle={{ color: Black }}
+                        type="clear"
                     />
                 </View>
             </View>

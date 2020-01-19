@@ -31,13 +31,13 @@ export default function PrimaryButton({
 }: PrimaryButtonProps): JSX.Element {
     return (
         <Button
-            onPress={onClick}
             buttonStyle={styles.button}
-            titleStyle={styles.text}
             containerStyle={componentStyle}
+            onPress={onClick}
+            raised
             title={title}
+            titleStyle={styles.text}
             type={type}
-            raised={true}
         />
     );
 }

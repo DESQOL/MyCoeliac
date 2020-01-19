@@ -11,8 +11,15 @@ export default function RateBar(props: Props): JSX.Element {
     return (
         <SafeAreaView>
             <View style={styles.rateBar}>
-                <Text>Rate recipe: </Text>
-                <AirbnbRating size={20} showRating={false} onFinishRating={(rating: number) => props.onFinishRating(rating)} />
+                <Text>
+Rate recipe:
+                    {' '}
+                </Text>
+                <AirbnbRating
+                    onFinishRating={(rating: number) => props.onFinishRating(rating)}
+                    showRating={false}
+                    size={20}
+                />
             </View>
         </SafeAreaView>
     );

@@ -13,8 +13,15 @@ export default function ProfileAvatar({
     avatarStyle,
 }: ProfileAvatarProps): JSX.Element {
     if (image !== '') {
-        return <Avatar avatarStyle={avatarStyle} rounded source={{ uri: image }} />;
+        return (<Avatar
+            avatarStyle={avatarStyle}
+            rounded
+            source={{ uri: image }}
+        />);
     } else {
-        return <Avatar rounded title={initials} />;
+        return (<Avatar
+            rounded
+            title={initials}
+        />);
     }
 }

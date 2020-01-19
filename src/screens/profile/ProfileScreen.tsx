@@ -66,12 +66,17 @@ class ProfileScreen extends React.Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
-                <NavHeader title={'Profile'} navIcon={true} />
+                <NavHeader
+                    navIcon
+                    title="Profile"
+                />
                 <View style={styles.containerProfileAndSettings}>
                     <View style={styles.containerProfile}>
                         <View style={styles.containerProfileImage}>
-                            <Image style={styles.avatar}
-                                source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
+                            <Image
+                                source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }}
+                                style={styles.avatar}
+                            />
                         </View>
                         <View style={styles.containerProfileDescription}>
                             <View style={styles.containerText}>
@@ -79,33 +84,29 @@ class ProfileScreen extends React.Component<Props, State> {
                                     {(this.state.name) ? this.state.name : 'Loading'}
                                 </Text>
                                 <Text>
-                                    {'Welcome to my page!'}
+                                    Welcome to my page!
                                 </Text>
                             </View>
                             <View style={styles.containerStats}>
-                                <View style={styles.containerStatsText}>
-
-                                </View>
-                                <View style={styles.containerStatsText}>
-
-                                </View>
-                                <View style={styles.containerStatsText}>
-
-                                </View>
+                                <View style={styles.containerStatsText} />
+                                <View style={styles.containerStatsText} />
+                                <View style={styles.containerStatsText} />
                             </View>
                         </View>
 
                     </View>
                     <View style={styles.containerProfileSettingsButton}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('SettingsScreen')}>
-                            <Icon name="cog" size={30} color="lightgray" />
+                            <Icon
+                                color="lightgray"
+                                name="cog"
+                                size={30}
+                            />
                         </TouchableOpacity>
                     </View>
 
                 </View>
-                <View style={styles.containerButtonMiddle}>
-
-                </View>
+                <View style={styles.containerButtonMiddle} />
 
                 <View style={styles.containerViewPagerGroup}>
                     <TabViewPager tabs={[{ id: 0, text: 'Recipes' }]} />

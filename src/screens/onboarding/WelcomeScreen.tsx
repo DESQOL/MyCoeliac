@@ -68,11 +68,14 @@ class WelcomeScreen extends React.Component<Props, State> {
         return (
             <View style={styles.placeholderFlex}>
                 <View style={styles.topPart}>
-                    <Text style={styles.title}> Welcome to {'\n' + name}</Text>
+                    <Text style={styles.title}>
+                        {' '}
+Welcome to
+                        {'\n' + name}
+                    </Text>
                 </View>
                 <View style={styles.content}>
-                    <View style={styles.bullet}>
-                    </View>
+                    <View style={styles.bullet} />
                     <View style={styles.bulletText}>
                         <Text style={styles.alignText}>
                             Welcome to MyCoeliac! in this app we try to.................................................................
@@ -81,14 +84,13 @@ class WelcomeScreen extends React.Component<Props, State> {
                 </View>
                 <View style={styles.primaryButton}>
                     <Button
+                        iconRight
                         onPress={() => { this.props.onPress(); }}
                         style={styles.primaryButton}
-                        iconRight
                         title='Go to next screen'
                     />
                 </View>
-                <View style={styles.skipText}>
-                </View>
+                <View style={styles.skipText} />
                 {/* <Text style={styles.skipText} onPress={() => { this.props.onPress() }}>
                     Skip</Text> */}
             </View>

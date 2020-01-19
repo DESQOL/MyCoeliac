@@ -60,22 +60,31 @@ class OnboardingScreen extends React.Component<Props, State> {
     render() {
         return (
             <ViewPager
-                style={styles.viewPager}
                 initialPage={0}
-                ref={this.viewPager}
                 onPageSelected={(EventHandle: any) => this.pageChanged(EventHandle.nativeEvent.position)}
+                ref={this.viewPager}
+                style={styles.viewPager}
             >
-                <View style={styles.pageStyle} key='1'>
+                <View
+                    key='1'
+                    style={styles.pageStyle}
+                >
                     <View style={styles.pageContainer}>
                         <WelcomeScreen onPress={() => { this.handleViewPagerClick(); }} />
                     </View>
                 </View>
-                <View style={styles.pageStyle} key='2'>
+                <View
+                    key='2'
+                    style={styles.pageStyle}
+                >
                     <View style={styles.pageContainer}>
                         <PermissionScreen onPress={() => { this.handleViewPagerClick(); }} />
                     </View>
                 </View>
-                <View style={styles.buttonContainer} key='3'>
+                <View
+                    key='3'
+                    style={styles.buttonContainer}
+                >
                     <View style={styles.pageContainer}>
                         <TermsOfAgreement onPress={() => this.handleLastPage()} />
                     </View>

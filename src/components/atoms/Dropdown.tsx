@@ -18,23 +18,23 @@ export default function Dropdown(props: DropdownProps) {
     return (
         <View style={styles.dropdownContainer}>
             <ModalDropdown
-                defaultValue="Category"
                 animated={false}
+                defaultValue="Category"
+                dropdownStyle={styles.dropdownList}
+                dropdownTextStyle={styles.dropdownListText}
+                onDropdownWillHide={() => props.onDropdownToggle()}
+                onDropdownWillShow={() => props.onDropdownToggle()}
+                onSelect={(input: number) => props.onValueChange(input)}
                 options={props.dropdownValues}
                 style={styles.dropdown}
                 textStyle={styles.dropdownText}
-                dropdownStyle={styles.dropdownList}
-                dropdownTextStyle={styles.dropdownListText}
-                onSelect={(input: number) => props.onValueChange(input)}
-                onDropdownWillShow={() => props.onDropdownToggle()}
-                onDropdownWillHide={() => props.onDropdownToggle()}
             />
 
             <Icon
-                style={styles.icon}
+                color="black"
                 name={props.isCollapsed ? 'chevron-up' : 'chevron-down'}
                 size={12}
-                color="black"
+                style={styles.icon}
             />
         </View>
     );

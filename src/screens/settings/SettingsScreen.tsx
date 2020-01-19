@@ -23,17 +23,29 @@ class SettingsScreen extends React.Component<Props, {}> {
     render() {
         return (
             <View style={styles.container}>
-                <NavHeader title={'Settings'} navIcon={true} onClick={() => this.props.navigation.goBack()}/>
-                <View style={styles.emptyContainerTop}></View>
+                <NavHeader
+                    navIcon
+                    onClick={() => this.props.navigation.goBack()}
+                    title="Settings"
+                />
+                <View style={styles.emptyContainerTop} />
                 <View style={styles.contentContainer}>
-                    <MenuButton title='Profile' onPress={() => this.props.navigation.navigate('EditProfile') } />
-                    <View style={styles.emptyContainer}>
-                    </View>
-                    <MenuButton title='Delete Account' onPress={() => console.log('delete acc pressed')} />
-                    <MenuButton title='Log Out' onPress={() => { this.logOut(); }} />
+                    <MenuButton
+                        onPress={() => this.props.navigation.navigate('EditProfile')}
+                        title='Profile'
+                    />
+                    <View style={styles.emptyContainer} />
+                    <MenuButton
+                        onPress={() => console.log('delete acc pressed')}
+                        title='Delete Account'
+                    />
+                    <MenuButton
+                        onPress={() => { this.logOut(); }}
+                        title='Log Out'
+                    />
                 </View>
 
-                <View style={styles.emptyContainer}></View>
+                <View style={styles.emptyContainer} />
             </View>
         );
     }
