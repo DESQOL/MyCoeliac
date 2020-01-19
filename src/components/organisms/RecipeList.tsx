@@ -15,13 +15,6 @@ interface RecipeListProps {
 export default function RecipeList(props: RecipeListProps): JSX.Element {
     const { navigation } = props;
 
-    /*
-     * Signal parent screen if end of page is reached
-     * const detectEndOfPage = () => {
-     *     props.recipeListProps = true;
-     * };
-     */
-
     return (<FlatList
         showsVerticalScrollIndicator={false}
         data={props.recipes}

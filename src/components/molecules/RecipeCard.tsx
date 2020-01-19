@@ -77,7 +77,6 @@ export default function RecipeCard( { list, recipeIdProps, navigationProps }: Re
                         iconRight={true}
                         type={'clear'}
                         onPress={() => {
-                            // TODO: Add error/warning page if id does not exist(?)
                             getRecipeId(list.id) ? navigateToRecipe() : null;
                         }
                         }
