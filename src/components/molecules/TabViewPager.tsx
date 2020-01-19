@@ -4,7 +4,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import ViewPagerType from '@react-native-community/viewpager';
 import styles from '../../styles/components/molecules/TabViewPager';
 
-const ViewPager = require('@react-native-community/viewpager'); // eslint-disable-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const ViewPager = require('@react-native-community/viewpager');
 
 export type tab = {
     id: number;

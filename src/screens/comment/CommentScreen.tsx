@@ -10,14 +10,12 @@ import NavHeader from '../../components/atoms/NavHeader';
 import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 
 interface CommentScreenState {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     comments: any;
     input: string;
     rating: number;
 }
 
 interface CommentScreenProps {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recipeId: number;
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
@@ -39,8 +37,7 @@ export default class CommentScreen extends Component<
             });
         });
     }
-
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    
     fetchComments = async () => {
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
@@ -75,7 +72,6 @@ export default class CommentScreen extends Component<
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     handleCommentSubmit = async () => {
         let responseJson: any;
         const token = await AsyncStorage.getItem('token') || '';
